@@ -1,0 +1,718 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext' rel='stylesheet' type='text/css' /><link href='https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+@include-when-export url(https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+@include-when-export url(https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext);
+
+:root {
+	--control-text-color: #777;
+}
+
+/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+h1,
+.h1,
+.f1 {
+	font-size: 2rem;
+	line-height: 2.5rem;
+}
+h2,
+.h2,
+.f2 {
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+h3,
+.h3,
+.f3 {
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+p,
+.p,
+.f4,
+h4,
+h5,
+h6,
+dl,
+ol,
+ul,
+pre[cid],
+div[cid],
+#typora-source {
+	font-size: 1.125rem;
+	line-height: 1.5rem;
+}
+
+h4 {
+	font-size: 1.13rem;
+}
+/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+body {
+	font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", 'Segoe UI Emoji', Serif;
+	line-height: 1.5rem;
+	font-weight: 400;
+}
+
+#write {
+	max-width: 914px;
+	color: #333;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1100px;
+	}
+}
+
+@media only screen and (min-width: 1700px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+img {
+	width: auto;
+	max-width: 100%;
+}
+body {
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.ty-table-edit {
+	background: #ededed;
+}
+
+table {
+	width: 100%;
+	font-size: 1.125rem;
+}
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td,
+table > tfoot > tr > th,
+table > tfoot > tr > td {
+	padding: 12px;
+	line-height: 1.2;
+	vertical-align: top;
+	border-top: 1px solid #333;
+}
+table > thead > tr > th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #333;
+}
+table > caption + thead > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > th,
+table > thead:first-child > tr:first-child > td {
+	border-top: 0;
+}
+table > tbody + tbody {
+	border-top: 2px solid #333;
+}
+p {
+	font-weight: 300;
+	line-height: 1.5;
+}
+abbr {
+	border-bottom: 1px black dotted;
+	cursor: help;
+}
+pre,
+code {
+	font-family: Menlo, Monaco, "Courier New", monospace;
+}
+
+code,
+.md-fences  {
+	color: #7a7a7a;
+}
+
+.md-fences {
+	padding: 1.125em;
+	margin-bottom: 0.88em;
+	font-size: 1rem;
+	border: 1px solid #7a7a7a;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+blockquote {
+	padding: 1.33em;
+	font-style: italic;
+	border-left: 5px solid #7a7a7a;
+	color: #555;
+}
+blockquote em {
+	color: #000;
+}
+blockquote footer {
+	font-size: .85rem;
+	font-style: normal;
+	background-color: #fff;
+	color: #7a7a7a;
+	border-color: transparent;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 1.2;
+	margin: 1em 0 0.5em;
+}
+@media screen and (min-width: 48em) {
+	.h1,
+	h1 {
+		font-size: 3.250rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.298rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.625rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+	#write>h4.md-focus:before,
+	#write>h5.md-focus:before,
+	#write>h6.md-focus:before{
+		top: 1px;
+	}
+	.p,
+	p,
+	li {
+		font-size: 1.25rem;
+		line-height: 1.8;
+	}
+	table {
+		font-size: 1.25rem;
+	}
+}
+@media (max-width: 48em) {
+	blockquote {
+		margin-left: 1rem;
+		margin-right: 0;
+		padding: 0.5em;
+	}
+	.h1,
+	h1 {
+		font-size: 2.827rem;
+	}
+	.h2,
+	h2 {
+		font-size: 1.999rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.413rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.3rem;
+	}
+}
+@media screen and (min-width: 64em) {
+	.h1,
+	h1 {
+		font-size: 4.498rem;
+	}
+	.h2,
+	h2 {
+		font-size: 2.29rem;
+	}
+	.h3,
+	h3 {
+		font-size: 1.9rem;
+	}
+	.h4,
+	h4 {
+		font-size: 1.591rem;
+	}
+	#write>h4.md-focus:before{
+		top:4px;
+	}
+}
+a {
+	color: #463F5C;
+	text-decoration: underline;
+}
+
+#write {
+	padding-top: 2rem;
+}
+
+#write pre.md-meta-block {
+	min-height: 35px;
+	padding: 0.5em 1em;
+	white-space: pre;
+	border: 0px;
+
+	border-left: 30px #f8f8f8 solid;
+	border-right: 30px #f8f8f8 solid;
+	width: 100vw;
+	max-width: calc(100% + 60px);
+
+	margin-left: -30px;
+	margin-bottom: 2em;
+	margin-top: -2010px;
+	padding-top: 2000px;
+	padding-bottom: 10px;
+	line-height: 1.5em;
+	color: #7a7a7a;
+	background-color: #fafafa;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: 300;
+	clear: both;
+	padding-left: 0;
+	font-size:1.125rem;
+}
+.md-image>.md-meta {
+	color: #463F5C
+}
+.footnotes {
+	font-size:1.1rem;
+}
+.md-tag {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+.code-tooltip {
+	background: white;
+}
+.code-tooltip-content {
+	font-size: 1.1rem;
+}
+
+.task-list{
+	padding-left: 0;
+}
+
+.md-task-list-item {
+	padding-left:34px;
+}
+
+.md-task-list-item > input{
+	width: 1.25rem;
+	height: 1.25rem;
+	display: block;
+	-webkit-appearance: initial;
+	top: -0.2rem;
+	margin-left: -1.6em;
+	margin-top: calc(1rem - 7px);
+	border: none;
+}
+
+.md-task-list-item > input:focus{
+	outline: none;
+	box-shadow: none;
+}
+
+.md-task-list-item > input:before{
+	border: 1px solid #555;
+	border-radius: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: #fff;
+	content: ' ';
+	transition: background-color 200ms ease-in-out;
+	display: block;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	background: #333;
+	border-width: 2px;
+	display:inline-block;
+	transition: background-color 200ms ease-in-out;
+}
+
+.md-task-list-item > input:checked:after,
+.md-task-list-item > input[checked]:after {
+	opacity: 1;
+}
+
+.md-task-list-item > input:after {
+	opacity: 1;
+	-webkit-transition: opacity 0.05s ease-in-out;
+	-moz-transition: opacity 0.05s ease-in-out;
+	transition: opacity 0.05s ease-in-out;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	top: 0.4375rem;
+	left: 0.28125rem;
+	width: 0.9375rem;
+	height: 0.5rem;
+	border: 3px solid #fff;
+	border-top: 0;
+	border-right: 0;
+	content: ' ';
+	opacity: 0;
+}
+
+.md-tag {
+	color:inherit;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+#typora-sidebar {
+	font-size:1rem !important;
+}
+
+.html-for-mac #typora-sidebar {
+	background-color:white;
+}
+
+.outline-content li, .outline-content ul {
+	font-size:1rem !important;
+}
+
+.outline-title {
+	line-height: inherit;
+	margin-top: 10px;
+}
+
+.outline-expander {
+	width: 18px;
+}
+
+.outline-expander:before {
+ 	content: "+";
+	font-family: inherit;
+	color: rgb(108, 108, 108); 
+  font-size: 1.5rem;
+ 	top: -0.1rem;
+}
+
+.outline-expander:hover:before {
+	content: "+";
+}
+
+.outline-item-open>.outline-item>.outline-expander:before{
+	content: "-";
+}
+
+/** source code mode */
+#typora-source {
+	font-family: Courier, monospace;
+    color: #6A6A6A;
+}
+
+.os-windows #typora-source {
+	font-family: inherit;
+}
+
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property,
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+	color: #428bca;
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+	color: #777777;
+}
+
+.md-diagram-panel {
+	margin-top: 24px;
+	margin-left: -1.2em;
+}
+
+.md-mathjax-midline {
+	background: #fafafa;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -3.4em;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+}
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style><title>N2</title>
+</head>
+<body class='typora-export os-windows typora-export-show-outline typora-export-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#n2">N2</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～際に）～際は）">～際（に）～際（は）</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#时候">……时候</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～に際してに・～にあたって＋积极">～に際してに・～にあたって＋【积极】</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#值此之际">值此之际……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～たとたんに）">～たとたん（に）</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#做了之后紧接着发生意外的事情">做了……之后，紧接着发生意外的事情</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～か）と思うと・～か）と思ったら">～（か）と思うと・～（か）と思ったら</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#之后紧接着马上发生下一个事件或重大变化">……之后，紧接着马上发生下一个事件或重大变化</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～か～ないかのうちに">～か～ないかのうちに</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#结束的同时发生下一件事情">……结束的同时，发生下一件事情</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～最中だ～最中に＋妨碍">～最中だ　～最中に＋【妨碍】</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#正在做的时候">正在做……的时候</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～うちに">～うちに</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#趁着赶紧">趁着……赶紧</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#正在做期间发生了变化">正在做……期间发生了变化；</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～ばかりだ・～一方だ">～ばかりだ・～一方だ</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#变化单一方向不断加剧">变化……单一方向不断加剧</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～ようとしている">～「よ」うとしている</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#马上就要">马上就要</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～つつある">～つつある</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#变化正在进行过程中">……变化正在进行过程中</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～つつ">～つつ</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#一边一边做某事-＝ながら">一边……一边做某事 ＝ながら</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～てはじめて">～てはじめて</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#经历了之后">经历了……之后</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～上で同一主语">～上で【同一主语】</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#準備として作为准备先做">準備として　作为准备先做……</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～上では）在方面从来看">～上で（は）　在……方面，从……来看</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～次第">～次第</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#实现以后马上采取后续行为">……实现以后，马上采取后续行为</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#多用于通知后不＋过去式">【多用于通知】；后不＋过去式</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～て以来・～てこのかた">～て以来・～てこのかた</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#从过去到现在一直-后＋状态">从过去到现在一直…… 后＋状态</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～てからでないと・～てからでなければ">～てからでないと・～てからでなければ</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#如果不是做完的话某事就不会实现">如果不是做完……的话，某事就不会实现</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#后＋否定含义的句子">后＋否定含义的句子</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～をはじめてとして）">～をはじめて（として）</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#以为代表">以……为代表</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～からして多＋消极评价">～からして【多＋消极评价】</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#单从来看就">单从……来看就……；</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～にわたって">～にわたって</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#表示时间空间的范围强调广阔">表示时间/空间的范围，强调广阔</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～を通じて・～を通して">～を通じて・～を通して</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#ずっと同じ状態じょうたいだ">ずっと同じ状態じょうたいだ</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～を手段しゅだんにして-＋媒介">～を手段しゅだんにして 【＋媒介】</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～だけ">～だけ</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#尽量能都">尽量……；能……都……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～限り">～限り</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#仅限于向公众解释多恩惠">仅限于　向公众解释；【多+恩惠】</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#尽量表范围内最大限度">尽量……【表范围内最大限度】</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#据所知调查表限定">据……所知、调查。表限定</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#只要就表条件">只要……就。表条件</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#n＋に限り">N＋に限り</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～に限らず由小→大">～に限らず【由小→大】</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#范围不仅限于">范围不仅限于……</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#-1"> </a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～のみならず书可同级其他事物">～のみならず【书】；可+同级其他事物</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#不仅-1">不仅……</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#-2"> </a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～ばかりか">～ばかりか</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#不仅而且岂止是">不仅……而且……；岂止是……</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#-3"> </a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～はもとより">～はもとより</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#自不必说其他也如此">自不必说，其他也如此</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#比～はもちろん更书面前理所当然">比～はもちろん更书面，前+理所当然</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#-4"> </a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～上に）">～上（に）</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#不仅-2">不仅……</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#好坏更上一层楼">好/坏更上一层楼</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#-5"> </a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～に関して">～に関して</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#书有关">【书】有关……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～をめぐって">～をめぐって</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#书针对进行">【书】针对……进行……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～にかけては">～にかけては</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#在方面论多正面评价但不绝对">在……方面；论……；多+正面评价，但不绝对</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～にたいして">～にたいして</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#以为对象做某事">以……为对象做某事</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#与之相对的">与之相对的</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～にこたえて">～にこたえて</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#为了不辜负的期待">为了不辜负……的期待</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～をもとにして）非实际的材料">～をもとに（して）　非实际的材料</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#以为素材基础根基等制作出">以……为素材，基础，根基等制作出</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～に基づいて-前表基准的词">～に基づいて 前+表基准的词</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#以为基准做事">以……为基准做事</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～に沿って-不偏离">～に沿って 不偏离</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#为了符合不偏离而做某事">为了符合，不偏离……而做某事</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～のもとで・～のもとに">～のもとで・～のもとに</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#在的影响下处于的状态">在……的影响下，处于……的状态</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～向けだ-前表人的名词">～向けだ 前+表人的名词</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#面向">面向……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～につれて・～にしたがって">～につれて・～にしたがって</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#一方发生变化的同时另一方也发生变化">一方发生变化的同时，另一方也发生变化</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～に伴ともなって・～とともに">～に伴ともなって・～とともに</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#书多用于事物整体的变化非阶段">书；多用于事物整体的变化，非阶段</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～次第だ">～次第だ</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#根据而定">根据……而定</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～に応じて">～に応じて</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前预计会发生变化的事物＝～にあわせて">前+预计会发生变化的事物＝～にあわせて</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～につけて-＋心里活动">～につけて ＋心里活动</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～やら～やら多这样那样真够呛">～やら～やら　多+这样那样真够呛</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～というか～というか">～というか～というか</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#情商低不知道哪个表达更恰当">情商低，不知道哪个表达更恰当</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～にしても～にしても・～にしろ～にしろ・～にせよ～にせよ">～にしても～にしても・～にしろ～にしろ・～にせよ～にせよ</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#都可以得出同样的结论不管还是都">【都可以得出同样的结论】不管……还是……都</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～といった-接在几个例子之后">～といった 【接在几个例子之后】</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#对例子进行汇总">对例子进行汇总</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～を問わず不管">～を問わず　不管……</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#問題ではなく">問題ではなく</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#年齢国籍天候男女内外有無">年齢、国籍、天候、男女、内外、有無</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～にかかわりなく・～にかかわらず">～にかかわりなく・～にかかわらず</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#同じようになる">同じようになる</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～もかまわず-＋非同寻常">～もかまわず ＋非同寻常</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#不理会尽管平时会顾忌后非同寻常含有意外语感的动作的句子">不理会，尽管平时会顾忌；后+非同寻常，含有意外语感的动作的句子</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～はともかくとして）">～はともかく（として）</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#暂不考虑后项比前项更想强调">暂不考虑；后项比前项更想强调</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～はさておき暂且放一边按下不表">～はさておき　暂且放一边，按下不表</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前多在此之前已是话题的词语">前多+在此之前已是话题的词语</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～わけがない全部否定">～わけがない　全部否定</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#不可能不会">不可能……，不会……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～わけではない・～というわけではない部分否定">～わけではない・～というわけではない部分否定</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#不能说全部都">不能说全部都……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～ものか-强烈的否定多负面情绪">～ものか 强烈的否定，多+负面情绪</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#怎么会呢">“怎么会……呢”</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#稍微主观感情色彩的语气强烈的否定句">稍微主观感情色彩的语气强烈的否定句</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～どころではない・～どころか">～どころではない・～どころか</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#岂止是连也多更差">岂止是……连……也……；多+更差</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前后项是程度相差很大或相反的事情">前后项是程度相差很大或相反的事情</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～というものではない・～というものでもない">～というものではない・～というものでもない</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#不能说具备某种条件就一定">不能说具备某种条件就一定……</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#表说话人就事物本质发表的观点或感想">表说话人就事物本质发表的观点或感想</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#とは">とは</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#子主题-1">子主题 1</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～といえば">～といえば</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#a言葉を取り上げ说起引出新话题">A:　言葉を取り上げ　说起……引出新话题</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#b取り上げる言葉要说确实但是">B:　取り上げる言葉　要说……确实……，但是……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～というと・～といえば・～といったら">～というと・～といえば・～といったら</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#すぐに思いつくこと说起谈到">すぐに思いつくこと　说起……谈到……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～のこと）となると＋不同寻常的态度">～（のこと）となると＋不同寻常的态度</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#针对的话题">针对……的话题</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～といったら">～といったら</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#说起谈到-后不是一般程度的句子或表吃惊">说起……谈到…… 后+不是一般程度的句子或表吃惊</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#といったらない难以形容无法描述">といったらない　难以形容，无法描述</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～にもかかわらず-1">～にもかかわらず</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#尽管却吃惊意外等-あることをする">尽管……却……；+吃惊/意外等 あることをする</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～ものの・～とはいうものの">～ものの・～とはいうものの</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#当然想像されることが起こらない和想象的不一样">当然想像されることが起こらない　和想象的不一样</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#だから＝けれども・が多状态多词前后主语一致">〜だから＝けれども・が多+状态多词；前后主语一致</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#提示与状态所预想的事情不同">提示与……状态所预想的事情不同</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#つつも）">つつ（も）</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#心の動きとは行動が違っている">心の動きとは、行動が違っている</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#思いつつも">思いつつも</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#といっても">〜といっても</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#虽说">虽说……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#からといって">〜からといって</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#不能）仅因为就多否定表达">（不能）仅因为……就……；多+否定表达</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#后多とは限らない・わけではない・とはいえない等否定表达">后多+〜とは限らない・〜わけではない・〜とはいえない等否定表达</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～としたら・とすれば・とすると・となったら・となれば・となると">～としたら・とすれば・とすると・となったら・となれば・となると</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#假定">假定……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#ものならできる">ものなら　できる</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#如果能的话可能性小">如果能……的话；可能性小</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#よ）うものなら">〜（よ）うものなら</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#如果要）的话严重结果">如果（要）……的话；+严重结果</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～ないことには">～ないことには</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#如果不的话否定含义">如果不……的话；+否定含义</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#を抜きにしては">〜を抜きにしては</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#如果没有的话前高度评价的事物">如果没有……的话，前+高度评价的事物</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#としても・にしても・にしろ・にせよ">〜としても・〜にしても・〜にしろ・〜にせよ</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#＋评价判断感受">＋评价/判断/感受</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～によって">～によって</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#因为原因使用手段和方法书">因为……原因；使用……手段和方法；书</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～ものだから・～もので・～もの">～ものだから・～もので・～もの</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#申述辩解言い訳をする口语">申述辩解；言い訳をする。口语</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#后不命令意志句末女性儿童使用">后不+命令，意志，句末女性儿童使用</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#おかげだ好・～せいだ不好">~おかげだ+好・～せいだ+不好</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#由于的影响">由于……的影响</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～あまり・あまりの～に">～あまり・あまりの～に</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#因为非常所以后不寻常的结果">因为非常……所以；后+不寻常的结果</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～につき">～につき</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#向公众通知书">向公众通知。书</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～にことだし">～にことだし</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#虽也有其他理由但总之是因为而做某事">虽也有其他理由，但总之是因为……而做某事</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#后说话人判断希望意志要求说话人做-1">后+说话人判断，希望，意志，要求说话人做……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#のことだから">~のことだから</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#从的性格平日态度来推断">从……的性格，平日态度来推断……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～だけに">～だけに</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#正因为更加强调">正因为……更加，强调</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～ばかりに">～ばかりに</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#就是因为多不好的结果">就是因为……多+不好的结果</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～からには・～以上は）・～上は">～からには・～以上（は）・～上は</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#既然就应该）">既然……就（应该）……</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#后说话人判断希望意志要求说话人做-2">后+说话人判断，希望，意志，要求说话人做……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～がたい">～がたい</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#心里上无法非能力问题几乎不可能">心里上无法，非能力问题；几乎不可能</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～かねる">～かねる</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#その状況・その条件・話者の立場">その状況・その条件・話者の立場</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#用于礼貌地拒绝多用于服务业比较正式">用于礼貌地拒绝，多用于服务业，比较正式</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～得る・～得ない">～得る・～得ない</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#可能性がある可能性がない">可能性がある、可能性がない</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～わけにはいかない・～わけにもいかない">～わけにはいかない・～わけにもいかない</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#出于道德人情义务等无法做到不能用于能力上无法做到的事情主语通常是第一人称">出于道德，人情，义务等，无法做到，不能用于能力上无法做到的事情，主语通常是第一人称</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～ようがない-よう様">～ようがない 　よう：様</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#想而无法">想……而无法……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#どころではない">~どころではない</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#不是的时候">不是……的时候</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#お金がない時間がないうるさい病気">お金がない、時間がない、うるさい、病気</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～わりには）">～わりに（は）</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#从状态期间频率尺度等）来看不符">从……（状态、期间，频率，尺度等）来看不符</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前年齢値段心配する若い">前+年齢，値段、心配する、若い</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～にしては">～にしては</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#从来看出乎意料前特定事物不形容词尺度程度等">从……来看出乎意料；前+特定事物，不+形容词，尺度，程度等</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#だけのことは）ある・～だけあって・～だけに">~だけ（のことは）ある・～だけあって・～だけに</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#不愧是到底没白">不愧是……到底没白……</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#不接表将来以及推测">不接表将来以及推测</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～として">～として</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～という立場・資格・役割・名目で">～という立場・資格・役割・名目で</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#-6"> </a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～にとって">～にとって</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#换位思考前表人的词后如何评价">换位思考、前+表人的词，后+如何评价</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#-7"> </a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#に対して">~に対して</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#以为对象与之相对的--7课">以……为对象；与之相对的  7课</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#-8"> </a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～にしたら・～にすれば～にしてみれば・～にしても">～にしたら・～にすれば～にしてみれば・～にしても</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#如果以立场即使从立场看站在此人立场上推测此人">如果以……立场，即使从……立场看；站在此人立场上推测此人……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#たところ-强调结果">~たところ 强调结果</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#叙述过去仅发生过一次的事情后续表结果">叙述过去仅发生过一次的事情，后续表结果</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～きり">～きり</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#之后一直再没）">……之后，一直/再（没）……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～あげく">～あげく</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#遗憾的结果">+遗憾的结果</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～すえに）">～すえ（に）</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#ある結果になった">ある結果になった</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～ところだった">～ところだった</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#差点就">差点就……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～ずじまいだ">～ずじまいだ</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#没能错过时机的遗憾）">没能（错过时机的遗憾）</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#分支主题-103">分支主题 103</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#一方・一方で">一方・一方で</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#一方面另一方面">一方面……另一方面</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#上">上</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#上は">上は</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#上では）">上で（は）</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#以上は）">以上（は）</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#既然就-1">既然……就……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～うちは">～うちは</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#在还没）的时候">在（还没）……的时候</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#からには">からには</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#既然就-2">既然……就……</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#～にもかかわらず-2">～にもかかわらず</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#虽说但是">虽说……但是……</a></div><ul class="outline-children"></ul></li></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='n2'><span>N2</span></h1><h2 id='～際に）～際は）'><span>～際（に）～際（は）</span></h2><p><span>こちらの会議室をご利用になる際は、受付で必要ひつよう事項じこうをご記入きにゅうください。</span></p><h3 id='时候'><span>……时候</span></h3><ul><li><span>【书】 N＋の/Vる・Vた＋……</span></li></ul><h2 id='～に際してに・～にあたって＋积极'><span>～に際してに・～にあたって＋【积极】</span></h2><p><span>面接めんせつに際しての注意事項。</span>
+<span>新しく事業じぎょうを始めるにあたって、しっかりと準備じゅんびをしようと思っております。</span></p><h3 id='值此之际'><span>值此之际……</span></h3><ul><li><span>【书】N/Vる＋……</span></li></ul><h2 id='～たとたんに）'><span>～たとたん（に）</span></h2><p><span>山の頂上ちょうじょうでワインを一口飲んだとたんに、あまいがした。</span>
+<span>夫は結婚前は優しなかったが、結婚したとたんに、態度が変わった。</span></p><h3 id='做了之后紧接着发生意外的事情'><span>做了……之后，紧接着发生意外的事情</span></h3><ul><li><span>Vた＋……</span></li><li><span>【＋意外】【不＋意志，命令等】</span></li></ul><h2 id='～か）と思うと・～か）と思ったら'><span>～（か）と思うと・～（か）と思ったら</span></h2><p><span>赤ちゃんは今泣いたと思うと、もう笑っている。</span></p><h3 id='之后紧接着马上发生下一个事件或重大变化'><span>……之后，紧接着马上发生下一个事件或重大变化</span></h3><ul><li><span>Vた＋……</span></li><li><span>【不＋自己的行为】</span></li></ul><h2 id='～か～ないかのうちに'><span>～か～ないかのうちに</span></h2><p><span>l 一郎いちろうはベッドに横になるかならないかのうちに、ぐっすり眠ってしまった。</span></p><h3 id='结束的同时发生下一件事情'><span>……结束的同时，发生下一件事情</span></h3><ul><li><span>Vる・Vた＋か＋Vない＋かのうちに</span></li><li><span>【几乎同时发生，后项多为过去时】【同一动词】</span></li></ul><h2 id='～最中だ～最中に＋妨碍'><span>～最中だ　～最中に＋【妨碍】</span></h2><p><span>浜辺でバーベキューをやっている最中に、急にきゅうに雨が降り出だした。</span></p><h3 id='正在做的时候'><span>正在做……的时候</span></h3><ul><li><span>Nの・Vている＋……</span></li></ul><h2 id='～うちに'><span>～うちに</span></h2><h3 id='趁着赶紧'><span>趁着……赶紧</span></h3><p><span>忘れないうちに、カレンダーにメモしておこう。</span></p><ul><li><span>Nの/Vる・Vている・Vない/Aい/ANな＋……</span></li><li><span>＋【意志】</span></li></ul><h3 id='正在做期间发生了变化'><span>正在做……期间发生了变化；</span></h3><p><span>知らないうちに、雨が降り始めていた。</span></p><ul><li><span>Vる・Vている・Vない＋……</span></li><li><span>【不知不觉，自然而然的变化】；不＋【意志】</span></li></ul><h2 id='～ばかりだ・～一方だ'><span>～ばかりだ・～一方だ</span></h2><p><span>このごろは仕事が多くて残業が増えるばかりだ。</span><span>	</span></p><h3 id='变化单一方向不断加剧'><span>变化……单一方向不断加剧</span></h3><ul><li><span>Vる+……</span></li><li><span>～ばかりだ多＋【不好的方向】</span></li></ul><h2 id='～ようとしている'><span>～「よ」うとしている</span></h2><p><span>さあ、決勝戦けっしょうせんが今、始まろうとしています。みんな緊張きんちょうしています。</span></p><h3 id='马上就要'><span>马上就要</span></h3><ul><li><span>【书】V意志形＋……</span></li></ul><h2 id='～つつある'><span>～つつある</span></h2><p><span>明治時代の始め、日本は急速にきゅうそく近代化しつつあった。</span></p><h3 id='变化正在进行过程中'><span>……变化正在进行过程中</span></h3><ul><li><span>【书】V连用形＋……</span></li></ul><h2 id='～つつ'><span>～つつ</span></h2><h3 id='一边一边做某事-＝ながら'><span>一边……一边做某事 ＝ながら</span></h3><ul><li><span>【书】V连用形＋……</span></li></ul><h2 id='～てはじめて'><span>～てはじめて</span></h2><p><span>山田先生の指導を受付てはじめて、生物の観察が面白いと思うようになった。</span></p><h3 id='经历了之后'><span>经历了……之后</span></h3><ul><li><span>Vて＋はじめて</span></li></ul><h2 id='～上で同一主语'><span>～上で【同一主语】</span></h2><h3 id='準備として作为准备先做'><span>準備として　作为准备先做……</span></h3><p><span>家族と相談した上で、お返事をしたします。</span></p><ul><li><span>N＋の/ Vた　＋上で</span></li></ul><h3 id='～上では）在方面从来看'><span>～上で（は）　在……方面，从……来看</span></h3><p><span>l 地図の上では近いのに、行ってみると、10時間もかかった。</span>
+<span>l あの人は法律の上では夫婦だ。</span></p><ul><li><span>N＋の/ Vる　＋上では</span></li></ul><h2 id='～次第'><span>～次第</span></h2><p><span>詳しいことがわかり次第、ご連絡いたします。</span></p><h3 id='实现以后马上采取后续行为'><span>……实现以后，马上采取后续行为</span></h3><ul><li><span>V连用形＋次第</span></li></ul><h3 id='多用于通知后不＋过去式'><span>【多用于通知】；后不＋过去式</span></h3><h2 id='～て以来・～てこのかた'><span>～て以来・～てこのかた</span></h2><p><span>l 子供が生まれて以来、外で酒を飲んでいない。</span></p><p><span>l 母がいなくなってこのかた、母のことを考えない日はない。</span></p><p><span>就職しゅうしょく以来、一度も休んでいない。</span></p><h3 id='从过去到现在一直-后＋状态'><span>从过去到现在一直…… 后＋状态</span></h3><ul><li><span>Vて/N＋以来/このかた</span></li></ul><h2 id='～てからでないと・～てからでなければ'><span>～てからでないと・～てからでなければ</span></h2><p><span>l この果物は赤くなってからでないと、酸っぱくて食べられません。</span></p><h3 id='如果不是做完的话某事就不会实现'><span>如果不是做完……的话，某事就不会实现</span></h3><ul><li><span>Vて＋からでないと・からでなければ</span></li></ul><h3 id='后＋否定含义的句子'><span>后＋否定含义的句子</span></h3><h2 id='～をはじめてとして）'><span>～をはじめて（として）</span></h2><p><span>日本には「桃太郎」をはじめとして、おじいさん、おばあさんが出てくる昔話が多い。</span></p><h3 id='以为代表'><span>以……为代表</span></h3><ul><li><span>【书】N+をはじめ（として）</span>
+<span>N+をはじめとする＋N</span></li></ul><h2 id='～からして多＋消极评价'><span>～からして【多＋消极评价】</span></h2><p><span>l 私と夫とは似ているところが少し？ない。第一、食べ物の好みからして正反対せいはんたいだ。</span></p><h3 id='单从来看就'><span>单从……来看就……；</span></h3><ul><li><span>N+からして</span></li></ul><h2 id='～にわたって'><span>～にわたって</span></h2><p><span>連休の最終日、高速道路は20キロにわたって渋滞が続いた。</span>
+<span>3か間にわたる研修発表大会が、無事終了しました。</span></p><h3 id='表示时间空间的范围强调广阔'><span>表示时间/空间的范围，强调广阔</span></h3><ul><li><span>N＋にわたって/ N＋にわたる＋N</span></li></ul><h2 id='～を通じて・～を通して'><span>～を通じて・～を通して</span></h2><p><span>A:　この町には四季を通じて観光客が訪れる。</span>
+<span>B:　今日では、インターネットを通じて世界中の情報が手に入る。</span></p><h3 id='ずっと同じ状態じょうたいだ'><span>ずっと同じ状態じょうたいだ</span></h3><ul><li><span>N＋を通じて・～を通して</span></li></ul><h3 id='～を手段しゅだんにして-＋媒介'><span>～を手段しゅだんにして 【＋媒介】</span></h3><ul><li><span>N＋を通じて・～を通して</span></li></ul><h2 id='～だけ'><span>～だけ</span></h2><p><span>l 今日は部長に言いたいだけの不満を全部言って、すっきりした。</span></p><p><span>バイキング形式けいしきの食事ですから、好みなもの好きなだけ取ってお召し上がりください。</span></p><h3 id='尽量能都'><span>尽量……；能……都……</span></h3><ul><li><span>Vる/Aい/ANな</span></li></ul><h2 id='～限り'><span>～限り</span></h2><h3 id='仅限于向公众解释多恩惠'><span>仅限于　向公众解释；【多+恩惠】</span></h3><p><span>l チラシをご持参じさんのお客様に限り、入場にゅうじょう無料。</span></p><ul><li><span>N＋に限り</span></li></ul><h3 id='尽量表范围内最大限度'><span>尽量……【表范围内最大限度】</span></h3><p><span>l できる限りのことをした。</span></p><p><span>力の限り頑張る・声の限り・命いのちの限り</span></p><ul><li><span>N＋の/ Vる・Vている＋限り</span></li></ul><h3 id='据所知调查表限定'><span>据……所知、调查。表限定</span></h3><p><span>私が知っている限りでは、この近所に花屋はありません。</span></p><ul><li><span>常＋見る・知る・聞く・調べる等</span></li></ul><h3 id='只要就表条件'><span>只要……就。表条件</span></h3><p><span>l 足が丈夫じょうぶな限り、まだまだ山登りが楽しめるだろう。</span></p><p><span>l 親である限りは、子供に対する責任せきにんがあると思う。</span></p><ul><li><span>Vる・Vない/Aい/Nである/ANな・である＋限り</span></li></ul><h3 id='n＋に限り'><span>N＋に限り</span></h3><ul><li><span>普段酒など飲まない彼が、今日に限ってかなりのんだ。【不同】</span></li><li><span>大切な用事があったのに、こんな時に限って子供が熱を出してしまった。【偏偏】</span></li><li><span>うちのこに限って友達をいじめることはないと思います。【信任】</span></li></ul><h2 id='～に限らず由小→大'><span>～に限らず【由小→大】</span></h2><p><span>近年、地方の町に限らず大都市でも書店の閉へい店が相次あいつぐいでいる。</span></p><h3 id='范围不仅限于'><span>范围不仅限于……</span></h3><ul><li><span>N+に限らず</span></li></ul><h3 id='-1'><span> </span></h3><h2 id='～のみならず书可同级其他事物'><span>～のみならず【书】；可+同级其他事物</span></h2><p><span>電気代のみならず、ガス代や水道代も値上がりするようだ。</span></p><h3 id='不仅-1'><span>不仅……</span></h3><ul><li><span>~简/N/ANである+のみならず　＝だけではない</span></li></ul><h3 id='-2'><span> </span></h3><h2 id='～ばかりか'><span>～ばかりか</span></h2><p><span>山田さんの説明は、子供もわかりやすいばかりか、非常に面白くてためになる。</span></p><h3 id='不仅而且岂止是'><span>不仅……而且……；岂止是……</span></h3><ul><li><span>N（である）/ANな（である）/~（简）+ばかりか</span></li></ul><h3 id='-3'><span> </span></h3><h2 id='～はもとより'><span>～はもとより</span></h2><p><span>だけこは本人ほんにんはもとより、周りの人にも害がいを及ぼすおよぼす</span></p><h3 id='自不必说其他也如此'><span>自不必说，其他也如此</span></h3><ul><li><span>N（助词）＋はもとより</span></li></ul><h3 id='比～はもちろん更书面前理所当然'><span>比～はもちろん更书面，前+理所当然</span></h3><h3 id='-4'><span> </span></h3><h2 id='～上に）'><span>～上（に）</span></h2><p><span>田中さんには仕事を手伝ってもらった上に、仕事の後、ご馳走になった。</span></p><h3 id='不仅-2'><span>不仅……</span></h3><ul><li><span>~简/N+の・（である）/ANな・（である）＋上（に）</span></li></ul><h3 id='好坏更上一层楼'><span>好/坏更上一层楼</span></h3><h3 id='-5'><span> </span></h3><h2 id='～に関して'><span>～に関して</span></h2><p><span>高齢者の生活に関するアンケートにご協力きょうりょくください。</span>
+<span>彼は時間に関しては厳しいきびしいので、絶対遅刻はできない。</span></p><h3 id='书有关'><span>【书】有关……</span></h3><ul><li><span>N+に関して+N</span></li></ul><h2 id='～をめぐって'><span>～をめぐって</span></h2><p><span>消費税しょうひぜいの問題をめぐって、国会は大きく揺ゆれた。</span></p><h3 id='书针对进行'><span>【书】针对……进行……</span></h3><ul><li><span>N+をめぐって+N</span></li></ul><h2 id='～にかけては'><span>～にかけては</span></h2><p><span>あの政治家せいじかは演説えんぜつにかけては最高のレベルだ。</span>
+<span>商売しょうばいにかけての才能さいのう。</span></p><h3 id='在方面论多正面评价但不绝对'><span>在……方面；论……；多+正面评价，但不绝对</span></h3><ul><li><span>N+にかけては+N</span></li></ul><h2 id='～にたいして'><span>～にたいして</span></h2><p><span>目上の人に対してそんな乱暴らんぼうな言い方をしてはいけません。</span></p><h3 id='以为对象做某事'><span>以……为对象做某事</span></h3><p><span>目上の人に対してそんな乱暴らんぼうな言い方をしてはいけません。</span></p><ul><li><span>N+にたいして N+にたいする＋N</span></li></ul><h3 id='与之相对的'><span>与之相对的</span></h3><p><span>朝はパンを食べると答えた人が30％だったのに対して、ご飯を食べると答えた人は65％だった。</span></p><ul><li><span>～简＋の＋にたいして</span>
+<span>N+に対して</span></li></ul><h2 id='～にこたえて'><span>～にこたえて</span></h2><p><span>気持ちにこたえて</span>
+<span>ご要望にこたえて</span></p><h3 id='为了不辜负的期待'><span>为了不辜负……的期待</span></h3><ul><li><span>N+にこたえて N+にこたえする＋N</span></li></ul><h2 id='～をもとにして）非实际的材料'><span>～をもとに（して）　非实际的材料</span></h2><p><span>あの飛行機事故をもとにした映画はこれだけじゃない。ほかにもある</span></p><h3 id='以为素材基础根基等制作出'><span>以……为素材，基础，根基等制作出</span></h3><ul><li><span>N+をもとに（して） N+をもとにする＋N</span></li></ul><h2 id='～に基づいて-前表基准的词'><span>～に基づいて 前+表基准的词</span></h2><p><span>最新のデータに基づいて売り上げ計画けいかくを立たつてたいと思います</span></p><h3 id='以为基准做事'><span>以……为基准做事</span></h3><ul><li><span>N+に基づいて N+に基づく・づいた＋N</span></li></ul><h2 id='～に沿って-不偏离'><span>～に沿って 不偏离</span></h2><p><span>今、政府の基本方針に沿って今年度の予算案を作っている。</span></p><h3 id='为了符合不偏离而做某事'><span>为了符合，不偏离……而做某事</span></h3><ul><li><span>N+に沿って N+に沿う・った＋N</span></li></ul><h2 id='～のもとで・～のもとに'><span>～のもとで・～のもとに</span></h2><p><span>今、政府の基本方針に沿って今年度の予算案を作っている。</span></p><h3 id='在的影响下处于的状态'><span>在……的影响下，处于……的状态</span></h3><ul><li><span>N+のもとで・のもとに</span></li></ul><h2 id='～向けだ-前表人的名词'><span>～向けだ 前+表人的名词</span></h2><p><span>独身どくしん男性向けの料理教室が開あかれることになった。</span></p><h3 id='面向'><span>面向……</span></h3><ul><li><span>N+むけだ</span></li></ul><h2 id='～につれて・～にしたがって'><span>～につれて・～にしたがって</span></h2><p><span>日本に来て日がたつにつれ、会話が上達じょうたつしてきた</span></p><h3 id='一方发生变化的同时另一方也发生变化'><span>一方发生变化的同时，另一方也发生变化</span></h3><ul><li><span>N（汉）/Vる</span></li></ul><h2 id='～に伴ともなって・～とともに'><span>～に伴ともなって・～とともに</span></h2><p><span>入学にゅうがくする留学生数すうの変化に伴って、クラス数を変える必要がある。</span></p><h3 id='书多用于事物整体的变化非阶段'><span>书；多用于事物整体的变化，非阶段</span></h3><ul><li><span>N/Vる＋に伴ともなって・～とともに</span>
+<span>N/Vる＋に伴う</span></li></ul><h2 id='～次第だ'><span>～次第だ</span></h2><p><span>人生が楽しいかどうかは考え方次第だ。</span></p><h3 id='根据而定'><span>根据……而定</span></h3><ul><li><span>N+次第だ</span></li></ul><h2 id='～に応じて'><span>～に応じて</span></h2><p><span>お子さんの年齢に応じて本を選んであげてください。</span></p><h3 id='前预计会发生变化的事物＝～にあわせて'><span>前+预计会发生变化的事物＝～にあわせて</span></h3><ul><li><span>N+に応じて N+に応じた＋N</span></li></ul><h2 id='～につけて-＋心里活动'><span>～につけて ＋心里活动</span></h2><p><span>この歌を聞くにつけて、心に希望がわいてくる。</span></p><p><span>父は何かにつけて、若いころ外国で過ごした思い出を語るかたる。</span></p><p><span>何事につけて</span></p><ul><li><span>Vる+につけて</span></li></ul><h2 id='～やら～やら多这样那样真够呛'><span>～やら～やら　多+这样那样真够呛</span></h2><p><span>だまされたとわかったときは腹が立つやら情なさけないやらで、気持ちを抑おさえることができなかった。</span></p><ul><li><span>N/Vる/Aい＋やら</span></li></ul><h2 id='～というか～というか'><span>～というか～というか</span></h2><p><span>退職してほっとしたというか寂しいというか、複雑です。</span></p><h3 id='情商低不知道哪个表达更恰当'><span>情商低，不知道哪个表达更恰当</span></h3><ul><li><span>～简体/N・ANだ</span></li></ul><h2 id='～にしても～にしても・～にしろ～にしろ・～にせよ～にせよ'><span>～にしても～にしても・～にしろ～にしろ・～にせよ～にせよ</span></h2><p><span>野菜にしても魚にしても、料理の材料は新鮮さが第一です。</span></p><p><span>将来家を買うにしろ買わないにしろ、貯金はしておこう。</span></p><p>&nbsp;</p><h3 id='都可以得出同样的结论不管还是都'><span>【都可以得出同样的结论】不管……还是……都</span></h3><ul><li><span>~简/N/AN+にしても・にしろ・にせよ</span></li></ul><h2 id='～といった-接在几个例子之后'><span>～といった 【接在几个例子之后】</span></h2><p><span>京都とか鎌倉といった古い町には寺が多い。</span></p><p>&nbsp;</p><h3 id='对例子进行汇总'><span>对例子进行汇总</span></h3><ul><li><span>N+といった+N</span></li></ul><h2 id='～を問わず不管'><span>～を問わず　不管……</span></h2><p><span>このマラソン大会には、性別、年齢を問わず、誰でもさんかできます。</span></p><h3 id='問題ではなく'><span>問題ではなく</span></h3><ul><li><span>N＋～</span></li></ul><h3 id='年齢国籍天候男女内外有無'><span>年齢、国籍、天候、男女、内外、有無</span></h3><h2 id='～にかかわりなく・～にかかわらず'><span>～にかかわりなく・～にかかわらず</span></h2><p><span>この路線バスの料金は、乗った距離にかかわりなく一律200円です。</span>
+<span>使う、使わないにかかわらず、会場には一応マイクが準備してあります。</span></p><h3 id='同じようになる'><span>同じようになる</span></h3><ul><li><span>N＋～</span></li></ul><h2 id='～もかまわず-＋非同寻常'><span>～もかまわず ＋非同寻常</span></h2><p><span>人目もかまわず、道で大泣きしている人を見かけた。</span></p><h3 id='不理会尽管平时会顾忌后非同寻常含有意外语感的动作的句子'><span>不理会，尽管平时会顾忌；后+非同寻常，含有意外语感的动作的句子</span></h3><ul><li><span>N+～</span></li><li><span>～（简）/N+な・である/AN+な・である＋の＋～</span></li></ul><h2 id='～はともかくとして）'><span>～はともかく（として）</span></h2><p><span>外ではともかく、家の中でタバコを吸うのはやめて。</span></p><h3 id='暂不考虑后项比前项更想强调'><span>暂不考虑；后项比前项更想强调</span></h3><ul><li><span>N（助）+～</span></li></ul><h2 id='～はさておき暂且放一边按下不表'><span>～はさておき　暂且放一边，按下不表</span></h2><p><span>冗談はさておき、次回のテーマを決めておきたいとおもいます。</span></p><h3 id='前多在此之前已是话题的词语'><span>前多+在此之前已是话题的词语</span></h3><ul><li><span>N（助）+～</span></li></ul><h2 id='～わけがない全部否定'><span>～わけがない　全部否定</span></h2><p><span>この仕事を今日中に全部ですか。わたし一人でできるわけがありませんよ。</span></p><h3 id='不可能不会'><span>不可能……，不会……</span></h3><ul><li><span>～（简）/N+な・N+の/AN+な</span></li></ul><h2 id='～わけではない・～というわけではない部分否定'><span>～わけではない・～というわけではない部分否定</span></h2><p><span>親の気持ちもわからないわけではないが、自分の進路は自分で決めたい。</span>
+<span>その日は絶対に無理というわけではありませんが、できれば別の日にしてもらえるとありがたいです。</span></p><h3 id='不能说全部都'><span>不能说全部都……</span></h3><ul><li><span>～（简）/N+な・N+の/AN+な+わけではない</span></li><li><span>～（简）/N/AN+というわけではない</span></li></ul><h2 id='～ものか-强烈的否定多负面情绪'><span>～ものか 强烈的否定，多+负面情绪</span></h2><p><span>こんな便利な所に住めるものか。</span></p><h3 id='怎么会呢'><span>“怎么会……呢”</span></h3><ul><li><span>～（简）/N+な/AN+な+ものか</span></li></ul><h3 id='稍微主观感情色彩的语气强烈的否定句'><span>稍微主观感情色彩的语气强烈的否定句</span></h3><h2 id='～どころではない・～どころか'><span>～どころではない・～どころか</span></h2><p><span>せきが出るので風邪かなと思っていたが、ただの風邪どころではなく、肺炎だった。　はいえん</span></p><h3 id='岂止是连也多更差'><span>岂止是……连……也……；多+更差</span></h3><ul><li><span>N+どころではない、どころか</span></li><li><span>～（简）/N・AN（な）+どころではない、どころか</span></li></ul><h3 id='前后项是程度相差很大或相反的事情'><span>前后项是程度相差很大或相反的事情</span></h3><h2 id='～というものではない・～というものでもない'><span>～というものではない・～というものでもない</span></h2><p><span>努力すれば必ず成功するというものでもない。チャンスも必要だ。</span></p><h3 id='不能说具备某种条件就一定'><span>不能说具备某种条件就一定……</span></h3><ul><li><span>～（简）/N・AN（だ）+～</span></li></ul><h3 id='表说话人就事物本质发表的观点或感想'><span>表说话人就事物本质发表的观点或感想</span></h3><h2 id='とは'><span>とは</span></h2><p><span>人生とは本人が主役のドラムみたいなものだ。</span></p><h3 id='子主题-1'><span>子主题 1</span></h3><ul><li><span>N+~</span></li></ul><h2 id='～といえば'><span>～といえば</span></h2><p><span>このコーヒー、ハワイのお土産ですか。ハワイと言えば、さち子さんが来月ハワイで結婚式をするだそうですよ。</span>
+<span>松本さんのうちのお嬢さん、かわいいといえばかわいいけど、ちょっとわがままね。</span></p><h3 id='a言葉を取り上げ说起引出新话题'><span>A:　言葉を取り上げ　说起……引出新话题</span></h3><ul><li><span>~简/AN・N（だ）＋～</span></li></ul><h3 id='b取り上げる言葉要说确实但是'><span>B:　取り上げる言葉　要说……确实……，但是……</span></h3><h2 id='～というと・～といえば・～といったら'><span>～というと・～といえば・～といったら</span></h2><p><span>オーストラリアと言えば、すぐにコアラとかカンガルーを思い浮かべる。</span>
+<span>辞めるというと、もう来ないということですか？</span></p><h3 id='すぐに思いつくこと说起谈到'><span>すぐに思いつくこと　说起……谈到……</span></h3><ul><li><span>N/V/AN/Aい＋～</span></li></ul><h2 id='～のこと）となると＋不同寻常的态度'><span>～（のこと）となると＋不同寻常的态度</span></h2><p><span>佐藤さんは好きな歌手のこととなると話が止まらない。</span></p><h3 id='针对的话题'><span>针对……的话题</span></h3><ul><li><span>N+~</span></li></ul><h2 id='～といったら'><span>～といったら</span></h2><p><span>暗い山道を一人で歩いたときの怖さといったら・・・</span></p><h3 id='说起谈到-后不是一般程度的句子或表吃惊'><span>说起……谈到…… 后+不是一般程度的句子或表吃惊</span></h3><ul><li><span>N+~</span></li></ul><h3 id='といったらない难以形容无法描述'><span>といったらない　难以形容，无法描述</span></h3><h2 id='～にもかかわらず-1'><span>～にもかかわらず</span></h2><p><span>水道工事の人たちは悪天候にもかかわらず、作業を続けている。</span></p><h3 id='尽管却吃惊意外等-あることをする'><span>尽管……却……；+吃惊/意外等 あることをする</span></h3><ul><li><span>~(简)/N/Nである/ANである＋～</span></li></ul><h2 id='～ものの・～とはいうものの'><span>～ものの・～とはいうものの</span></h2><p><span>高価な着物を買ったものの、着るチャンスがない。</span></p><h3 id='当然想像されることが起こらない和想象的不一样'><span>当然想像されることが起こらない　和想象的不一样</span></h3><ul><li><span>~（简）/(Nである/ANな)＋～</span></li><li><span>~（简）/(Nである/ANな)＋～</span></li><li><span>~（简）/(N/AN)＋とはいうものの</span></li></ul><h2 id='だから＝けれども・が多状态多词前后主语一致'><span>〜だから＝けれども・が多+状态多词；前后主语一致</span></h2><p><span>狭いながらも庭があるので、私は花を育てて楽しんでいます。</span>
+<span>あの子はこどもながら、社会の働きをよく知っていますね。</span></p><h3 id='提示与状态所预想的事情不同'><span>提示与……状态所预想的事情不同</span></h3><ul><li><span>c／Aい／N・であり／AN・ANであり＋ながら</span></li></ul><h2 id='つつも）'><span>つつ（も）</span></h2><p><span>早く返事を書かなけばと気にしつつ、まだ書いていない。</span>
+<span>危険だと知りつつ、山道を登り続けた。</span></p><h3 id='心の動きとは行動が違っている'><span>心の動きとは、行動が違っている</span></h3><ul><li><span>V连用+～</span></li></ul><h3 id='思いつつも'><span>思いつつも</span></h3><h2 id='といっても'><span>〜といっても</span></h2><p><span>料理ができるといっても、私は作れるのは簡単なものだけです。</span></p><h3 id='虽说'><span>虽说……</span></h3><ul><li><span>~（简）/N+～</span></li></ul><h2 id='からといって'><span>〜からといって</span></h2><p><span>好きじゃないからといって、食べ物をこんなにたくさん残してはいけませんよ。</span></p><h3 id='不能）仅因为就多否定表达'><span>（不能）仅因为……就……；多+否定表达</span></h3><ul><li><span>～（简）+～</span></li></ul><h3 id='后多とは限らない・わけではない・とはいえない等否定表达'><span>后多+〜とは限らない・〜わけではない・〜とはいえない等否定表达</span></h3><h2 id='～としたら・とすれば・とすると・となったら・となれば・となると'><span>～としたら・とすれば・とすると・となったら・となれば・となると</span></h2><p><span>無人島に何か一つだけ持っていけるとしたら、何を持っていきたいですか。</span></p><h3 id='假定'><span>假定……</span></h3><ul><li><span>～（简）+～</span></li></ul><h2 id='ものならできる'><span>ものなら　できる</span></h2><p><span>戻れるものなら20年の私に戻って人生をやり直したい。</span>
+<span>やれるものならやってみろ。</span></p><h3 id='如果能的话可能性小'><span>如果能……的话；可能性小</span></h3><ul><li><span>Vる（可能含义）</span></li></ul><h2 id='よ）うものなら'><span>〜（よ）うものなら</span></h2><p><span>私はアレルギー体質なので、合わない食品を食べようものなら、体のあちこちが痒くなる。</span></p><h3 id='如果要）的话严重结果'><span>如果（要）……的话；+严重结果</span></h3><ul><li><span>V意志形</span></li></ul><h2 id='～ないことには'><span>～ないことには</span></h2><p><span>お金がないことには、この計画は進められない。</span>
+<span>丈夫でないことには。</span></p><h3 id='如果不的话否定含义'><span>如果不……的话；+否定含义</span></h3><ul><li><span>〜ない／AN・Nでない</span></li></ul><h2 id='を抜きにしては'><span>〜を抜きにしては</span></h2><p><span>田中先生の好意的なご指導を抜きにしては、この勉強会は続けられないだろう。</span></p><h3 id='如果没有的话前高度评价的事物'><span>如果没有……的话，前+高度评价的事物</span></h3><ul><li><span>N+~</span></li></ul><h2 id='としても・にしても・にしろ・にせよ'><span>〜としても・〜にしても・〜にしろ・〜にせよ</span></h2><p><span>たとえ悪い結果にしろ、できることは全部やってきたのだから後悔はしない。</span></p><h3 id='＋评价判断感受'><span>＋评价/判断/感受</span></h3><ul><li><span>～（简）+～</span></li></ul><h2 id='～によって'><span>～によって</span></h2><p><span>仕事をコンピューターかすることにより、労働力不足は解決できるのではないか。</span>
+<span>合否の結果は後日書面で連絡します。電話による問い合わせは受付ません。</span></p><h3 id='因为原因使用手段和方法书'><span>因为……原因；使用……手段和方法；书</span></h3><ul><li><span>N+~</span></li></ul><h2 id='～ものだから・～もので・～もの'><span>～ものだから・～もので・～もの</span></h2><p><span>すみません。昨日はちょっと熱があったものですから、お休みしました。</span>
+<span>あの人の言うことはよくわからないよ。言葉が難しいんだもの。</span></p><h3 id='申述辩解言い訳をする口语'><span>申述辩解；言い訳をする。口语</span></h3><ul><li><span>AN・N＋な/～（简）+ものだから・もので</span></li></ul><h3 id='后不命令意志句末女性儿童使用'><span>后不+命令，意志，句末女性儿童使用</span></h3><h2 id='おかげだ好・～せいだ不好'><span>~おかげだ+好・～せいだ+不好</span></h2><p><span>佐藤さんが丁寧にチャックしてくださったおかげで、いいレポートができました。</span>
+<span>値段のせいか、この商品は売れ行きが悪い。</span></p><h3 id='由于的影响'><span>由于……的影响</span></h3><ul><li><span>N+の/~（简）/AN＋な＋～</span></li></ul><h2 id='～あまり・あまりの～に'><span>～あまり・あまりの～に</span></h2><p><span>自分の番が近づくいてきたとき、私は緊張のあまり頭の中が真っ白になってしまった。</span></p><h3 id='因为非常所以后不寻常的结果'><span>因为非常……所以；后+不寻常的结果</span></h3><ul><li><span>N+の/~（简）/AN＋な＋～</span>
+<span>あまりの＋N＋に</span></li></ul><h2 id='～につき'><span>～につき</span></h2><p><span>トイレはただ今清掃中につき、ご利用になれません。清掃中：せいそうちゅう</span>
+<span>本日は祝日につき、閉館しております。祝日：しゅくじつ、閉館：へいかん</span></p><h3 id='向公众通知书'><span>向公众通知。书</span></h3><ul><li><span>N+~</span></li></ul><h2 id='～にことだし'><span>～にことだし</span></h2><p><span>雨もやんだことだし、ちょっとジョギングしてこようかな。</span></p><h3 id='虽也有其他理由但总之是因为而做某事'><span>虽也有其他理由，但总之是因为……而做某事</span></h3><ul><li><span>~（简）/AN+な・である/N＋の・である＋～</span></li></ul><h3 id='后说话人判断希望意志要求说话人做-1'><span>后+说话人判断，希望，意志，要求说话人做……</span></h3><h2 id='のことだから'><span>~のことだから</span></h2><p><span>頑張り屋のみちこのことだから、きっと今度のテストでもいい点を取りますよ。</span></p><h3 id='从的性格平日态度来推断'><span>从……的性格，平日态度来推断……</span></h3><ul><li><span>N（人）+~</span></li></ul><h2 id='～だけに'><span>～だけに</span></h2><p><span>あそこは有名レストランだけに、客に出した料理に問題があったとわかったときは大ニュースになった。</span>
+<span>祖父はよく山登りをするが、年が年だけに、無事に帰ってくるまで心配だ。</span></p><h3 id='正因为更加强调'><span>正因为……更加，强调</span></h3><ul><li><span>~（简）/AN+な・である/N（である）＋～</span></li></ul><h2 id='～ばかりに'><span>～ばかりに</span></h2><p><span>家のかぎを忘れて出かけたばかりに、家族が帰ってくるまで家に入れなかった。</span>
+<span>山頂から一目日の出を見たいばかりに、暗いうちに山小屋を出て２時間も歩いたのだ。</span></p><h3 id='就是因为多不好的结果'><span>就是因为……多+不好的结果</span></h3><ul><li><span>~（简）/AN+な・である/Nである＋～</span></li></ul><h2 id='～からには・～以上は）・～上は'><span>～からには・～以上（は）・～上は</span></h2><p><span>留学するからには、ちゃんと目的があるのでしょうね。</span>
+<span>自分一人でやると言った以上、みんなに助けてもらうことはできない。</span></p><h3 id='既然就应该）'><span>既然……就（应该）……</span></h3><ul><li><span>~（简）/ANである/Nである＋からには・以上（は）</span></li><li><span>Vる・た＋上は</span></li></ul><h3 id='后说话人判断希望意志要求说话人做-2'><span>后+说话人判断，希望，意志，要求说话人做……</span></h3><h2 id='～がたい'><span>～がたい</span></h2><p><span>あの優しい彼がそんなひどいことをしたとは信じがたい。</span>
+<span>言いがたい</span>
+<span>得がたい</span></p><h3 id='心里上无法非能力问题几乎不可能'><span>心里上无法，非能力问题；几乎不可能</span></h3><ul><li><span>V连用+~</span></li></ul><h2 id='～かねる'><span>～かねる</span></h2><p><span>あなたの気持ちも理解できますが、その案には賛成しかねます。</span>
+<span>待ちかね翘首以盼</span></p><h3 id='その状況・その条件・話者の立場'><span>その状況・その条件・話者の立場</span></h3><ul><li><span>V连用+~</span></li></ul><h3 id='用于礼貌地拒绝多用于服务业比较正式'><span>用于礼貌地拒绝，多用于服务业，比较正式</span></h3><h2 id='～得る・～得ない'><span>～得る・～得ない</span></h2><p><span>経済の成長と環境保護は両立し得るはずだ。</span>
+<span>人間が100メートルを5秒で走るなんてありえない話だ。</span></p><h3 id='可能性がある可能性がない'><span>可能性がある、可能性がない</span></h3><ul><li><span>V连用+~</span></li></ul><h2 id='～わけにはいかない・～わけにもいかない'><span>～わけにはいかない・～わけにもいかない</span></h2><p><span>いくらお金に困っていても、そんな大金をあなたから借りるわけにはいかない。</span></p><h3 id='出于道德人情义务等无法做到不能用于能力上无法做到的事情主语通常是第一人称'><span>出于道德，人情，义务等，无法做到，不能用于能力上无法做到的事情，主语通常是第一人称</span></h3><ul><li><span>Vる＋～</span></li></ul><h2 id='～ようがない-よう様'><span>～ようがない 　よう：様</span></h2><p><span>彼の連絡先がわからないので、このニュースを知らせたくても知らせようがない。</span>
+<span>駅からここまではまっすぐ歩いてくるだけだから、迷いようがないと思うけどね。</span>
+<span>～としか言いようがない</span>
+<span>文句のつけようがない</span>
+<span>これだけ　这种程度</span></p><h3 id='想而无法'><span>想……而无法……</span></h3><ul><li><span>V连用+~</span></li></ul><h2 id='どころではない'><span>~どころではない</span></h2><p><span>仕事が忙しくて、旅行どころではない。</span></p><h3 id='不是的时候'><span>不是……的时候</span></h3><ul><li><span>N+Vる＋～</span></li></ul><h3 id='お金がない時間がないうるさい病気'><span>お金がない、時間がない、うるさい、病気</span></h3><h2 id='～わりには）'><span>～わりに（は）</span></h2><p><span>このお菓子は値段のわりには量が少ない。</span>
+<span>ゆきこさんは若いわりにしっかりしている。しっかり：坚强</span></p><h3 id='从状态期间频率尺度等）来看不符'><span>从……（状态、期间，频率，尺度等）来看不符</span></h3><ul><li><span>N+の/AN＋な・である/~（简）＋～</span></li></ul><h3 id='前年齢値段心配する若い'><span>前+年齢，値段、心配する、若い</span></h3><h2 id='～にしては'><span>～にしては</span></h2><p><span>このかばんは、1000円にしては丈夫で、デザインもいい。</span></p><h3 id='从来看出乎意料前特定事物不形容词尺度程度等'><span>从……来看出乎意料；前+特定事物，不+形容词，尺度，程度等</span></h3><ul><li><span>N（である）/AN+である/~（简）＋～</span></li></ul><h2 id='だけのことは）ある・～だけあって・～だけに'><span>~だけ（のことは）ある・～だけあって・～だけに</span></h2><p><span>素晴らしいマンションだ、家賃が高いだけのことはある。</span>
+<span>彼は１０年も日本に住んでいるだけあって、日本のことをよく知っている。</span></p><h3 id='不愧是到底没白'><span>不愧是……到底没白……</span></h3><ul><li><span>N/AN+である/~（简）＋～</span></li></ul><h3 id='不接表将来以及推测'><span>不接表将来以及推测</span></h3><h2 id='～として'><span>～として</span></h2><p><span>コーヒーはもともと薬として飲まれていた。</span>
+<span>子供の安全に気をつけることは親として当然だ。</span></p><h3 id='～という立場・資格・役割・名目で'><span>～という立場・資格・役割・名目で</span></h3><ul><li><span>N+～</span></li></ul><h3 id='-6'><span> </span></h3><h2 id='～にとって'><span>～にとって</span></h2><p><span>現代人にとってパソコンはなくてはならない道具である。</span></p><h3 id='换位思考前表人的词后如何评价'><span>换位思考、前+表人的词，后+如何评价</span></h3><ul><li><span>N+～</span></li></ul><h3 id='-7'><span> </span></h3><h2 id='に対して'><span>~に対して</span></h2><p><span>森さんは会社の一員として、反対するのは当然です。</span>
+<span>森さんにとって、小野さんは特別な存在です。</span>
+<span>森さんにたいして、やさしいです。</span></p><h3 id='以为对象与之相对的--7课'><span>以……为对象；与之相对的  7课</span></h3><h3 id='-8'><span> </span></h3><h2 id='～にしたら・～にすれば～にしてみれば・～にしても'><span>～にしたら・～にすれば～にしてみれば・～にしても</span></h2><p><span>君もいろいろ言われて面倒だろうが、君のお母さんにしたら、君のことが心配なんだよ。</span></p><h3 id='如果以立场即使从立场看站在此人立场上推测此人'><span>如果以……立场，即使从……立场看；站在此人立场上推测此人……</span></h3><ul><li><span>N+～</span></li></ul><h2 id='たところ-强调结果'><span>~たところ 强调结果</span></h2><p><span>この新商品を使ってみたいかどうか聞いてみたところ、80％の人が「使いたい」と答えた。</span></p><h3 id='叙述过去仅发生过一次的事情后续表结果'><span>叙述过去仅发生过一次的事情，后续表结果</span></h3><ul><li><span>Vた＋～</span></li></ul><h2 id='～きり'><span>～きり</span></h2><p><span>その本は、子供のころ読んだきり、その後一度も読んでいない。</span>
+<span>日本は長寿国だが、寝たきりの老人の数も多い。</span></p><h3 id='之后一直再没）'><span>……之后，一直/再（没）……</span></h3><ul><li><span>Vた＋～</span></li></ul><h2 id='～あげく'><span>～あげく</span></h2><p><span>五時間に及ぶ議論のあげく、結論が出なかった。</span>
+<span>いろいろ文句を言ったあげく、その客はなんも買わずに帰った。</span></p><h3 id='遗憾的结果'><span>+遗憾的结果</span></h3><ul><li><span>Vた/N+の＋～</span></li></ul><h2 id='～すえに）'><span>～すえ（に）</span></h2><p><span>数回に及ぶ議論の末、Aの案を採用することにした。</span>
+<span>悩んだ末に、手術を受付ようと決めた。</span></p><h3 id='ある結果になった'><span>ある結果になった</span></h3><ul><li><span>Vた/N+の＋～</span></li></ul><h2 id='～ところだった'><span>～ところだった</span></h2><p><span>今日は15日か。うっかり約束をわすれるところだった。</span>
+<span>朝寝坊して、危うく試験が受けられないところだった。</span></p><h3 id='差点就'><span>差点就……</span></h3><ul><li><span>Vる・ない＋～</span></li></ul><h2 id='～ずじまいだ'><span>～ずじまいだ</span></h2><p><span>彼女にラブレターを書いたけれど、勇気がなくて出せずじまいだった。</span></p><h3 id='没能错过时机的遗憾）'><span>没能（错过时机的遗憾）</span></h3><ul><li><span>V去掉ない＋～</span></li><li><span>する→せず</span></li></ul><h2 id='分支主题-103'><span>分支主题 103</span></h2><h2 id='一方・一方で'><span>一方・一方で</span></h2><h3 id='一方面另一方面'><span>一方面……另一方面</span></h3><ul><li><span>V简体/AN（である）/N（である）/Aい</span></li><li><span>前后可对比，可并列</span></li></ul><h2 id='上'><span>上</span></h2><h3 id='上は'><span>上は</span></h3><ul><li><p><span>既然……就……</span></p><ul><li><span>Vる・Vた</span></li></ul></li></ul><h3 id='上では）'><span>上で（は）</span></h3><ul><li><p><span>在……方面</span></p><ul><li><span>N＋の/ Vる</span></li></ul></li></ul><h2 id='以上は）'><span>以上（は）</span></h2><h3 id='既然就-1'><span>既然……就……</span></h3><ul><li><span>V简/AN/N/Aい</span></li></ul><h2 id='～うちは'><span>～うちは</span></h2><h3 id='在还没）的时候'><span>在（还没）……的时候</span></h3><ul><li><span>Vる/Aい/AN＋な/N＋の</span></li></ul><h2 id='からには'><span>からには</span></h2><h3 id='既然就-2'><span>既然……就……</span></h3><ul><li><span>V简/AN・N＋である/Aい</span></li></ul><h2 id='～にもかかわらず-2'><span>～にもかかわらず</span></h2><h3 id='虽说但是'><span>虽说……但是……</span></h3><p>&nbsp;</p></div></div>
+
+<script>(function(){var e=document.body.parentElement,t=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(e,t,n){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var i=e.target;i&&i!=this;i=i.parentNode)if(i.matches(t)){!1===n.call(i,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)};function o(){return e.scrollTop}r("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),d(),!1}),r("click",".outline-item",function(e){var t=this.querySelector(".outline-label");if(location.hash="#"+t.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),c(),n.add("outline-item-active")}});var a,s,l=function(){var e=o();n=null;for(var i=0;i<t.length&&t[i][1]-e<60;i++)n=t[i]},c=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},d=function(){if(n){c();var e=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(e)if(i){var t=e.closest(".outline-item-open>ul>.outline-item-wrapper");if(t)t.classList.add("outline-item-active");else{for(var r=(e=e.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(e=r).parentElement.closest(".outline-item-wrapper");e.classList.add("outline-item-active")}}else e.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(e){a&&clearTimeout(a),a=setTimeout(function(){l(),d()},300)});var u=function(){s=setTimeout(function(){!function(){t=[];var e=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");t.push([i,e+n.getBoundingClientRect().y])})}(),l(),d()},300)};window.addEventListener("resize",function(e){s&&clearTimeout(s),u()}),u()})();</script></body>
+</html>
