@@ -1,0 +1,2774 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width initial-scale=1'>
+
+	<link href='https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext'
+		rel='stylesheet' type='text/css' />
+	<link href='https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' />
+	<style type='text/css'>
+		html {
+			overflow-x: initial !important;
+		}
+
+		:root {
+			--bg-color: #ffffff;
+			--text-color: #333333;
+			--select-text-bg-color: #B5D6FC;
+			--select-text-font-color: auto;
+			--monospace: "Lucida Console", Consolas, "Courier", monospace;
+			--title-bar-height: 20px;
+		}
+
+		.mac-os-11 {
+			--title-bar-height: 28px;
+		}
+
+		html {
+			font-size: 14px;
+			background-color: var(--bg-color);
+			color: var(--text-color);
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		body {
+			margin: 0px;
+			padding: 0px;
+			height: auto;
+			inset: 0px;
+			font-size: 1rem;
+			line-height: 1.42857;
+			overflow-x: hidden;
+			background: inherit;
+			tab-size: 4;
+		}
+
+		iframe {
+			margin: auto;
+		}
+
+		a.url {
+			word-break: break-all;
+		}
+
+		a:active,
+		a:hover {
+			outline: 0px;
+		}
+
+		.in-text-selection,
+		::selection {
+			text-shadow: none;
+			background: var(--select-text-bg-color);
+			color: var(--select-text-font-color);
+		}
+
+		#write {
+			margin: 0px auto;
+			height: auto;
+			width: inherit;
+			word-break: normal;
+			overflow-wrap: break-word;
+			position: relative;
+			white-space: normal;
+			overflow-x: visible;
+			padding-top: 36px;
+		}
+
+		#write.first-line-indent p {
+			text-indent: 2em;
+		}
+
+		#write.first-line-indent li p,
+		#write.first-line-indent p * {
+			text-indent: 0px;
+		}
+
+		#write.first-line-indent li {
+			margin-left: 2em;
+		}
+
+		.for-image #write {
+			padding-left: 8px;
+			padding-right: 8px;
+		}
+
+		body.typora-export {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		.typora-export .footnote-line,
+		.typora-export li,
+		.typora-export p {
+			white-space: pre-wrap;
+		}
+
+		.typora-export .task-list-item input {
+			pointer-events: none;
+		}
+
+		@media screen and (max-width: 500px) {
+			body.typora-export {
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+
+			#write {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+
+			.CodeMirror-sizer {
+				margin-left: 0px !important;
+			}
+
+			.CodeMirror-gutters {
+				display: none !important;
+			}
+		}
+
+		#write li>figure:last-child {
+			margin-bottom: 0.5rem;
+		}
+
+		#write ol,
+		#write ul {
+			position: relative;
+		}
+
+		img {
+			max-width: 100%;
+			vertical-align: middle;
+			image-orientation: from-image;
+		}
+
+		button,
+		input,
+		select,
+		textarea {
+			color: inherit;
+			font: inherit;
+		}
+
+		input[type="checkbox"],
+		input[type="radio"] {
+			line-height: normal;
+			padding: 0px;
+		}
+
+		*,
+		::after,
+		::before {
+			box-sizing: border-box;
+		}
+
+		#write h1,
+		#write h2,
+		#write h3,
+		#write h4,
+		#write h5,
+		#write h6,
+		#write p,
+		#write pre {
+			width: inherit;
+		}
+
+		#write h1,
+		#write h2,
+		#write h3,
+		#write h4,
+		#write h5,
+		#write h6,
+		#write p {
+			position: relative;
+		}
+
+		p {
+			line-height: inherit;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			break-after: avoid-page;
+			break-inside: avoid;
+			orphans: 4;
+		}
+
+		p {
+			orphans: 4;
+		}
+
+		h1 {
+			font-size: 2rem;
+		}
+
+		h2 {
+			font-size: 1.8rem;
+		}
+
+		h3 {
+			font-size: 1.6rem;
+		}
+
+		h4 {
+			font-size: 1.4rem;
+		}
+
+		h5 {
+			font-size: 1.2rem;
+		}
+
+		h6 {
+			font-size: 1rem;
+		}
+
+		.md-math-block,
+		.md-rawblock,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p {
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		.md-blockmeta {
+			color: rgb(204, 204, 204);
+			font-weight: 700;
+			font-style: italic;
+		}
+
+		a {
+			cursor: pointer;
+		}
+
+		sup.md-footnote {
+			padding: 2px 4px;
+			background-color: rgba(238, 238, 238, 0.7);
+			color: rgb(85, 85, 85);
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		sup.md-footnote a,
+		sup.md-footnote a:hover {
+			color: inherit;
+			text-transform: inherit;
+			text-decoration: inherit;
+		}
+
+		#write input[type="checkbox"] {
+			cursor: pointer;
+			width: inherit;
+			height: inherit;
+		}
+
+		figure {
+			overflow-x: auto;
+			margin: 1.2em 0px;
+			max-width: calc(100% + 16px);
+			padding: 0px;
+		}
+
+		figure>table {
+			margin: 0px;
+		}
+
+		tr {
+			break-inside: avoid;
+			break-after: auto;
+		}
+
+		thead {
+			display: table-header-group;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0px;
+			width: 100%;
+			overflow: auto;
+			break-inside: auto;
+			text-align: left;
+		}
+
+		table.md-table td {
+			min-width: 32px;
+		}
+
+		.CodeMirror-gutters {
+			border-right: 0px;
+			background-color: inherit;
+		}
+
+		.CodeMirror-linenumber {
+			user-select: none;
+		}
+
+		.CodeMirror {
+			text-align: left;
+		}
+
+		.CodeMirror-placeholder {
+			opacity: 0.3;
+		}
+
+		.CodeMirror pre {
+			padding: 0px 4px;
+		}
+
+		.CodeMirror-lines {
+			padding: 0px;
+		}
+
+		div.hr:focus {
+			cursor: none;
+		}
+
+		#write pre {
+			white-space: pre-wrap;
+		}
+
+		#write.fences-no-line-wrapping pre {
+			white-space: pre;
+		}
+
+		#write pre.ty-contain-cm {
+			white-space: normal;
+		}
+
+		.CodeMirror-gutters {
+			margin-right: 4px;
+		}
+
+		.md-fences {
+			font-size: 0.9rem;
+			display: block;
+			break-inside: avoid;
+			text-align: left;
+			overflow: visible;
+			white-space: pre;
+			background: inherit;
+			position: relative !important;
+		}
+
+		.md-fences-adv-panel {
+			width: 100%;
+			margin-top: 10px;
+			text-align: center;
+			padding-top: 0px;
+			padding-bottom: 8px;
+			overflow-x: auto;
+		}
+
+		#write .md-fences.mock-cm {
+			white-space: pre-wrap;
+		}
+
+		.md-fences.md-fences-with-lineno {
+			padding-left: 0px;
+		}
+
+		#write.fences-no-line-wrapping .md-fences.mock-cm {
+			white-space: pre;
+			overflow-x: auto;
+		}
+
+		.md-fences.mock-cm.md-fences-with-lineno {
+			padding-left: 8px;
+		}
+
+		.CodeMirror-line,
+		twitterwidget {
+			break-inside: avoid;
+		}
+
+		.footnotes {
+			opacity: 0.8;
+			font-size: 0.9rem;
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+
+		.footnotes+.footnotes {
+			margin-top: 0px;
+		}
+
+		.md-reset {
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+			outline: 0px;
+			vertical-align: top;
+			background: 0px 0px;
+			text-decoration: none;
+			text-shadow: none;
+			float: none;
+			position: static;
+			width: auto;
+			height: auto;
+			white-space: nowrap;
+			cursor: inherit;
+			-webkit-tap-highlight-color: transparent;
+			line-height: normal;
+			font-weight: 400;
+			text-align: left;
+			box-sizing: content-box;
+			direction: ltr;
+		}
+
+		li div {
+			padding-top: 0px;
+		}
+
+		blockquote {
+			margin: 1rem 0px;
+		}
+
+		li .mathjax-block,
+		li p {
+			margin: 0.5rem 0px;
+		}
+
+		li blockquote {
+			margin: 1rem 0px;
+		}
+
+		li {
+			margin: 0px;
+			position: relative;
+		}
+
+		blockquote> :last-child {
+			margin-bottom: 0px;
+		}
+
+		blockquote> :first-child,
+		li> :first-child {
+			margin-top: 0px;
+		}
+
+		.footnotes-area {
+			color: rgb(136, 136, 136);
+			margin-top: 0.714rem;
+			padding-bottom: 0.143rem;
+			white-space: normal;
+		}
+
+		#write .footnote-line {
+			white-space: pre-wrap;
+		}
+
+		@media print {
+
+			body,
+			html {
+				border: 1px solid transparent;
+				height: 99%;
+				break-after: avoid;
+				break-before: avoid;
+				font-variant-ligatures: no-common-ligatures;
+			}
+
+			#write {
+				margin-top: 0px;
+				padding-top: 0px;
+				border-color: transparent !important;
+			}
+
+			.typora-export * {
+				-webkit-print-color-adjust: exact;
+			}
+
+			.typora-export #write {
+				break-after: avoid;
+			}
+
+			.typora-export #write::after {
+				height: 0px;
+			}
+
+			.is-mac table {
+				break-inside: avoid;
+			}
+
+			.typora-export-show-outline .typora-export-sidebar {
+				display: none;
+			}
+		}
+
+		.footnote-line {
+			margin-top: 0.714em;
+			font-size: 0.7em;
+		}
+
+		a img,
+		img a {
+			cursor: pointer;
+		}
+
+		pre.md-meta-block {
+			font-size: 0.8rem;
+			min-height: 0.8rem;
+			white-space: pre-wrap;
+			background: rgb(204, 204, 204);
+			display: block;
+			overflow-x: hidden;
+		}
+
+		p>.md-image:only-child:not(.md-img-error) img,
+		p>img:only-child {
+			display: block;
+			margin: auto;
+		}
+
+		#write.first-line-indent p>.md-image:only-child:not(.md-img-error) img {
+			left: -2em;
+			position: relative;
+		}
+
+		p>.md-image:only-child {
+			display: inline-block;
+			width: 100%;
+		}
+
+		#write .MathJax_Display {
+			margin: 0.8em 0px 0px;
+		}
+
+		.md-math-block {
+			width: 100%;
+		}
+
+		.md-math-block:not(:empty)::after {
+			display: none;
+		}
+
+		.MathJax_ref {
+			fill: currentcolor;
+		}
+
+		[contenteditable="true"]:active,
+		[contenteditable="true"]:focus,
+		[contenteditable="false"]:active,
+		[contenteditable="false"]:focus {
+			outline: 0px;
+			box-shadow: none;
+		}
+
+		.md-task-list-item {
+			position: relative;
+			list-style-type: none;
+		}
+
+		.task-list-item.md-task-list-item {
+			padding-left: 0px;
+		}
+
+		.md-task-list-item>input {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			margin-left: -1.2em;
+			margin-top: calc(1em - 10px);
+			border: none;
+		}
+
+		.math {
+			font-size: 1rem;
+		}
+
+		.md-toc {
+			min-height: 3.58rem;
+			position: relative;
+			font-size: 0.9rem;
+			border-radius: 10px;
+		}
+
+		.md-toc-content {
+			position: relative;
+			margin-left: 0px;
+		}
+
+		.md-toc-content::after,
+		.md-toc::after {
+			display: none;
+		}
+
+		.md-toc-item {
+			display: block;
+			color: rgb(65, 131, 196);
+		}
+
+		.md-toc-item a {
+			text-decoration: none;
+		}
+
+		.md-toc-inner:hover {
+			text-decoration: underline;
+		}
+
+		.md-toc-inner {
+			display: inline-block;
+			cursor: pointer;
+		}
+
+		.md-toc-h1 .md-toc-inner {
+			margin-left: 0px;
+			font-weight: 700;
+		}
+
+		.md-toc-h2 .md-toc-inner {
+			margin-left: 2em;
+		}
+
+		.md-toc-h3 .md-toc-inner {
+			margin-left: 4em;
+		}
+
+		.md-toc-h4 .md-toc-inner {
+			margin-left: 6em;
+		}
+
+		.md-toc-h5 .md-toc-inner {
+			margin-left: 8em;
+		}
+
+		.md-toc-h6 .md-toc-inner {
+			margin-left: 10em;
+		}
+
+		@media screen and (max-width: 48em) {
+			.md-toc-h3 .md-toc-inner {
+				margin-left: 3.5em;
+			}
+
+			.md-toc-h4 .md-toc-inner {
+				margin-left: 5em;
+			}
+
+			.md-toc-h5 .md-toc-inner {
+				margin-left: 6.5em;
+			}
+
+			.md-toc-h6 .md-toc-inner {
+				margin-left: 8em;
+			}
+		}
+
+		a.md-toc-inner {
+			font-size: inherit;
+			font-style: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+		}
+
+		.footnote-line a:not(.reversefootnote) {
+			color: inherit;
+		}
+
+		.md-attr {
+			display: none;
+		}
+
+		.md-fn-count::after {
+			content: ".";
+		}
+
+		code,
+		pre,
+		samp,
+		tt {
+			font-family: var(--monospace);
+		}
+
+		kbd {
+			margin: 0px 0.1em;
+			padding: 0.1em 0.6em;
+			font-size: 0.8em;
+			color: rgb(36, 39, 41);
+			background: rgb(255, 255, 255);
+			border: 1px solid rgb(173, 179, 185);
+			border-radius: 3px;
+			box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+			white-space: nowrap;
+			vertical-align: middle;
+		}
+
+		.md-comment {
+			color: rgb(162, 127, 3);
+			opacity: 0.6;
+			font-family: var(--monospace);
+		}
+
+		code {
+			text-align: left;
+			vertical-align: initial;
+		}
+
+		a.md-print-anchor {
+			white-space: pre !important;
+			border-width: initial !important;
+			border-style: none !important;
+			border-color: initial !important;
+			display: inline-block !important;
+			position: absolute !important;
+			width: 1px !important;
+			right: 0px !important;
+			outline: 0px !important;
+			background: 0px 0px !important;
+			text-decoration: initial !important;
+			text-shadow: initial !important;
+		}
+
+		.os-windows.monocolor-emoji .md-emoji {
+			font-family: "Segoe UI Symbol", sans-serif;
+		}
+
+		.md-diagram-panel>svg {
+			max-width: 100%;
+		}
+
+		[lang="flow"] svg,
+		[lang="mermaid"] svg {
+			max-width: 100%;
+			height: auto;
+		}
+
+		[lang="mermaid"] .node text {
+			font-size: 1rem;
+		}
+
+		table tr th {
+			border-bottom: 0px;
+		}
+
+		video {
+			max-width: 100%;
+			display: block;
+			margin: 0px auto;
+		}
+
+		iframe {
+			max-width: 100%;
+			width: 100%;
+			border: none;
+		}
+
+		.highlight td,
+		.highlight tr {
+			border: 0px;
+		}
+
+		mark {
+			background: rgb(255, 255, 0);
+			color: rgb(0, 0, 0);
+		}
+
+		.md-html-inline .md-plain,
+		.md-html-inline strong,
+		mark .md-inline-math,
+		mark strong {
+			color: inherit;
+		}
+
+		.md-expand mark .md-meta {
+			opacity: 0.3 !important;
+		}
+
+		mark .md-meta {
+			color: rgb(0, 0, 0);
+		}
+
+		@media print {
+
+			.typora-export h1,
+			.typora-export h2,
+			.typora-export h3,
+			.typora-export h4,
+			.typora-export h5,
+			.typora-export h6 {
+				break-inside: avoid;
+			}
+		}
+
+		.md-diagram-panel .messageText {
+			stroke: none !important;
+		}
+
+		.md-diagram-panel .start-state {
+			fill: var(--node-fill);
+		}
+
+		.md-diagram-panel .edgeLabel rect {
+			opacity: 1 !important;
+		}
+
+		.md-fences.md-fences-math {
+			font-size: 1em;
+		}
+
+		.md-fences-advanced:not(.md-focus) {
+			padding: 0px;
+			white-space: nowrap;
+			border: 0px;
+		}
+
+		.md-fences-advanced:not(.md-focus) {
+			background: inherit;
+		}
+
+		.typora-export-show-outline .typora-export-content {
+			max-width: 1440px;
+			margin: auto;
+			display: flex;
+			flex-direction: row;
+		}
+
+		.typora-export-sidebar {
+			width: 300px;
+			font-size: 0.8rem;
+			margin-top: 80px;
+			margin-right: 18px;
+		}
+
+		.typora-export-show-outline #write {
+			--webkit-flex: 2;
+			flex: 2 1 0%;
+		}
+
+		.typora-export-sidebar .outline-content {
+			position: fixed;
+			top: 0px;
+			max-height: 100%;
+			overflow: hidden auto;
+			padding-bottom: 30px;
+			padding-top: 60px;
+			width: 300px;
+		}
+
+		@media screen and (max-width: 1024px) {
+
+			.typora-export-sidebar,
+			.typora-export-sidebar .outline-content {
+				width: 240px;
+			}
+		}
+
+		@media screen and (max-width: 800px) {
+			.typora-export-sidebar {
+				display: none;
+			}
+		}
+
+		.outline-content li,
+		.outline-content ul {
+			margin-left: 0px;
+			margin-right: 0px;
+			padding-left: 0px;
+			padding-right: 0px;
+			list-style: none;
+		}
+
+		.outline-content ul {
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+
+		.outline-content strong {
+			font-weight: 400;
+		}
+
+		.outline-expander {
+			width: 1rem;
+			height: 1.42857rem;
+			position: relative;
+			display: table-cell;
+			vertical-align: middle;
+			cursor: pointer;
+			padding-left: 4px;
+		}
+
+		.outline-expander::before {
+			content: "";
+			position: relative;
+			font-family: Ionicons;
+			display: inline-block;
+			font-size: 8px;
+			vertical-align: middle;
+		}
+
+		.outline-item {
+			padding-top: 3px;
+			padding-bottom: 3px;
+			cursor: pointer;
+		}
+
+		.outline-expander:hover::before {
+			content: "";
+		}
+
+		.outline-h1>.outline-item {
+			padding-left: 0px;
+		}
+
+		.outline-h2>.outline-item {
+			padding-left: 1em;
+		}
+
+		.outline-h3>.outline-item {
+			padding-left: 2em;
+		}
+
+		.outline-h4>.outline-item {
+			padding-left: 3em;
+		}
+
+		.outline-h5>.outline-item {
+			padding-left: 4em;
+		}
+
+		.outline-h6>.outline-item {
+			padding-left: 5em;
+		}
+
+		.outline-label {
+			cursor: pointer;
+			display: table-cell;
+			vertical-align: middle;
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.outline-label:hover {
+			text-decoration: underline;
+		}
+
+		.outline-item:hover {
+			border-color: rgb(245, 245, 245);
+			background-color: var(--item-hover-bg-color);
+		}
+
+		.outline-item:hover {
+			margin-left: -28px;
+			margin-right: -28px;
+			border-left: 28px solid transparent;
+			border-right: 28px solid transparent;
+		}
+
+		.outline-item-single .outline-expander::before,
+		.outline-item-single .outline-expander:hover::before {
+			display: none;
+		}
+
+		.outline-item-open>.outline-item>.outline-expander::before {
+			content: "";
+		}
+
+		.outline-children {
+			display: none;
+		}
+
+		.info-panel-tab-wrapper {
+			display: none;
+		}
+
+		.outline-item-open>.outline-children {
+			display: block;
+		}
+
+		.typora-export .outline-item {
+			padding-top: 1px;
+			padding-bottom: 1px;
+		}
+
+		.typora-export .outline-item:hover {
+			margin-right: -8px;
+			border-right: 8px solid transparent;
+		}
+
+		.typora-export .outline-expander::before {
+			content: "+";
+			font-family: inherit;
+			top: -1px;
+		}
+
+		.typora-export .outline-expander:hover::before,
+		.typora-export .outline-item-open>.outline-item>.outline-expander::before {
+			content: "−";
+		}
+
+		.typora-export-collapse-outline .outline-children {
+			display: none;
+		}
+
+		.typora-export-collapse-outline .outline-item-open>.outline-children,
+		.typora-export-no-collapse-outline .outline-children {
+			display: block;
+		}
+
+		.typora-export-no-collapse-outline .outline-expander::before {
+			content: "" !important;
+		}
+
+		.typora-export-show-outline .outline-item-active>.outline-item .outline-label {
+			font-weight: 700;
+		}
+
+		.md-inline-math-container mjx-container {
+			zoom: 0.95;
+		}
+
+
+		@include-when-export url(https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+		@include-when-export url(https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext);
+
+		:root {
+			--control-text-color: #777;
+		}
+
+		/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+		h1,
+		.h1,
+		.f1 {
+			font-size: 2rem;
+			line-height: 2.5rem;
+		}
+
+		h2,
+		.h2,
+		.f2 {
+			font-size: 1.5rem;
+			line-height: 2rem;
+		}
+
+		h3,
+		.h3,
+		.f3 {
+			font-size: 1.25rem;
+			line-height: 1.5rem;
+		}
+
+		p,
+		.p,
+		.f4,
+		h4,
+		h5,
+		h6,
+		dl,
+		ol,
+		ul,
+		pre[cid],
+		div[cid],
+		#typora-source {
+			font-size: 1.125rem;
+			line-height: 1.5rem;
+		}
+
+		h4 {
+			font-size: 1.13rem;
+		}
+
+		/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+		body {
+			font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", 'Segoe UI Emoji', Serif;
+			line-height: 1.5rem;
+			font-weight: 400;
+		}
+
+		#write {
+			max-width: 914px;
+			color: #333;
+		}
+
+		@media only screen and (min-width: 1400px) {
+			#write {
+				max-width: 1100px;
+			}
+		}
+
+		@media only screen and (min-width: 1700px) {
+			#write {
+				max-width: 1200px;
+			}
+		}
+
+		img {
+			width: auto;
+			max-width: 100%;
+		}
+
+		body {
+			font-size: 1.5rem;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+
+		.ty-table-edit {
+			background: #ededed;
+		}
+
+		table {
+			width: 100%;
+			font-size: 1.125rem;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td,
+		table>tfoot>tr>th,
+		table>tfoot>tr>td {
+			padding: 12px;
+			line-height: 1.2;
+			vertical-align: top;
+			border-top: 1px solid #333;
+		}
+
+		table>thead>tr>th {
+			vertical-align: bottom;
+			border-bottom: 2px solid #333;
+		}
+
+		table>caption+thead>tr:first-child>th,
+		table>caption+thead>tr:first-child>td,
+		table>colgroup+thead>tr:first-child>th,
+		table>colgroup+thead>tr:first-child>td,
+		table>thead:first-child>tr:first-child>th,
+		table>thead:first-child>tr:first-child>td {
+			border-top: 0;
+		}
+
+		table>tbody+tbody {
+			border-top: 2px solid #333;
+		}
+
+		p {
+			font-weight: 300;
+			line-height: 1.5;
+		}
+
+		abbr {
+			border-bottom: 1px black dotted;
+			cursor: help;
+		}
+
+		pre,
+		code {
+			font-family: Menlo, Monaco, "Courier New", monospace;
+		}
+
+		code,
+		.md-fences {
+			color: #7a7a7a;
+		}
+
+		.md-fences {
+			padding: 1.125em;
+			margin-bottom: 0.88em;
+			font-size: 1rem;
+			border: 1px solid #7a7a7a;
+			padding-bottom: 0.5rem;
+			padding-top: 0.5rem;
+		}
+
+		blockquote {
+			padding: 1.33em;
+			font-style: italic;
+			border-left: 5px solid #7a7a7a;
+			color: #555;
+		}
+
+		blockquote em {
+			color: #000;
+		}
+
+		blockquote footer {
+			font-size: .85rem;
+			font-style: normal;
+			background-color: #fff;
+			color: #7a7a7a;
+			border-color: transparent;
+		}
+
+		h1,
+		.h1,
+		h2,
+		.h2,
+		h3,
+		.h3,
+		h4,
+		.h4,
+		h5,
+		.h5,
+		h6,
+		.h6 {
+			font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+			font-weight: bold;
+			line-height: 1.2;
+			margin: 1em 0 0.5em;
+		}
+
+		@media screen and (min-width: 48em) {
+
+			.h1,
+			h1 {
+				font-size: 3.250rem;
+			}
+
+			.h2,
+			h2 {
+				font-size: 2.298rem;
+			}
+
+			.h3,
+			h3 {
+				font-size: 1.625rem;
+			}
+
+			.h4,
+			h4 {
+				font-size: 1.3rem;
+			}
+
+			#write>h4.md-focus:before,
+			#write>h5.md-focus:before,
+			#write>h6.md-focus:before {
+				top: 1px;
+			}
+
+			.p,
+			p,
+			li {
+				font-size: 1.25rem;
+				line-height: 1.8;
+			}
+
+			table {
+				font-size: 1.25rem;
+			}
+		}
+
+		@media (max-width: 48em) {
+			blockquote {
+				margin-left: 1rem;
+				margin-right: 0;
+				padding: 0.5em;
+			}
+
+			.h1,
+			h1 {
+				font-size: 2.827rem;
+			}
+
+			.h2,
+			h2 {
+				font-size: 1.999rem;
+			}
+
+			.h3,
+			h3 {
+				font-size: 1.413rem;
+			}
+
+			.h4,
+			h4 {
+				font-size: 1.3rem;
+			}
+		}
+
+		@media screen and (min-width: 64em) {
+
+			.h1,
+			h1 {
+				font-size: 4.498rem;
+			}
+
+			.h2,
+			h2 {
+				font-size: 2.29rem;
+			}
+
+			.h3,
+			h3 {
+				font-size: 1.9rem;
+			}
+
+			.h4,
+			h4 {
+				font-size: 1.591rem;
+			}
+
+			#write>h4.md-focus:before {
+				top: 4px;
+			}
+		}
+
+		a {
+			color: #463F5C;
+			text-decoration: underline;
+		}
+
+		#write {
+			padding-top: 2rem;
+		}
+
+		#write pre.md-meta-block {
+			min-height: 35px;
+			padding: 0.5em 1em;
+			white-space: pre;
+			border: 0px;
+
+			border-left: 30px #f8f8f8 solid;
+			border-right: 30px #f8f8f8 solid;
+			width: 100vw;
+			max-width: calc(100% + 60px);
+
+			margin-left: -30px;
+			margin-bottom: 2em;
+			margin-top: -2010px;
+			padding-top: 2000px;
+			padding-bottom: 10px;
+			line-height: 1.5em;
+			color: #7a7a7a;
+			background-color: #fafafa;
+			font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+			font-weight: 300;
+			clear: both;
+			padding-left: 0;
+			font-size: 1.125rem;
+		}
+
+		.md-image>.md-meta {
+			color: #463F5C
+		}
+
+		.footnotes {
+			font-size: 1.1rem;
+		}
+
+		.md-tag {
+			font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+		}
+
+		.code-tooltip {
+			background: white;
+		}
+
+		.code-tooltip-content {
+			font-size: 1.1rem;
+		}
+
+		.task-list {
+			padding-left: 0;
+		}
+
+		.md-task-list-item {
+			padding-left: 34px;
+		}
+
+		.md-task-list-item>input {
+			width: 1.25rem;
+			height: 1.25rem;
+			display: block;
+			-webkit-appearance: initial;
+			top: -0.2rem;
+			margin-left: -1.6em;
+			margin-top: calc(1rem - 7px);
+			border: none;
+		}
+
+		.md-task-list-item>input:focus {
+			outline: none;
+			box-shadow: none;
+		}
+
+		.md-task-list-item>input:before {
+			border: 1px solid #555;
+			border-radius: 1.5rem;
+			width: 1.5rem;
+			height: 1.5rem;
+			background: #fff;
+			content: ' ';
+			transition: background-color 200ms ease-in-out;
+			display: block;
+		}
+
+		.md-task-list-item>input:checked:before,
+		.md-task-list-item>input[checked]:before {
+			background: #333;
+			border-width: 2px;
+			display: inline-block;
+			transition: background-color 200ms ease-in-out;
+		}
+
+		.md-task-list-item>input:checked:after,
+		.md-task-list-item>input[checked]:after {
+			opacity: 1;
+		}
+
+		.md-task-list-item>input:after {
+			opacity: 1;
+			-webkit-transition: opacity 0.05s ease-in-out;
+			-moz-transition: opacity 0.05s ease-in-out;
+			transition: opacity 0.05s ease-in-out;
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+			position: absolute;
+			top: 0.4375rem;
+			left: 0.28125rem;
+			width: 0.9375rem;
+			height: 0.5rem;
+			border: 3px solid #fff;
+			border-top: 0;
+			border-right: 0;
+			content: ' ';
+			opacity: 0;
+		}
+
+		.md-tag {
+			color: inherit;
+		}
+
+		.md-toc:focus .md-toc-content {
+			margin-top: 19px;
+		}
+
+		#typora-sidebar {
+			font-size: 1rem !important;
+		}
+
+		.html-for-mac #typora-sidebar {
+			background-color: white;
+		}
+
+		.outline-content li,
+		.outline-content ul {
+			font-size: 1rem !important;
+		}
+
+		.outline-title {
+			line-height: inherit;
+			margin-top: 10px;
+		}
+
+		.outline-expander {
+			width: 18px;
+		}
+
+		.outline-expander:before {
+			content: "+";
+			font-family: inherit;
+			color: rgb(108, 108, 108);
+			font-size: 1.5rem;
+			top: -0.1rem;
+		}
+
+		.outline-expander:hover:before {
+			content: "+";
+		}
+
+		.outline-item-open>.outline-item>.outline-expander:before {
+			content: "-";
+		}
+
+		/** source code mode */
+		#typora-source {
+			font-family: Courier, monospace;
+			color: #6A6A6A;
+		}
+
+		.os-windows #typora-source {
+			font-family: inherit;
+		}
+
+		.cm-s-typora-default .cm-header,
+		.cm-s-typora-default .cm-property,
+		.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+			color: #428bca;
+		}
+
+		.cm-s-typora-default .cm-atom,
+		.cm-s-typora-default .cm-number {
+			color: #777777;
+		}
+
+		.md-diagram-panel {
+			margin-top: 24px;
+			margin-left: -1.2em;
+		}
+
+		.md-mathjax-midline {
+			background: #fafafa;
+		}
+
+		.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+		.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+		.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+			bottom: -3.4em;
+		}
+
+		.dropdown-menu .divider {
+			border-color: #e5e5e5;
+		}
+
+		.typora-export li,
+		.typora-export p,
+		.typora-export,
+		.footnote-line {
+			white-space: normal;
+		}
+	</style>
+	<title>N2</title>
+	<script src="https://mrslxj.github.io/test/jquery.min.js"></script>
+</head>
+
+<body class='typora-export os-windows typora-export-show-outline typora-export-collapse-outline'>
+	<div class='typora-export-content'>
+		<!-- kaishi -->
+		<div id="top"></div>
+		<div class="sel_box">
+			<input id="extand" type="button" class="extand" onclick="show()" value="《" />
+			<div id="selsel" style="width: 186px;height: 60px;font-size: 10px;">
+				<div>
+					<select class="select" id="sel_type">
+						<option>语法</option>
+						<option>释义</option>
+						<option>接续</option>
+					</select>
+					<input type="text" class="selkey" id="selkey" />
+				</div>
+				<div>
+					<input type="button" class="btn" onclick="findH2()" value="查询" />
+					<input type="button" class="btn" onclick="cancel()" value="取消" />
+				</div>
+				<div style="clear: both;"></div>
+				<div id="selDiv" class="selDiv"></div>
+			</div>
+			<a href="#top" class="top" target="_self">顶部</a>
+		</div>
+		<script>
+			function cancel() {
+				let ele_selDiv = document.getElementById("selDiv");
+				ele_selDiv.innerHTML = '';
+				document.getElementById("selkey").value = '';
+				var eles = document.getElementsByTagName("h2");
+				eles = Array.from(eles);
+				eles.map(x => {
+					x.style.backgroundColor = '#D9FFFF';
+				})
+				var eles3 = document.getElementsByTagName("h3");
+				eles3 = Array.from(eles3);
+				eles3.map(x => {
+					x.style.backgroundColor = '#ffffff';
+				})
+			}
+			function show() {
+				let ele_selDiv = document.getElementById("selsel");
+				let ele_ss = document.getElementById("extand");
+				if (ele_selDiv.style.display === '') {
+					ele_selDiv.style.display = 'none';
+					ele_ss.value = '《';
+				}
+				else {
+					ele_selDiv.style.display = '';
+					ele_ss.value = '》';
+				}
+			}
+			function findH2() {
+				var sel_type = document.getElementById("sel_type");
+				var newArr;
+				if (sel_type.value === '语法') {
+					var pTag = document.getElementsByTagName("h2");
+					newArr = Array.from(pTag);
+				} else if (sel_type.value === '释义') {
+					var pTag = document.getElementsByTagName("h3");
+					newArr = Array.from(pTag);
+				} else if (sel_type.value === '接续') {
+					var pTag = document.getElementsByTagName("li");
+					newArr = Array.from(pTag);
+				}
+				//搜索的关键词
+				var keys = document.getElementById("selkey").value;
+				var arr = newArr.filter(x => {
+					if (x.innerText.indexOf(keys) > -1) {
+						return x
+					}
+				})
+				//结果
+				let ele_selDiv = document.getElementById("selDiv");
+				let stringss = '';
+				let jiexuArr;
+				if (sel_type.value === '接续') {
+					jiexuArr = arr.map(x => x.innerText);
+					jiexuArr.sort();
+					jiexuArr.forEach(function (item, index) {
+						stringss += '<div class="anwser newWidth" id="' + item + '1" name="' + item + '">' + item + '</div>';
+					});
+					ele_selDiv.style.width = '300px';
+				} else {
+					ele_selDiv.style.width = '100px';
+					arr.forEach(function (item, index) {
+						stringss += '<div class="anwser" id="' + item.innerText + '1" name="' + item.innerHTML + '">' + item.innerHTML + '</div>';
+					});
+				}
+				ele_selDiv.innerHTML = stringss;
+				//跳转
+				if (sel_type.value === '接续') {
+					jiexuArr.forEach(function (item, index) {
+						var button = document.getElementById(item + '1');
+						button.addEventListener('click', function (e) {
+							//清空背景
+							if (sel_type.value === '释义') {
+								var eles = document.getElementsByTagName("h3");
+								eles = Array.from(eles);
+								eles.map(x => {
+									x.style.backgroundColor = '#ffffff';
+								})
+							} else {
+								var eles = document.getElementsByTagName("h2");
+								eles = Array.from(eles);
+								eles.map(x => {
+									x.style.backgroundColor = '#D9FFFF';
+								})
+							}
+							var eles = $("#write>:contains(" + item + ")").prev().prev().prev();
+							eles[0].scrollIntoView();
+							// eles[0].css({"background-color":"#eee"})
+						});
+					})
+				} else {
+					arr.forEach(function (item, index) {
+						var button = document.getElementById(item.innerText + '1');
+						button.addEventListener('click', function (e) {
+							if (sel_type.value === '释义') {
+								var eles = document.getElementsByTagName("h3");
+								eles = Array.from(eles);
+								eles.map(x => {
+									x.style.backgroundColor = '#ffffff';
+								})
+							} else {
+								var eles = document.getElementsByTagName("h2");
+								eles = Array.from(eles);
+								eles.map(x => {
+									x.style.backgroundColor = '#D9FFFF';
+								})
+							}
+							var ele = document.getElementById(item.id);
+							ele.scrollIntoView();
+							ele.style.backgroundColor = '#eee'
+						});
+					});
+				}
+			}
+			function getElementsByXPath(xpath, parent) {
+				let results = [];
+				let query = document.evaluate(xpath, parent || document,
+					null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+				for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+					results.push(query.snapshotItem(i));
+				}
+				console.log(results, 'results')
+				return results;
+			}
+		</script>
+		<style>
+			.btn {
+				width: 30px;
+				height: 19px;
+				float: left;
+				padding: 0;
+			}
+
+			.select {
+				width: 46px;
+				height: 19px;
+				float: left;
+			}
+
+			.selkey {
+				width: 120px;
+				height: 19px;
+				float: left;
+			}
+
+			.sel_box {
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 999;
+			}
+
+			.top {
+				position: fixed;
+				top: 0;
+				right: 0;
+				font-size: 12px;
+				z-index: 1999;
+				width: 35px;
+				text-align: center;
+				height: 20px;
+				border-radius: 6px;
+				background-color: deepskyblue;
+				color: #ffffff;
+			}
+
+			.extand {
+				/* position: fixed;
+				top: 0;
+				left: 138px;
+				z-index: 999; */
+				width: 40px;
+				height: 40px;
+				font-size: 12px;
+				padding: 0;
+			}
+
+			h2 {
+				border: #428bca dotted 1px;
+				background-color: #D9FFFF;
+			}
+
+			.anwser {
+				width: 300px;
+				height: 20px;
+				font-size: 12px;
+				background-color: #ffffff;
+				overflow: hidden;
+			}
+
+			.selDiv {
+				/* background-color: #ffffff; */
+				width: 300px;
+				height: 600px;
+				overflow: auto;
+				overflow-y: scroll;
+			}
+
+			.selDiv h2 {
+				background-color: #ffffff !important;
+				width: 60px;
+				height: 15px;
+				font-size: 10px;
+				overflow: hidden;
+			}
+
+			#write {
+				/* background-color: #7a7a7a; */
+			}
+		</style>
+		<!-- jieshu -->
+
+		<div id='write' class=''>
+			<h1 id='n2'><span>N2</span></h1>
+			<h2 id='～際に）～際は）'><span>～際（に）～際（は）</span></h2>
+			<p><span>こちらの会議室をご利用になる際は、受付で必要事項をご記入ください。</span>
+				<span>必要：ひつよう 事項：じこう 記入：きにゅう</span>
+			</p>
+			<h3 id='时候'><span>……时候</span></h3>
+			<ul>
+				<li><span>【书】 N＋の/Vる・Vた＋際（に）～際（は）</span></li>
+			</ul>
+			<h2 id='～に際してに・～にあたって＋积极'><span>～に際してに・～にあたって＋【积极】</span></h2>
+			<p><span>面接に際しての注意事項。面接：めんせつ</span>
+				<span>新しく事業を始めるにあたって、しっかりと準備をしようと思っております。</span>
+				<span>事業：じぎょう 準備：じゅんび</span>
+			</p>
+			<h3 id='值此之际'><span>值此之际……</span></h3>
+			<ul>
+				<li><span>【书】N/Vる＋に際してに・～にあたって</span></li>
+			</ul>
+			<h2 id='～たとたんに）'><span>～たとたん（に）</span></h2>
+			<p><span>山の頂上でワインを一口飲んだとたんに、あまいがした。</span>
+				<span>頂上：ちょうじょう</span>
+				<span>夫は結婚前は優しなかったが、結婚したとたんに、態度が変わった。</span>
+			</p>
+			<h3 id='做了之后紧接着发生意外的事情'><span>做了……之后，紧接着发生意外的事情</span></h3>
+			<ul>
+				<li><span>Vた＋たとたん（に）</span></li>
+				<li><span>【＋意外】【不＋意志，命令等】</span></li>
+			</ul>
+			<h2 id='～か）と思うと・～か）と思ったら'><span>～（か）と思うと・～（か）と思ったら</span></h2>
+			<p><span>赤ちゃんは今泣いたと思うと、もう笑っている。</span>
+				<span>泣く　＞　泣いた　なく</span>
+			</p>
+			<h3 id='之后紧接着马上发生下一个事件或重大变化'><span>……之后，紧接着马上发生下一个事件或重大变化</span></h3>
+			<ul>
+				<li><span>Vた＋（か）と思うと・～（か）と思ったら</span></li>
+				<li><span>【不＋自己的行为】</span></li>
+			</ul>
+			<h2 id='～か～ないかのうちに'><span>～か～ないかのうちに</span></h2>
+			<p><span>一郎はベッドに横になるかならないかのうちに、ぐっすり眠ってしまった。</span>
+				<span>一郎：いちろう　横：よこ　眠る：ねむる</span>
+			</p>
+			<h3 id='结束的同时发生下一件事情'><span>……结束的同时，发生下一件事情</span></h3>
+			<ul>
+				<li><span>Vる・Vた＋か＋Vない＋かのうちに</span></li>
+				<li><span>【几乎同时发生，后项多为过去时】【同一动词】</span></li>
+			</ul>
+			<h2 id='～最中だ～最中に＋妨碍'><span>～最中だ　～最中に＋【妨碍】</span></h2>
+			<p><span>浜辺でバーベキューをやっている最中に、急に雨が降り出だした。</span>
+				<span>浜辺：はまべ　急に：きゅうに</span>
+			</p>
+			<h3 id='正在做的时候'><span>正在做……的时候</span></h3>
+			<ul>
+				<li><span>Nの・Vている＋最中だ　～最中に</span></li>
+			</ul>
+			<h2 id='～うちに'><span>～うちに</span></h2>
+			<h3 id='趁着赶紧'><span>趁着……赶紧</span></h3>
+			<p><span>忘れないうちに、カレンダーにメモしておこう。</span></p>
+			<ul>
+				<li><span>Nの/Vる・Vている・Vない/Aい/ANな＋うちに</span></li>
+				<li><span>＋【意志】</span></li>
+			</ul>
+			<h3 id='正在做期间发生了变化'><span>正在做……期间发生了变化；</span></h3>
+			<p><span>知らないうちに、雨が降り始めていた。</span></p>
+			<ul>
+				<li><span>Vる・Vている・Vない＋うちに</span></li>
+				<li><span>【不知不觉，自然而然的变化】；不＋【意志】</span></li>
+			</ul>
+			<h2 id='～ばかりだ・～一方だ'><span>～ばかりだ・～一方だ</span></h2>
+			<p><span>このごろは仕事が多くて残業が増えるばかりだ。</span>
+				<span>残業：ざんぎょう</span>
+			</p>
+			<h3 id='变化单一方向不断加剧'><span>变化……单一方向不断加剧</span></h3>
+			<ul>
+				<li><span>Vる+ばかりだ・～一方だ</span></li>
+				<li><span>～ばかりだ多＋【不好的方向】</span></li>
+			</ul>
+			<h2 id='～ようとしている'><span>～「よ」うとしている</span></h2>
+			<p><span>さあ、決勝戦が今、始まろうとしています。みんな緊張しています。</span>
+				<span>決勝戦：けっしょうせん　緊張：きんちょう</span>
+			</p>
+			<h3 id='马上就要'><span>马上就要</span></h3>
+			<ul>
+				<li><span>【书】V意志形＋うとしている</span></li>
+			</ul>
+			<h2 id='～つつある'><span>～つつある</span></h2>
+			<p><span>明治時代の始め、日本は急速に近代化しつつあった。</span>
+				<span>明治時代：めいじじだい　急速に：きゅうそくに　近代化：きんだいか</span>
+			</p>
+			<h3 id='变化正在进行过程中'><span>……变化正在进行过程中</span></h3>
+			<ul>
+				<li><span>【书】V连用形＋つつある</span></li>
+			</ul>
+			<h2 id='～つつ'><span>～つつ</span></h2>
+			<p><span>いろいろな体験を楽しみつつ、日本の生活に慣れていった。</span>
+				<span>体験：たいけん　慣れる：なれる</span>
+			</p>
+			<h3 id='一边一边做某事-＝ながら'><span>一边……一边做某事 ＝ながら</span></h3>
+			<ul>
+				<li><span>【书】V连用形＋つつ</span></li>
+			</ul>
+			<h2 id='～てはじめて'><span>～てはじめて</span></h2>
+			<p><span>山田先生の指導を受付てはじめて、生物の観察が面白いと思うようになった。</span>
+				<span>指導：しどう　受付：うけ　生物：せいぶつ　観察：かんさつ</span>
+			</p>
+			<h3 id='经历了之后今までになかったことが起こる'><span>经历了……之后、今までになかったことが起こる。</span></h3>
+			<ul>
+				<li><span>Vて＋はじめて</span></li>
+			</ul>
+			<h2 id='～上で同一主语'><span>～上で【同一主语】</span></h2>
+			<h3 id='準備として作为准备先做'><span>準備として　作为准备先做……</span></h3>
+			<p><span>家族と相談した上で、お返事をしたします。返事：へんじ</span></p>
+			<ul>
+				<li><span>N＋の/ Vた　＋上で</span></li>
+			</ul>
+			<h3 id='～上では）在方面从来看'><span>～上で（は）　在……方面，从……来看</span></h3>
+			<p><span>地図の上では近いのに、行ってみると、10時間もかかった。近い：ちかい</span>
+				<span>あの人は法律の上では夫婦だ。法律：ほうりつ</span>
+			</p>
+			<ul>
+				<li><span>N＋の/ Vる　＋上では</span></li>
+			</ul>
+			<h2 id='～次第'><span>～次第</span></h2>
+			<p><span>詳しいことがわかり次第、ご連絡いたします。詳しい：くわしい</span></p>
+			<h3 id='实现以后马上采取后续行为'><span>……实现以后，马上采取后续行为</span></h3>
+			<ul>
+				<li><span>V连用形＋次第</span></li>
+			</ul>
+			<h3 id='多用于通知后不＋过去式'><span>【多用于通知】；后不＋过去式</span></h3>
+			<h2 id='～て以来・～てこのかた'><span>～て以来・～てこのかた</span></h2>
+			<p><span>子供が生まれて以来、外で酒を飲んでいない。生まれる：うまれる　外：そと</span>
+				<span>母がいなくなってこのかた、母のことを考えない日はない。</span>
+				<span>就職以来、一度も休んでいない。就職：しゅうしょく</span>
+			</p>
+			<h3 id='从过去到现在一直-后＋状态'><span>从过去到现在一直…… 后＋状态</span></h3>
+			<ul>
+				<li><span>Vて/N＋以来/このかた</span></li>
+			</ul>
+			<h2 id='～てからでないと・～てからでなければ'><span>～てからでないと・～てからでなければ</span></h2>
+			<p><span>この果物は赤くなってからでないと、酸っぱくて食べられません。</span></p>
+			<h3 id='如果不是做完的话某事就不会实现'><span>如果不是做完……的话，某事就不会实现</span></h3>
+			<ul>
+				<li><span>Vて＋からでないと・からでなければ</span></li>
+			</ul>
+			<h3 id='后＋否定含义的句子'><span>后＋否定含义的句子</span></h3>
+			<h2 id='～をはじめてとして）'><span>～をはじめて（として）</span></h2>
+			<p><span>日本には「桃太郎」をはじめとして、おじいさん、おばあさんが出てくる昔話が多い。桃：もも</span></p>
+			<h3 id='以为代表'><span>以……为代表</span></h3>
+			<ul>
+				<li><span>【书】N+をはじめ（として）</span>
+					<span>N+をはじめとする＋N</span>
+				</li>
+			</ul>
+			<h2 id='～からして多＋消极评价'><span>～からして【多＋消极评价】</span></h2>
+			<p><span>私と夫とは似ているところが少し？ない。第一、食べ物の好みからして正反対だ。</span>
+				<span>似る：にる　好み：このみ　正反対：せいはんたい</span>
+			</p>
+			<h3 id='单从来看就'><span>单从……来看就……；</span></h3>
+			<ul>
+				<li><span>N+からして</span></li>
+			</ul>
+			<h2 id='～にわたって'><span>～にわたって</span></h2>
+			<p><span>連休の最終日、高速道路は20キロにわたって渋滞が続いた。</span>
+				<span>連休：れんきゅう　渋滞：じゅうたい　続く：つづく</span>
+				<span>3か間にわたる研修発表大会が、無事終了しました。</span>
+				<span>研修：けんしゅう　発表：はっぴょう　無事：ぶじ　終了：しゅうりょう</span>
+			</p>
+			<h3 id='表示时间空间的范围强调广阔'><span>表示时间/空间的范围，强调广阔</span></h3>
+			<ul>
+				<li><span>N＋にわたって/ N＋にわたる＋N</span></li>
+			</ul>
+			<h2 id='～を通じて・～を通して'><span>～を通じて・～を通して</span></h2>
+			<p><span>A:　この町には四季を通じて観光客が訪れる。</span>
+				<span>B:　今日では、インターネットを通じて世界中の情報が手に入る。</span>
+			</p>
+			<h3 id='ずっと同じ状態じょうたいだ'><span>ずっと同じ状態じょうたいだ</span></h3>
+			<ul>
+				<li><span>N＋を通じて・～を通して</span></li>
+			</ul>
+			<h3 id='～を手段しゅだんにして-＋媒介'><span>～を手段しゅだんにして 【＋媒介】</span></h3>
+			<ul>
+				<li><span>N＋を通じて・～を通して</span></li>
+			</ul>
+			<h2 id='～だけ'><span>～だけ</span></h2>
+			<p><span>今日は部長に言いたいだけの不満を全部言って、すっきりした。不満：ふまん</span>
+				<span>バイキング形式の食事ですから、好みなもの好きなだけ取ってお召し上がりください。形式：けいしき</span>
+			</p>
+			<h3 id='尽量能都'><span>尽量……；能……都……</span></h3>
+			<ul>
+				<li><span>Vる/Aい/ANな＋だけ</span></li>
+			</ul>
+			<h2 id='～限り'><span>～限り</span></h2>
+			<h3 id='仅限于向公众解释多恩惠'><span>仅限于　向公众解释；【多+恩惠】</span></h3>
+			<p><span>チラシをご持参のお客様に限り、入場無料。</span>
+				<span>持参：じさん　入場：にゅうじょう</span>
+			</p>
+			<ul>
+				<li><span>N＋に限り</span></li>
+			</ul>
+			<h3 id='尽量表范围内最大限度'><span>尽量……【表范围内最大限度】</span></h3>
+			<p><span>できる限りのことをした。</span>
+				<span>力の限り頑張る・声の限り・命の限り　命：いのち</span>
+			</p>
+			<ul>
+				<li><span>N＋の/ Vる・Vている＋限り</span></li>
+			</ul>
+			<h3 id='据所知调查表限定'><span>据……所知、调查。表限定</span></h3>
+			<p><span>私が知っている限りでは、この近所に花屋はありません。近所：きんじょ</span></p>
+			<ul>
+				<li><span>常＋見る・知る・聞く・調べる等</span></li>
+			</ul>
+			<h3 id='只要就表条件'><span>只要……就。表条件</span></h3>
+			<p><span>足が丈夫な限り、まだまだ山登りが楽しめるだろう。</span>
+				<span>丈夫：じょうぶ　登る：のぼる</span>
+				<span>親である限りは、子供に対する責任があると思う。責任：せきにん</span>
+			</p>
+			<ul>
+				<li><span>Vる・Vない/Aい/Nである/ANな・である＋限り</span></li>
+			</ul>
+			<h3 id='n＋に限り'><span>N＋に限り</span></h3>
+			<ul>
+				<li><span>普段酒など飲まない彼が、今日に限ってかなりのんだ。【不同】</span></li>
+				<li><span>大切な用事があったのに、こんな時に限って子供が熱を出してしまった。【偏偏】</span></li>
+				<li><span>うちのこに限って友達をいじめることはないと思います。【信任】</span></li>
+				<li><span>普段：ふだん　熱：ねつ　出す：だすーだして　出る：でるーでて　いじめる：欺负</span></li>
+			</ul>
+			<h2 id='～に限らず由小→大'><span>～に限らず【由小→大】</span></h2>
+			<p><span>近年、地方の町に限らず大都市でも書店の閉店が相次いでいる。</span>
+				<span>大都市：だいとし　書店：しょてん　閉店：へいてん　相次ぐ：あいつぐーあいついで</span>
+			</p>
+			<h3 id='范围不仅限于'><span>范围不仅限于……</span></h3>
+			<ul>
+				<li><span>N+に限らず</span></li>
+			</ul>
+			<h3 id='-1'><span> </span></h3>
+			<h2 id='～のみならず书可同级其他事物'><span>～のみならず【书】；可+同级其他事物</span></h2>
+			<p><span>電気代のみならず、ガス代や水道代も値上がりするようだ。</span></p>
+			<h3 id='不仅-1'><span>不仅……</span></h3>
+			<ul>
+				<li><span>~简/N/ANである+のみならず　＝だけではない</span></li>
+			</ul>
+			<h3 id='-2'><span> </span></h3>
+			<h2 id='～ばかりか'><span>～ばかりか</span></h2>
+			<p><span>山田さんの説明は、子供もわかりやすいばかりか、非常に面白くてためになる。</span>
+				<span>説明：せつめい　非常に：ひじょうに</span>
+			</p>
+			<h3 id='不仅而且岂止是'><span>不仅……而且……；岂止是……</span></h3>
+			<ul>
+				<li><span>N（である）/ANな（である）/~（简）+ばかりか</span></li>
+			</ul>
+			<h3 id='-3'><span> </span></h3>
+			<h2 id='～はもとより'><span>～はもとより</span></h2>
+			<p><span>タバコは本人はもとより、周りの人にも害を及ぼす。</span>
+				<span>本人：ほんにん　周り：まわり　害：がい　及ぼす：およぼす：使达到，影响到</span>
+				<span>気を配る：留神</span>
+			</p>
+			<h3 id='自不必说其他也如此'><span>自不必说，其他也如此</span></h3>
+			<ul>
+				<li><span>N（助词）＋はもとより</span></li>
+			</ul>
+			<h3 id='比～はもちろん更书面前理所当然'><span>比～はもちろん更书面，前+理所当然</span></h3>
+			<h3 id='-4'><span> </span></h3>
+			<h2 id='～上に）'><span>～上（に）</span></h2>
+			<p><span>田中さんには仕事を手伝ってもらった上に、仕事の後、ご馳走になった。</span>
+				<span>手伝う：てつだう：帮忙，加上，还由于 ご馳走：ごちそう：款待，好菜</span>
+			</p>
+			<h3 id='不仅-2'><span>不仅……</span></h3>
+			<ul>
+				<li><span>~简/N+の・（である）/ANな・（である）＋上（に）</span></li>
+			</ul>
+			<h3 id='好坏更上一层楼'><span>好/坏更上一层楼</span></h3>
+			<h3 id='-5'><span> </span></h3>
+			<h2 id='～に関して'><span>～に関して</span></h2>
+			<p><span>高齢者の生活に関するアンケートにご協力ください。</span>
+				<span>高齢者：こうれいしゃ　協力：きょうりょく</span>
+				<span>彼は時間に関しては厳しいので、絶対遅刻はできない。</span>
+				<span>厳しい：きびしい　遅刻：ちこく</span>
+			</p>
+			<h3 id='书有关'><span>【书】有关……</span></h3>
+			<ul>
+				<li><span>N+に関して+N</span></li>
+			</ul>
+			<h2 id='～をめぐって'><span>～をめぐって</span></h2>
+			<p><span>消費税の問題をめぐって、国会は大きく揺れた。</span>
+				<span>消費税：しょうひぜい　国会：こっかい　揺れる：ゆれる：摇晃，摇摆，摆动，摇荡；晃荡，颠簸；动摇，不稳定</span>
+			</p>
+			<h3 id='书针对进行'><span>【书】针对……进行……</span></h3>
+			<ul>
+				<li><span>N+をめぐって+N</span></li>
+			</ul>
+			<h2 id='～にかけては'><span>～にかけては</span></h2>
+			<p><span>あの政治家は演説にかけては最高のレベルだ。</span>
+				<span>商売にかけての才能</span>
+				<span>政治家：せいじか　演説：えんぜつ　商売：しょうばい　才能：さいのう</span>
+			</p>
+			<h3 id='在方面论多正面评价但不绝对'><span>在……方面；论……；多+正面评价，但不绝对</span></h3>
+			<ul>
+				<li><span>N+にかけては+N</span></li>
+			</ul>
+			<h2 id='～にたいして'><span>～にたいして</span></h2>
+			<h3 id='以为对象做某事'><span>以……为对象做某事</span></h3>
+			<p><span>目上の人に対してそんな乱暴な言い方をしてはいけません。</span>
+				<span>乱暴：らんぼう</span>
+			</p>
+			<ul>
+				<li><span>N+にたいして N+にたいする＋N</span></li>
+			</ul>
+			<h3 id='与之相对的'><span>与之相对的</span></h3>
+			<p><span>朝はパンを食べると答えた人が30％だったのに対して、ご飯を食べると答えた人は65％だった。</span>
+				<span>％：パーセント</span>
+			</p>
+			<ul>
+				<li><span>～简＋の＋にたいして</span>
+					<span>N+に対して</span>
+				</li>
+			</ul>
+			<h2 id='～にこたえて'><span>～にこたえて</span></h2>
+			<p><span>気持ちにこたえて</span>
+				<span>ご要望にこたえて　要望：ようぼう</span>
+			</p>
+			<h3 id='为了不辜负的期待'><span>为了不辜负……的期待</span></h3>
+			<ul>
+				<li><span>N+にこたえて N+にこたえする＋N</span></li>
+			</ul>
+			<h2 id='～をもとにして）非实际的材料'><span>～をもとに（して）　非实际的材料</span></h2>
+			<p><span>あの飛行機事故をもとにした映画はこれだけじゃない。ほかにもある。</span></p>
+			<h3 id='以为素材基础根基等制作出'><span>以……为素材，基础，根基等制作出</span></h3>
+			<ul>
+				<li><span>N+をもとに（して） N+をもとにする＋N</span></li>
+			</ul>
+			<h2 id='～に基づいて-前表基准的词基もと'><span>～に基づいて 前+表基准的词　基：もと</span></h2>
+			<p><span>最新のデータに基づいて売り上げ計画を立てたいと思います</span>
+				<span>計画：けいかく　立て：たて　立制定,起草</span>
+			</p>
+			<h3 id='以为基准做事'><span>以……为基准做事</span></h3>
+			<ul>
+				<li><span>N+に基づいて N+に基づく・づいた＋N</span></li>
+			</ul>
+			<h2 id='～に沿って-不偏离'><span>～に沿って 不偏离</span></h2>
+			<p><span>今、政府の基本方針に沿って今年度の予算案を作っている。</span>
+				<span>政府：せいふ　基本方針：きほんほうしん　予算案：よさんあん</span>
+				<span>活躍ができる　活躍：かつやく　有所作为</span>
+			</p>
+			<h3 id='为了符合不偏离而做某事'><span>为了符合，不偏离……而做某事</span></h3>
+			<ul>
+				<li><span>N+に沿って N+に沿う・った＋N</span></li>
+			</ul>
+			<h2 id='～のもとで・～のもとに'><span>～のもとで・～のもとに</span></h2>
+			<p><span>開発という名のもとに自然が失われていくの残念だ。</span>
+				<span>開発：かいはつ　自然：しぜん　失う：うしなうーうしなわれる　効力を失う；機会を失う ；妻を失う；方向を失う ；自分を失う；</span>
+			</p>
+			<h3 id='在的影响下处于的状态'><span>在……的影响下，处于……的状态</span></h3>
+			<ul>
+				<li><span>N+のもとで・のもとに</span></li>
+			</ul>
+			<h2 id='～向けだ-前表人的名词'><span>～向けだ 前+表人的名词</span></h2>
+			<p><span>独身男性向けの料理教室が開かれることになった。独身：どくしん　開く：ひらく</span></p>
+			<h3 id='面向'><span>面向……</span></h3>
+			<ul>
+				<li><span>N+むけだ</span></li>
+			</ul>
+			<h2 id='～につれて・～にしたがって'><span>～につれて・～にしたがって</span></h2>
+			<p><span>日本に来て日がたつにつれ、会話が上達してきた</span>
+				<span>日がたつ：日子推进 上達：じょうたつ</span>
+			</p>
+			<h3 id='一方发生变化的同时另一方也发生变化'><span>一方发生变化的同时，另一方也发生变化</span></h3>
+			<ul>
+				<li><span>N（汉）/Vる+につれて</span></li>
+			</ul>
+			<h2 id='～に伴って・～とともに-----伴ともな'><span>～に伴って・～とともに 伴：ともな</span></h2>
+			<p><span>入学する留学生数の変化に伴って、クラス数を変える必要がある。</span>
+				<span>入学：にゅうがく 数：すう</span>
+			</p>
+			<h3 id='书多用于事物整体的变化非阶段'><span>书；多用于事物整体的变化，非阶段</span></h3>
+			<ul>
+				<li><span>N/Vる＋に伴ともなって・～とともに</span>
+					<span>N/Vる＋に伴う</span>
+				</li>
+			</ul>
+			<h2 id='～次第だ'><span>～次第だ</span></h2>
+			<p><span>人生が楽しいかどうかは考え方次第だ。</span></p>
+			<h3 id='根据而定'><span>根据……而定</span></h3>
+			<ul>
+				<li><span>N+次第だ</span></li>
+			</ul>
+			<h2 id='～に応じて--におうじて'><span>～に応じて におうじて</span></h2>
+			<p><span>お子さんの年齢に応じて本を選んであげてください。</span>
+				<span>収入に応じて収める税金の額が変わる。</span>
+				<span>収入：しゅうにゅう　収める：おさめる　税金：ぜいきん　額：がく</span>
+			</p>
+			<h3 id='前预计会发生变化的事物＝～にあわせて'><span>前+预计会发生变化的事物＝～にあわせて</span></h3>
+			<ul>
+				<li><span>N+に応じて N+に応じた＋N</span></li>
+			</ul>
+			<h2 id='～につけて-＋心里活动'><span>～につけて ＋心里活动</span></h2>
+			<p><span>この歌を聞くにつけて、心に希望がわいてくる。湧く：わく</span>
+				<span>父は何かにつけて、若いころ外国で過ごした思い出を語るかたる。一有机会</span>
+				<span>何事につけて 无论什么事</span>
+				<span>～どんな事でも：无论什么事。</span>
+				<span>～何についても：对什么都……。</span>
+				<span>～何をしても：无论做什么。</span>
+			</p>
+			<h3 id='一心情就总是必然如此'><span>一……心情就总是必然如此</span></h3>
+			<ul>
+				<li><span>Vる+につけて</span></li>
+			</ul>
+			<h2 id='～やら～やら多这样那样真够呛'><span>～やら～やら　多+这样那样真够呛</span></h2>
+			<p><span>だまされたとわかったときは腹が立つやら情けないやらで、気持ちを抑えることができなかった。腹：はら　情：なさ　抑える：おさえる　压，捂；抑制，控制；扣押，扣留；抓住，掌握；</span></p>
+			<h3 id='约～とか～とか'><span>约=～とか～とか</span></h3>
+			<ul>
+				<li><span>N/Vる/Aい＋やら</span></li>
+			</ul>
+			<h2 id='～というか～というか'><span>～というか～というか</span></h2>
+			<p><span>退職してほっとしたというか寂しいというか、複雑です。</span>
+				<span>退職：たいしょく　複雑：ふくざつ</span>
+			</p>
+			<h3 id='情商低不知道哪个表达更恰当'><span>情商低，不知道哪个表达更恰当</span></h3>
+			<ul>
+				<li><span>～简/N・ANだ＋というか～というか</span></li>
+			</ul>
+			<h2 id='～にしても～にしても・～にしろ～にしろ・～にせよ～にせよ'><span>～にしても～にしても・～にしろ～にしろ・～にせよ～にせよ</span></h2>
+			<p><span>野菜にしても魚にしても、料理の材料は新鮮さが第一です。</span>
+				<span>材料：ざいりょう　新鮮：しんせん</span>
+				<span>将来家を買うにしろ買わないにしろ、貯金はしておこう。</span>
+				<span>将来：しょうらい　貯金：ちょきん</span>
+			</p>
+			<h3 id='都可以得出同样的结论不管还是都'><span>【都可以得出同样的结论】不管……还是……都</span></h3>
+			<ul>
+				<li><span>~简/N/AN+にしても・にしろ・にせよ</span></li>
+			</ul>
+			<h2 id='～といった-接在几个例子之后'><span>～といった 【接在几个例子之后】</span></h2>
+			<p><span>京都とか鎌倉といった古い町には寺が多い。鎌倉：かまくら　古い：ふるい　寺：てら</span></p>
+			<h3 id='对例子进行汇总'><span>对例子进行汇总</span></h3>
+			<ul>
+				<li><span>N+といった+N</span></li>
+			</ul>
+			<h2 id='～を問わず不管'><span>～を問わず　不管……</span></h2>
+			<p><span>このマラソン大会には、性別、年齢を問わず、誰でもさんかできます。</span>
+				<span>性別：せいべつ　問わず：とわず</span>
+			</p>
+			<h3 id='問題ではなく不管'><span>問題ではなく　不管……</span></h3>
+			<ul>
+				<li><span>N＋を問わず</span></li>
+			</ul>
+			<h3 id='年齢国籍こくせき天候てんこう男女だんじょ内外ないがい有無うむ'><span>年齢、国籍こくせき、天候てんこう、男女だんじょ、内外ないがい、有無うむ</span></h3>
+			<h2 id='～にかかわりなく・～にかかわらず'><span>～にかかわりなく・～にかかわらず</span></h2>
+			<p><span>この路線バスの料金は、乗った距離にかかわりなく一律200円です。</span>
+				<span>距離：きょり　一律：いちりつ</span>
+				<span>使う、使わないにかかわらず、会場には一応マイクが準備してあります。</span>
+				<span>一応：いちおう</span>
+				<span>振り込み手数料：汇款手续费</span>
+			</p>
+			<h3 id='同じようになる'><span>同じようになる</span></h3>
+			<ul>
+				<li><span>N＋にかかわりなく・～にかかわらず</span></li>
+			</ul>
+			<h2 id='～もかまわず-＋非同寻常構うかまう'><span>～もかまわず ＋非同寻常　構う：かまう</span></h2>
+			<p><span>人目もかまわず、道で大泣きしている人を見かけた。人目：ひとめ</span></p>
+			<h3 id='不理会尽管平时会顾忌后非同寻常含有意外语感的动作的句子'><span>不理会，尽管平时会顾忌；后+非同寻常，含有意外语感的动作的句子</span></h3>
+			<ul>
+				<li><span>N+もかまわず</span></li>
+				<li><span>～（简）/N+な・である/AN+な・である＋の＋もかまわず</span></li>
+			</ul>
+			<h2 id='～はともかくとして）'><span>～はともかく（として）</span></h2>
+			<p><span>外ではともかく、家の中でタバコを吸うのはやめて。吸う：すう</span></p>
+			<h3 id='暂不考虑后项比前项更想强调'><span>暂不考虑；后项比前项更想强调</span></h3>
+			<ul>
+				<li><span>N（助）+はともかく（として）</span></li>
+			</ul>
+			<h2 id='～はさておき暂且放一边按下不表おきおく'><span>～はさておき　暂且放一边，按下不表　おき：おく</span></h2>
+			<p><span>冗談はさておき、次回のテーマを決めておきたいと思います。</span>
+				<span>冗談：じょうだん　次回：じかい　</span>
+			</p>
+			<h3 id='前多在此之前已是话题的词语'><span>前多+在此之前已是话题的词语</span></h3>
+			<ul>
+				<li><span>N（助）+はさておき</span></li>
+			</ul>
+			<h2 id='～わけがない全部否定'><span>～わけがない　全部否定</span></h2>
+			<p><span>この仕事を今日中に全部ですか。わたし一人でできるわけがありませんよ。</span></p>
+			<h3 id='不可能不会'><span>不可能……，不会……</span></h3>
+			<ul>
+				<li><span>～（简）/N+な・N+の/AN+な＋わけがない</span></li>
+			</ul>
+			<h2 id='～わけではない・～というわけではない多表部分否定'><span>～わけではない・～というわけではない　多表部分否定</span></h2>
+			<p><span>親の気持ちもわからないわけではないが、自分の進路は自分で決めたい。 </span>
+				<span>進路：しんろ</span>
+				<span>その日は絶対に無理というわけではありませんが、できれば別の日にしてもらえるとありがたいです。</span>
+			</p>
+			<h3 id='不能说全部都'><span>不能说全部都……</span></h3>
+			<ul>
+				<li><span>～（简）/N+の・な・である/AN+な・である+わけではない</span></li>
+				<li><span>～（简）/N/AN+というわけではない</span></li>
+			</ul>
+			<h2 id='～ものか-强烈的否定多负面情绪'><span>～ものか 强烈的否定，多+负面情绪</span></h2>
+			<p><span>こんな不便な所に住めるものか。住める：すめる</span></p>
+			<h3 id='怎么会呢口语稍带主观感情色彩的语气强烈的否定句'><span>“怎么会……呢”　口语、稍带主观感情色彩的语气强烈的否定句</span></h3>
+			<ul>
+				<li><span>～（简）/N+な/AN+な+ものか</span></li>
+			</ul>
+			<h2 id='～どころではない・～どころか'><span>～どころではない・～どころか</span></h2>
+			<p><span>せきが出るので風邪かなと思っていたが、ただの風邪どころではなく、肺炎だった。　肺炎：はいえん</span></p>
+			<h3 id='岂止是连也多更差前后项是程度相差很大或相反的事情'><span>岂止是……连……也……；多+更差；前后项是程度相差很大或相反的事情</span></h3>
+			<ul>
+				<li><span>N+どころではない・どころか</span></li>
+				<li><span>～（简）/N・AN（な）+どころではない・どころか</span></li>
+			</ul>
+			<h2 id='～というものではない・～というものでもない'><span>～というものではない・～というものでもない</span></h2>
+			<p><span>努力すれば必ず成功するというものでもない。チャンスも必要だ。</span>
+				<span>努力：どりょく　成功：せいこう</span>
+			</p>
+			<h3 id='不能说具备某种条件就一定表说话人就事物本质发表的观点或感想'><span>不能说具备某种条件就一定……；表说话人就事物本质发表的观点或感想</span></h3>
+			<ul>
+				<li><span>～（简）/N・AN（だ）+というものではない・というものでもない</span></li>
+			</ul>
+			<h2 id='とは'><span>とは</span></h2>
+			<p><span>人生とは本人が主役のドラムみたいなものだ。主役：しゅやく</span></p>
+			<h3 id='比というのは更书面下定义后～だ・～である・～という意味である・～ということである・～の）ことである'>
+				<span>比というのは更书面；下定义；后+～だ・～である・～という意味である・～ということである・～（の）ことである</span>
+			</h3>
+			<ul>
+				<li><span>N+とは</span></li>
+			</ul>
+			<h2 id='～といえば'><span>～といえば</span></h2>
+			<p><span>このコーヒー、ハワイのお土産ですか。ハワイと言えば、さち子さんが来月ハワイで結婚式をするだそうですよ。</span>
+				<span>松本さんのうちのお嬢さん、かわいいといえばかわいいけど、ちょっとわがままね。</span>
+			</p>
+			<h3 id='a言葉を取り上げ说起引出新话题'><span>A:　言葉を取り上げ　说起……引出新话题</span></h3>
+			<ul>
+				<li><span>~简/AN・N（だ）＋といえば</span></li>
+			</ul>
+			<h3 id='b取り上げる言葉要说确实但是'><span>B:　取り上げる言葉　要说……确实……，但是……</span></h3>
+			<h2 id='～というと・～といえば・～といったら'><span>～というと・～といえば・～といったら</span></h2>
+			<p><span>オーストラリアと言えば、すぐにコアラとかカンガルーを思い浮かべる。</span>
+				<span>辞めるというと、もう来ないということですか？</span>
+				<span>浮かべる：うかべる　辞める：やめる</span>
+			</p>
+			<h3 id='すぐに思いつくこと说起谈到'><span>すぐに思いつくこと　说起……谈到……</span></h3>
+			<ul>
+				<li><span>N/V/AN/Aい＋というと・～といえば・～といったら</span></li>
+			</ul>
+			<h2 id='～のこと）となると＋不同寻常的态度'><span>～（のこと）となると＋不同寻常的态度</span></h2>
+			<p><span>佐藤さんは好きな歌手のこととなると話が止まらない。歌手：かしゅ　止まる</span></p>
+			<h3 id='针对的话题'><span>针对……的话题</span></h3>
+			<ul>
+				<li><span>N+（のこと）となると</span></li>
+			</ul>
+			<h2 id='～といったら'><span>～といったら</span></h2>
+			<p><span>暗い山道を一人で歩いたときの怖さといったら。暗い：くらい　歩く：あるく</span></p>
+			<h3 id='说起谈到-后不是一般程度的句子或表吃惊'><span>说起……谈到…… 后+不是一般程度的句子或表吃惊</span></h3>
+			<ul>
+				<li><span>N+といったら</span></li>
+			</ul>
+			<h3 id='といったらない难以形容无法描述'><span>といったらない　难以形容，无法描述</span></h3>
+			<h2 id='～にもかかわらず'><span>～にもかかわらず</span></h2>
+			<p><span>水道工事の人たちは悪天候にもかかわらず、作業を続けている。</span>
+				<span>工事：こうじ　悪天候：あくてんこう　作業：さぎょう</span>
+			</p>
+			<h3 id='尽管却吃惊意外等-あることをする'><span>尽管……却……；+吃惊/意外等 あることをする</span></h3>
+			<ul>
+				<li><span>~(简)/N/Nである/ANである＋にもかかわらず</span></li>
+			</ul>
+			<h2 id='～ものの・～とはいうものの'><span>～ものの・～とはいうものの</span></h2>
+			<p><span>高価な着物を買ったものの、着るチャンスがない。</span>
+				<span>高価：こうか　</span>
+			</p>
+			<h3 id='当然想像されることが起こらない和想象的不一样'><span>当然想像されることが起こらない　和想象的不一样</span></h3>
+			<ul>
+				<li><span>~（简）/(Nである/ANな)＋ものの</span></li>
+				<li><span>~（简）/(N/AN)＋とはいうものの</span></li>
+			</ul>
+			<h2 id='ながらも）＝けれども・が'><span>〜ながら（も）＝けれども・が</span></h2>
+			<p><span>狭いながらも庭があるので、私は花を育てて楽しんでいます。</span>
+				<span>狭い：せまい　育つ：そだつ 自动　育てる：他动</span>
+				<span>あの子はこどもながら、社会の働きをよく知っていますね。</span>
+			</p>
+			<h3 id='提示与状态所预想的事情不同'><span>提示与……状态所预想的事情不同</span></h3>
+			<ul>
+				<li><span>V连用／Aい／N・Nであり／AN・ANであり＋ながら</span></li>
+			</ul>
+			<h2 id='つつも）心口不一口嫌体正直'><span>つつ（も）心口不一，口嫌体正直</span></h2>
+			<p><span>早く返事を書かなけばと気にしつつ、まだ書いていない。</span>
+				<span>危険だと知りつつ、山道を登り続けた。危険：きけん</span>
+				<span>思いつつも</span>
+			</p>
+			<h3 id='心の動きとは行動が違っている'><span>心の動きとは、行動が違っている</span></h3>
+			<ul>
+				<li><span>V连用+つつ（も）</span></li>
+			</ul>
+			<h2 id='といっても'><span>〜といっても</span></h2>
+			<p><span>料理ができるといっても、私は作れるのは簡単なものだけです。</span></p>
+			<h3 id='虽说'><span>虽说……</span></h3>
+			<ul>
+				<li><span>~（简）/N+といっても</span></li>
+			</ul>
+			<h2 id='からといって'><span>〜からといって</span></h2>
+			<p><span>好きじゃないからといって、食べ物をこんなにたくさん残してはいけませんよ。</span>
+				<span>残す：のこす</span>
+			</p>
+			<h3 id='不能）仅因为就多否定表达后多とは限らない・わけではない・とはいえない等'><span>（不能）仅因为……就……；多+否定表达、后多+〜とは限らない・〜わけではない・〜とはいえない等</span>
+			</h3>
+			<ul>
+				<li><span>～（简）+からといって</span></li>
+			</ul>
+			<h2 id='～としたら・とすれば・とすると・となったら・となれば・となると'><span>～としたら・とすれば・とすると・となったら・となれば・となると</span></h2>
+			<p><span>無人島に何か一つだけ持っていけるとしたら、何を持っていきたいですか。</span>
+				<span>無人島：むじんとう</span>
+			</p>
+			<h3 id='假定'><span>假定……</span></h3>
+			<ul>
+				<li><span>～（简）+～としたら・とすれば・とすると・となったら・となれば・となると</span></li>
+			</ul>
+			<h2 id='ものなら'><span>ものなら</span></h2>
+			<p><span>戻れるものなら20年前の私に戻って人生をやり直したい。戻れる：もどれる</span>
+				<span>やれるものならやってみろ。</span>
+			</p>
+			<h3 id='如果能的话可能性小できる'><span>如果能……的话；可能性小；できる</span></h3>
+			<ul>
+				<li><span>Vる（可能含义）＋ものなら</span></li>
+			</ul>
+			<h2 id='よ）うものなら'><span>〜（よ）うものなら</span></h2>
+			<p><span>私はアレルギー体質なので、合わない食品を食べようものなら、体のあちこちが痒くなる。体質：たいしつ　体：からだ　痒く：かゆく　よそ見：看向其他</span></p>
+			<h3 id='如果要）的话严重结果'><span>如果（要）……的话；+严重结果</span></h3>
+			<ul>
+				<li><span>V意志形＋うものなら</span></li>
+			</ul>
+			<h2 id='～ないことには'><span>～ないことには</span></h2>
+			<p><span>お金がないことには、この計画は進められない。計画：けいかく</span>
+				<span>丈夫でないことには。</span>
+			</p>
+			<h3 id='如果不的话否定含义'><span>如果不……的话；+否定含义</span></h3>
+			<ul>
+				<li><span>〜ない／AN・Nでない＋ことには</span></li>
+			</ul>
+			<h2 id='を抜きにしてはぬき'><span>〜を抜きにしては　ぬき</span></h2>
+			<p><span>田中先生の好意的なご指導を抜きにしては、この勉強会は続けられないだろう。</span>
+				<span>好意的：こういてき</span>
+			</p>
+			<h3 id='如果没有的话前高度评价的事物'><span>如果没有……的话，前+高度评价的事物</span></h3>
+			<ul>
+				<li><span>N+を抜きにしては</span></li>
+			</ul>
+			<h2 id='としても・にしても・にしろ・にせよ'><span>〜としても・〜にしても・〜にしろ・〜にせよ</span></h2>
+			<p><span>たとえ悪い結果にしろ、できることは全部やってきたのだから後悔はしない。</span>
+				<span>後悔：こうかい</span>
+			</p>
+			<h3 id='＋评价判断感受即使是事实说话人情绪也不受其影响'><span>＋评价/判断/感受；即使……是事实，说话人情绪也不受其影响</span></h3>
+			<ul>
+				<li><span>～（简）+としても・〜にしても・〜にしろ・〜にせよ</span></li>
+			</ul>
+			<h2 id='～によって'><span>～によって</span></h2>
+			<p><span>仕事をコンピューター化することにより、労働力不足は解決できるのではないか。</span>
+				<span>合否の結果は後日書面で連絡します。電話による問い合わせは受付ません。</span>
+				<span>労働力：ろうどうりょく　不足：ぶそく　解決：かいけつ　合否：ごうひ</span>
+				<span>後日：ごじつ　書面：しょめん　問い合わせ：と问询</span>
+			</p>
+			<h3 id='因为原因使用手段和方法书'><span>因为……原因；使用……手段和方法；书</span></h3>
+			<ul>
+				<li><span>N+によって</span></li>
+			</ul>
+			<h2 id='～ものだから・～もので・～もの'><span>～ものだから・～もので・～もの</span></h2>
+			<p><span>すみません。昨日はちょっと熱があったものですから、お休みしました。</span>
+				<span>あの人の言うことはよくわからないよ。言葉が難しいんだもの。</span>
+			</p>
+			<h3 id='申述辩解口语后不命令意志句末女性儿童使用'><span>申述辩解；口语；后不+命令，意志，句末女性儿童使用</span></h3>
+			<ul>
+				<li><span>～（简）/AN・N＋な+ものだから・もので</span></li>
+			</ul>
+			<h2 id='おかげだ好・～せいだ不好'><span>~おかげだ+好・～せいだ+不好</span></h2>
+			<p><span>佐藤さんが丁寧にチャックしてくださったおかげで、いいレポートができました。</span>
+				<span>値段のせいか、この商品は売れ行きが悪い。売れ行き：うれゆき</span>
+			</p>
+			<h3 id='由于的影响'><span>由于……的影响</span></h3>
+			<ul>
+				<li><span>N+の/~（简）/AN＋な＋おかげだ・せいだ</span></li>
+			</ul>
+			<h2 id='～あまり・あまりの～に'><span>～あまり・あまりの～に</span></h2>
+			<p><span>自分の番が近づいてきたとき、私は緊張のあまり頭の中が真っ白になってしまった。</span>
+				<span>近づく：ちかづく　自动 緊張：きんちょう　真っ白：まっしろ</span>
+			</p>
+			<h3 id='因为非常所以后不寻常的结果'><span>因为非常……所以；后+不寻常的结果</span></h3>
+			<ul>
+				<li><span>N+の/~（简）/AN＋な＋あまり</span>
+					<span>あまりの＋N＋に</span>
+				</li>
+			</ul>
+			<h2 id='～につき'><span>～につき</span></h2>
+			<p><span>トイレはただ今清掃中につき、ご利用になれません。清掃中：せいそうちゅう</span>
+				<span>本日は祝日につき、閉館しております。祝日：しゅくじつ、閉館：へいかん</span>
+			</p>
+			<h3 id='向公众通知书'><span>向公众通知。书</span></h3>
+			<ul>
+				<li><span>N+につき</span></li>
+			</ul>
+			<h2 id='～にことだし'><span>～にことだし</span></h2>
+			<p><span>雨もやんだことだし、ちょっとジョギングしてこようかな。</span></p>
+			<h3 id='虽也有其他理由但总之是因为而做某事后说话人判断希望意志要求说话人做'><span>虽也有其他理由，但总之是因为……而做某事；后+说话人判断，希望，意志，要求说话人做……</span></h3>
+			<ul>
+				<li><span>~（简）/AN+な・である/N＋の・である＋にことだし</span></li>
+			</ul>
+			<h2 id='のことだから'><span>~のことだから</span></h2>
+			<p><span>頑張り屋のみちこのことだから、きっと今度のテストでもいい点を取りますよ。</span></p>
+			<h3 id='从的性格平日态度来推断前人后推断'><span>从……的性格，平日态度来推断……前+人，后+推断</span></h3>
+			<ul>
+				<li><span>N（人）+のことだから</span></li>
+			</ul>
+			<h2 id='～だけに'><span>～だけに</span></h2>
+			<p><span>あそこは有名レストランだけに、客に出した料理に問題があったとわかったときは大ニュースになった。</span>
+				<span>祖父はよく山登りをするが、年が年だけに、無事に帰ってくるまで心配だ。無事：ぶじ</span>
+			</p>
+			<h3 id='正因为更加强调'><span>正因为……更加，强调</span></h3>
+			<ul>
+				<li><span>~（简）/AN+な・である/N（である）＋だけに</span></li>
+			</ul>
+			<h2 id='～ばかりに'><span>～ばかりに</span></h2>
+			<p><span>家のかぎを忘れて出かけたばかりに、家族が帰ってくるまで家に入れなかった。</span>
+				<span>出かけた：でかけた</span>
+				<span>山頂から一目日の出を見たいばかりに、暗いうちに山小屋を出て２時間も歩いたのだ。</span>
+				<span>山頂：さんちょう　日の出：ひので　小屋：ごや　</span>
+			</p>
+			<h3 id='就是因为多不好的结果'><span>就是因为……多+不好的结果</span></h3>
+			<ul>
+				<li><span>~（简）/AN+な・である/Nである＋ばかりに</span></li>
+			</ul>
+			<h2 id='～からには・～以上は）・～上は'><span>～からには・～以上（は）・～上は</span></h2>
+			<p><span>留学するからには、ちゃんと目的があるのでしょうね。目的：もくてき</span>
+				<span>自分一人でやると言った以上、みんなに助けてもらうことはできない。</span>
+			</p>
+			<h3 id='既然就应该）后说话人判断希望意志要求说话人做'><span>既然……就（应该）……；后+说话人判断，希望，意志，要求说话人做……</span></h3>
+			<ul>
+				<li><span>~（简）/ANである/Nである＋からには・以上（は）</span></li>
+				<li><span>Vる・た＋上は</span></li>
+			</ul>
+			<h2 id='～がたい'><span>～がたい</span></h2>
+			<p><span>あの優しい彼がそんなひどいことをしたとは信じがたい。</span>
+				<span>言いがたい</span>
+				<span>得がたい</span>
+			</p>
+			<h3 id='心里上无法非能力问题几乎不可能'><span>心里上无法，非能力问题；几乎不可能</span></h3>
+			<ul>
+				<li><span>V连用+がたい</span></li>
+			</ul>
+			<h2 id='～かねる'><span>～かねる</span></h2>
+			<p><span>あなたの気持ちも理解できますが、その案には賛成しかねます。</span>
+				<span>理解：りかい　賛成：さんせい</span>
+				<span>待ちかね翘首以盼</span>
+			</p>
+			<h3 id='その状況・その条件・話者の立場用于礼貌地拒绝多用于服务业比较正式'><span>その状況・その条件・話者の立場；用于礼貌地拒绝，多用于服务业，比较正式</span></h3>
+			<ul>
+				<li><span>V连用+かねる</span></li>
+			</ul>
+			<h2 id='～得る・～得ない'><span>～得る・～得ない</span></h2>
+			<p><span>経済の成長と環境保護は両立し得るはずだ。</span>
+				<span>経済：けいざい　成長：せいちょう　環境保護：かんきょうほご　両立：りょうりつ</span>
+				<span>人間が100メートルを5秒で走るなんてありえない話だ。5秒：ごびょう　走る：はしる</span>
+			</p>
+			<h3 id='可能性がある可能性がない'><span>可能性がある、可能性がない</span></h3>
+			<ul>
+				<li><span>V连用+得る・得ない</span></li>
+			</ul>
+			<h2 id='～わけにはいかない・～わけにもいかない'><span>～わけにはいかない・～わけにもいかない</span></h2>
+			<p><span>いくらお金に困っていても、そんな大金をあなたから借りるわけにはいかない。</span>
+				<span>大金：たいきん　借りる：かりる</span>
+			</p>
+			<h3 id='出于道德人情义务等无法做到不能用于能力上无法做到的事情主语通常是第一人称'><span>出于道德，人情，义务等，无法做到；不能用于能力上无法做到的事情，主语通常是第一人称</span></h3>
+			<ul>
+				<li><span>Vる＋わけにはいかない・～わけにもいかない</span></li>
+			</ul>
+			<h2 id='～ようがない-よう様'><span>～ようがない 　よう：様</span></h2>
+			<p><span>彼の連絡先がわからないので、このニュースを知らせたくても知らせようがない。</span>
+				<span>駅からここまではまっすぐ歩いてくるだけだから、迷いようがないと思うけどね。</span>
+				<span>迷う：まよう</span>
+				<span>～としか言いようがない　只能说……</span>
+				<span>文句のつけようがない 无可</span>
+				<span>これだけ　这种程度</span>
+			</p>
+			<h3 id='想而无法'><span>想……而无法……</span></h3>
+			<ul>
+				<li><span>V连用+ようがない</span></li>
+			</ul>
+			<h2 id='どころではない'><span>~どころではない</span></h2>
+			<p><span>仕事が忙しくて、旅行どころではない。</span>
+				<span>因没有余力：お金がない、時間がない、うるさい、病気，所以无法做到……事情</span>
+			</p>
+			<h3 id='不是的时候其他意思岂不是连也多更差'><span>不是……的时候；其他意思：岂不是……连……也……；多+更差</span></h3>
+			<ul>
+				<li><span>N+Vる＋どころではない</span></li>
+			</ul>
+			<h2 id='～わりには）'><span>～わりに（は）</span></h2>
+			<p><span>このお菓子は値段のわりには量が少ない。量：りょう　少ない：すくない</span>
+				<span>ゆきこさんは若いわりにしっかりしている。しっかり：坚强</span>
+			</p>
+			<h3 id='从状态期间频率尺度等）来看不符'><span>从……（状态、期间，频率，尺度等）来看不符</span></h3>
+			<ul>
+				<li><span>N+の/AN＋な・である/~（简）＋わりに（は）</span></li>
+			</ul>
+			<h3 id='前年齢値段心配する若い'><span>前+年齢，値段、心配する、若い</span></h3>
+			<h2 id='～にしては'><span>～にしては</span></h2>
+			<p><span>このかばんは、1000円にしては丈夫で、デザインもいい。</span></p>
+			<h3 id='从来看出乎意料前特定事物不形容词尺度程度等'><span>从……来看出乎意料；前+特定事物，不+形容词，尺度，程度等</span></h3>
+			<ul>
+				<li><span>N（である）/AN+である/~（简）＋にしては</span></li>
+			</ul>
+			<h2 id='だけのことは）ある・～だけあって・～だけに'><span>~だけ（のことは）ある・～だけあって・～だけに</span></h2>
+			<p><span>素晴らしいマンションだ、家賃が高いだけのことはある。家賃：やちん</span>
+				<span>彼は１０年も日本に住んでいるだけあって、日本のことをよく知っている。</span>
+			</p>
+			<h3 id='不愧是到底没白不接表将来以及推测'><span>不愧是……到底没白……；不接表将来以及推测</span></h3>
+			<ul>
+				<li><span>N/AN+である/~（简）＋だけ（のことは）ある・～だけあって・～だけに</span></li>
+			</ul>
+			<h2 id='～として'><span>～として</span></h2>
+			<p><span>コーヒーはもともと薬として飲まれていた。</span>
+				<span>子供の安全に気をつけることは親として当然だ。安全：あんぜん</span>
+			</p>
+			<h3 id='～という立場・資格・役割・名目で'><span>～という立場・資格・役割・名目で</span></h3>
+			<ul>
+				<li><span>N+として</span></li>
+			</ul>
+			<h3 id='-6'><span> </span></h3>
+			<h2 id='～にとって'><span>～にとって</span></h2>
+			<p><span>現代人にとってパソコンはなくてはならない道具である。道具：どうぐ</span></p>
+			<h3 id='换位思考前表人的词后如何评价'><span>换位思考、前+表人的词，后+如何评价</span></h3>
+			<ul>
+				<li><span>N+にとって</span></li>
+			</ul>
+			<h3 id='-7'><span> </span></h3>
+			<h2 id='に対して'><span>~に対して</span></h2>
+			<p><span>森さんは会社の一員として、反対するのは当然です。一員：いちいん　反対：はんたい</span>
+				<span>森さんにとって、小野さんは特別な存在です。特別：とくべつ</span>
+				<span>森さんにたいして、やさしいです。</span>
+			</p>
+			<h3 id='以为对象与之相对的--7课'><span>以……为对象；与之相对的 7课</span></h3>
+			<h3 id='-8'><span> </span></h3>
+			<h2 id='～にしたら・～にすれば～にしてみれば・～にしても'><span>～にしたら・～にすれば～にしてみれば・～にしても</span></h2>
+			<p><span>君もいろいろ言われて面倒だろうが、君のお母さんにしたら、君のことが心配なんだよ。</span></p>
+			<h3 id='如果以立场即使从立场看站在此人立场上推测此人'><span>如果以……立场，即使从……立场看；站在此人立场上推测此人……</span></h3>
+			<ul>
+				<li><span>N+にしたら・～にすれば～にしてみれば・～にしても</span></li>
+			</ul>
+			<h2 id='たところ-强调结果'><span>~たところ 强调结果</span></h2>
+			<p><span>この新商品を使ってみたいかどうか聞いてみたところ、80％の人が「使いたい」と答えた。</span></p>
+			<h3 id='叙述过去仅发生过一次的事情后续表结果'><span>叙述过去仅发生过一次的事情，后续表结果</span></h3>
+			<ul>
+				<li><span>Vた＋たところ</span></li>
+			</ul>
+			<h2 id='～きり'><span>～きり</span></h2>
+			<p><span>その本は、子供のころ読んだきり、その後一度も読んでいない。</span>
+				<span>日本は長寿国だが、寝たきりの老人の数も多い。長寿国：ちょうじゅこく</span>
+			</p>
+			<h3 id='之后一直再没）'><span>……之后，一直/再（没）……</span></h3>
+			<ul>
+				<li><span>Vた＋きり</span></li>
+			</ul>
+			<h2 id='～あげく'><span>～あげく</span></h2>
+			<p><span>五時間に及ぶ議論のあげく、結局、結論が出なかった。</span>
+				<span>及ぶ：およぶ　結局：けっきょく　結論：けつろん　議論：ぎろん</span>
+				<span>いろいろ文句を言ったあげく、その客はなんも買わずに帰った。文句：もんく</span>
+			</p>
+			<h3 id='遗憾的结果做了各种之后最终变成了遗憾的结果'><span>+遗憾的结果；做了各种之后，最终变成了遗憾的结果</span></h3>
+			<ul>
+				<li><span>Vた/N+の＋あげく</span></li>
+			</ul>
+			<h2 id='～すえに）'><span>～すえ（に）</span></h2>
+			<p><span>数回に及ぶ議論の末、Aの案を採用することにした。数回：すうかい　採用：さいよう</span>
+				<span>悩んだ末に、手術を受付ようと決めた。悩むー悩んだ：なやんだ</span>
+			</p>
+			<h3 id='ある結果になった做了各种之后最终变成了某种结果'><span>ある結果になった；做了各种之后，最终变成了某种结果</span></h3>
+			<ul>
+				<li><span>Vた/N+の＋すえ（に）</span></li>
+			</ul>
+			<h2 id='～ところだった'><span>～ところだった</span></h2>
+			<p><span>今日は15日か。うっかり約束を忘れるところだった。うっかり：走神，发呆，糊涂</span>
+				<span>朝寝坊して、危うく試験が受けられないところだった。</span>
+				<span>寝坊：ねぼう 危うい：あやうい 受け：うけ </span>
+			</p>
+			<h3 id='差点就'><span>差点就……</span></h3>
+			<ul>
+				<li><span>Vる・ない＋ところだった</span></li>
+			</ul>
+			<h2 id='～ずじまいだ'><span>～ずじまいだ</span></h2>
+			<p><span>彼女にラブレターを書いたけれど、勇気がなくて出せずじまいだった。</span>
+				<span>ラブレター：情书 勇気：ゆうき　出すーだせず</span>
+			</p>
+			<h3 id='没能错过时机的遗憾）'><span>没能（错过时机的遗憾）</span></h3>
+			<ul>
+				<li><span>V去掉ない＋ずじまいだ</span></li>
+				<li><span>する→せず</span></li>
+			</ul>
+			<h2 id='ぐらい・～くらい'><span>~ぐらい・～くらい</span></h2>
+			<p><span>この携帯電話は、ちょっとぐらいなら濡れても大丈夫です。</span>
+				<span>濡れる：ぬれる</span>
+			</p>
+			<h3 id='低程度所以可能性高理所当然前说话人认为程度轻的词语少否定'><span>低程度，所以可能性高/理所当然；前+说话人认为程度轻的词语。少+否定</span></h3>
+			<ul>
+				<li><span>~简/N/AN+な＋ぐらい</span></li>
+			</ul>
+			<h2 id='など～なんか～なんて'><span>~など～なんか～なんて</span></h2>
+			<p><span>あの人の言ったことなど気にすることはありません。</span></p>
+			<h3 id='评价低轻蔑'><span>评价低，轻蔑</span></h3>
+			<ul>
+				<li><span>N（助）+など・なんか・なんて</span></li>
+			</ul>
+			<h2 id='～さえ'><span>～さえ</span></h2>
+			<p><span>日本に来たばかりのときは、ひらがなさえ読めなかった。</span></p>
+			<h3 id='谓语可能性的最低点'><span>谓语可能性的最低点</span></h3>
+			<ul>
+				<li><span>N（助）/V连用、Vて＋さえ</span></li>
+			</ul>
+			<h2 id='～まで～までして～てまで'><span>～まで～までして～てまで</span></h2>
+			<p><span>カンニングまでしていい点を取りたかったのですか。</span></p>
+			<h3 id='谓语可能性的极端表附加描述对既定事实的惊讶意外不推量假定依赖劝诱少否定'><span>谓语可能性的极端，表附加；描述对既定事实的惊讶、意外，不+推量、假定、依赖、劝诱；少+否定</span></h3>
+			<ul>
+				<li><span>N（助）/V连用、Vて＋まで～までして～てまで</span></li>
+			</ul>
+			<h2 id='～てでも'><span>～てでも</span></h2>
+			<p><span>娘が家に帰りたくないと言ったら、引っ張ってでも連れて帰ろう。</span>
+				<span>娘：むすめ　引っ張る：ひっぱる　連れう：つれう</span>
+			</p>
+			<h3 id='就算也要'><span>就算……也要……</span></h3>
+			<ul>
+				<li><span>Vて＋でも</span></li>
+			</ul>
+			<h2 id='～として～ない'><span>～として～ない</span></h2>
+			<p><span>だれ一人として反対できなかった。</span>
+				<span>人生に無駄なものは何一つとしてない。失敗も必ず何かの役に立つはずだ。無駄：むだ　失敗：しっぱい</span>
+				<span>一度として。役に立つ：やくにたつ</span>
+			</p>
+			<h3 id='连也没有'><span>连……也没有……</span></h3>
+			<ul>
+				<li><span>何・だれ一＋助数詞＋として～ない</span></li>
+			</ul>
+			<h2 id='～とみえる'><span>～とみえる</span></h2>
+			<p><span>朝からパチンコに行くなんて、ずいぶん暇だとみえる。</span></p>
+			<h3 id='看来'><span>看来……</span></h3>
+			<ul>
+				<li><span>~简+とみえる</span></li>
+			</ul>
+			<h2 id='～かねない'><span>～かねない</span></h2>
+			<p><span>インターネット上で特に個人情報に注意していないと、悪用されかねない。</span>
+				<span>後で文句を言われかねませんよ。</span>
+			</p>
+			<h3 id='不难很有可能不好的结果'><span>不难……很有可能……；+不好的结果</span></h3>
+			<ul>
+				<li><span>V连用+かねない</span></li>
+			</ul>
+			<h2 id='～おそれがある'><span>～おそれがある</span></h2>
+			<p><span>今夜から明日にかけて東日本で大雨のおそれがあります。</span>
+				<span>今夜：こんや　東日本：ひがしにほん</span>
+			</p>
+			<h3 id='有可能发生不好的结果书面'><span>有可能发生，+不好的结果；书面</span></h3>
+			<ul>
+				<li><span>N+の/Vる・ない＋恐れがある</span></li>
+			</ul>
+			<h2 id='～まい～ではあるまいか'><span>～まい/～ではあるまいか</span></h2>
+			<p><span>何度も計算し直したのだから、間違いはあるまい。</span>
+				<span>計算：けいさん　直する：なおする</span>
+			</p>
+			<h3 id='不会吧文章用ではあるまいか＝～のではないか口语'><span>不会……吧；文章用；ではあるまいか＝～のではないか口语</span></h3>
+			<ul>
+				<li><span>書くまい</span>
+					<span>見るまい・見まい</span>
+					<span>するまい・すまい</span>
+					<span>くるまい・こまい</span>
+				</li>
+			</ul>
+			<h2 id='～に違いない～に相違ない'><span>～に違いない～に相違ない</span></h2>
+			<p><span>そんな山の中に住んでいて車もなかったら、生活が不便に違いない。</span>
+				<span>彼があれだけ強く主張するのは、何かはっきりした証拠があるからに相違ない。主張：しゅちょう　証拠：しょうこ</span>
+			</p>
+			<h3 id='表断定一定肯定'><span>表断定，一定……肯定……</span></h3>
+			<ul>
+				<li><span>~简/AN（である）/N（である）＋に違いない・に相違ない</span></li>
+			</ul>
+			<h2 id='～にきまっている'><span>～にきまっている</span></h2>
+			<p><span>あの子の言うことは何かうそにきまっているよ。</span></p>
+			<h3 id='认为绝对是与に違いない不同是主观性地直觉性地表达'><span>认为绝对是……与に違いない不同，是主观性地，直觉性地表达</span></h3>
+			<ul>
+				<li><span>~简/AN/N＋にきまっている</span></li>
+			</ul>
+			<p>&nbsp;</p>
+		</div>
+	</div>
+</body>
+
+</html>
