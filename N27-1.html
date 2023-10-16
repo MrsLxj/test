@@ -1589,6 +1589,17 @@
 			<a href="#top" class="top" target="_self">顶部</a>
 		</div>
 		<script>
+			function xuhao() {
+				var pTag = document.getElementsByTagName("h2");
+				newArr = Array.from(pTag);
+				console.log('xuhao', newArr)
+				newArr.forEach(function (item, index) {
+					$('#' + item.id).prepend('<span class="xuhao">' + parseInt(index+ 1)  + ': ' + '</span>');
+				});
+			}
+			$(function () {
+				xuhao();
+			});
 			function cancel() {
 				let ele_selDiv = document.getElementById("selDiv");
 				ele_selDiv.innerHTML = '';
@@ -1709,11 +1720,13 @@
 				for (let i = 0, length = query.snapshotLength; i < length; ++i) {
 					results.push(query.snapshotItem(i));
 				}
-				console.log(results, 'results')
 				return results;
 			}
 		</script>
 		<style>
+			.xuhao {
+				color: #333;
+			}
 			.btn {
 				width: 30px;
 				height: 19px;
