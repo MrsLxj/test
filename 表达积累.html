@@ -1,0 +1,2339 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width initial-scale=1'>
+
+	<link href='https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext'
+		rel='stylesheet' type='text/css' />
+	<link href='https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' />
+	<style type='text/css'>
+		html {
+			overflow-x: initial !important;
+		}
+
+		:root {
+			--bg-color: #ffffff;
+			--text-color: #333333;
+			--select-text-bg-color: #B5D6FC;
+			--select-text-font-color: auto;
+			--monospace: "Lucida Console", Consolas, "Courier", monospace;
+			--title-bar-height: 20px;
+		}
+
+		.mac-os-11 {
+			--title-bar-height: 28px;
+		}
+
+		html {
+			font-size: 14px;
+			background-color: var(--bg-color);
+			color: var(--text-color);
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		body {
+			margin: 0px;
+			padding: 0px;
+			height: auto;
+			inset: 0px;
+			font-size: 1rem;
+			line-height: 1.42857;
+			overflow-x: hidden;
+			background: inherit;
+			tab-size: 4;
+		}
+
+		iframe {
+			margin: auto;
+		}
+
+		a.url {
+			word-break: break-all;
+		}
+
+		a:active,
+		a:hover {
+			outline: 0px;
+		}
+
+		.in-text-selection,
+		::selection {
+			text-shadow: none;
+			background: var(--select-text-bg-color);
+			color: var(--select-text-font-color);
+		}
+
+		#write {
+			margin: 0px auto;
+			height: auto;
+			width: inherit;
+			word-break: normal;
+			overflow-wrap: break-word;
+			position: relative;
+			white-space: normal;
+			overflow-x: visible;
+			padding-top: 36px;
+		}
+
+		#write.first-line-indent p {
+			text-indent: 2em;
+		}
+
+		#write.first-line-indent li p,
+		#write.first-line-indent p * {
+			text-indent: 0px;
+		}
+
+		#write.first-line-indent li {
+			margin-left: 2em;
+		}
+
+		.for-image #write {
+			padding-left: 8px;
+			padding-right: 8px;
+		}
+
+		body.typora-export {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		.typora-export .footnote-line,
+		.typora-export li,
+		.typora-export p {
+			white-space: pre-wrap;
+		}
+
+		.typora-export .task-list-item input {
+			pointer-events: none;
+		}
+
+		@media screen and (max-width: 500px) {
+			body.typora-export {
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+
+			#write {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+
+			.CodeMirror-sizer {
+				margin-left: 0px !important;
+			}
+
+			.CodeMirror-gutters {
+				display: none !important;
+			}
+		}
+
+		#write li>figure:last-child {
+			margin-bottom: 0.5rem;
+		}
+
+		#write ol,
+		#write ul {
+			position: relative;
+		}
+
+		img {
+			max-width: 100%;
+			vertical-align: middle;
+			image-orientation: from-image;
+		}
+
+		button,
+		input,
+		select,
+		textarea {
+			color: inherit;
+			font: inherit;
+		}
+
+		input[type="checkbox"],
+		input[type="radio"] {
+			line-height: normal;
+			padding: 0px;
+		}
+
+		*,
+		::after,
+		::before {
+			box-sizing: border-box;
+		}
+
+		#write h1,
+		#write h2,
+		#write h3,
+		#write h4,
+		#write h5,
+		#write h6,
+		#write p,
+		#write pre {
+			width: inherit;
+		}
+
+		#write h1,
+		#write h2,
+		#write h3,
+		#write h4,
+		#write h5,
+		#write h6,
+		#write p {
+			position: relative;
+		}
+
+		p {
+			line-height: inherit;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			break-after: avoid-page;
+			break-inside: avoid;
+			orphans: 4;
+		}
+
+		p {
+			orphans: 4;
+		}
+
+		h1 {
+			font-size: 2rem;
+		}
+
+		h2 {
+			font-size: 1.8rem;
+		}
+
+		h3 {
+			font-size: 1.6rem;
+		}
+
+		h4 {
+			font-size: 1.4rem;
+		}
+
+		h5 {
+			font-size: 1.2rem;
+		}
+
+		h6 {
+			font-size: 1rem;
+		}
+
+		.md-math-block,
+		.md-rawblock,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p {
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		.md-blockmeta {
+			color: rgb(204, 204, 204);
+			font-weight: 700;
+			font-style: italic;
+		}
+
+		a {
+			cursor: pointer;
+		}
+
+		sup.md-footnote {
+			padding: 2px 4px;
+			background-color: rgba(238, 238, 238, 0.7);
+			color: rgb(85, 85, 85);
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		sup.md-footnote a,
+		sup.md-footnote a:hover {
+			color: inherit;
+			text-transform: inherit;
+			text-decoration: inherit;
+		}
+
+		#write input[type="checkbox"] {
+			cursor: pointer;
+			width: inherit;
+			height: inherit;
+		}
+
+		figure {
+			overflow-x: auto;
+			margin: 1.2em 0px;
+			max-width: calc(100% + 16px);
+			padding: 0px;
+		}
+
+		figure>table {
+			margin: 0px;
+		}
+
+		tr {
+			break-inside: avoid;
+			break-after: auto;
+		}
+
+		thead {
+			display: table-header-group;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0px;
+			width: 100%;
+			overflow: auto;
+			break-inside: auto;
+			text-align: left;
+		}
+
+		table.md-table td {
+			min-width: 32px;
+		}
+
+		.CodeMirror-gutters {
+			border-right: 0px;
+			background-color: inherit;
+		}
+
+		.CodeMirror-linenumber {
+			user-select: none;
+		}
+
+		.CodeMirror {
+			text-align: left;
+		}
+
+		.CodeMirror-placeholder {
+			opacity: 0.3;
+		}
+
+		.CodeMirror pre {
+			padding: 0px 4px;
+		}
+
+		.CodeMirror-lines {
+			padding: 0px;
+		}
+
+		div.hr:focus {
+			cursor: none;
+		}
+
+		#write pre {
+			white-space: pre-wrap;
+		}
+
+		#write.fences-no-line-wrapping pre {
+			white-space: pre;
+		}
+
+		#write pre.ty-contain-cm {
+			white-space: normal;
+		}
+
+		.CodeMirror-gutters {
+			margin-right: 4px;
+		}
+
+		.md-fences {
+			font-size: 0.9rem;
+			display: block;
+			break-inside: avoid;
+			text-align: left;
+			overflow: visible;
+			white-space: pre;
+			background: inherit;
+			position: relative !important;
+		}
+
+		.md-fences-adv-panel {
+			width: 100%;
+			margin-top: 10px;
+			text-align: center;
+			padding-top: 0px;
+			padding-bottom: 8px;
+			overflow-x: auto;
+		}
+
+		#write .md-fences.mock-cm {
+			white-space: pre-wrap;
+		}
+
+		.md-fences.md-fences-with-lineno {
+			padding-left: 0px;
+		}
+
+		#write.fences-no-line-wrapping .md-fences.mock-cm {
+			white-space: pre;
+			overflow-x: auto;
+		}
+
+		.md-fences.mock-cm.md-fences-with-lineno {
+			padding-left: 8px;
+		}
+
+		.CodeMirror-line,
+		twitterwidget {
+			break-inside: avoid;
+		}
+
+		.footnotes {
+			opacity: 0.8;
+			font-size: 0.9rem;
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+
+		.footnotes+.footnotes {
+			margin-top: 0px;
+		}
+
+		.md-reset {
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+			outline: 0px;
+			vertical-align: top;
+			background: 0px 0px;
+			text-decoration: none;
+			text-shadow: none;
+			float: none;
+			position: static;
+			width: auto;
+			height: auto;
+			white-space: nowrap;
+			cursor: inherit;
+			-webkit-tap-highlight-color: transparent;
+			line-height: normal;
+			font-weight: 400;
+			text-align: left;
+			box-sizing: content-box;
+			direction: ltr;
+		}
+
+		li div {
+			padding-top: 0px;
+		}
+
+		blockquote {
+			margin: 1rem 0px;
+		}
+
+		li .mathjax-block,
+		li p {
+			margin: 0.5rem 0px;
+		}
+
+		li blockquote {
+			margin: 1rem 0px;
+		}
+
+		li {
+			margin: 0px;
+			position: relative;
+		}
+
+		blockquote> :last-child {
+			margin-bottom: 0px;
+		}
+
+		blockquote> :first-child,
+		li> :first-child {
+			margin-top: 0px;
+		}
+
+		.footnotes-area {
+			color: rgb(136, 136, 136);
+			margin-top: 0.714rem;
+			padding-bottom: 0.143rem;
+			white-space: normal;
+		}
+
+		#write .footnote-line {
+			white-space: pre-wrap;
+		}
+
+		@media print {
+
+			body,
+			html {
+				border: 1px solid transparent;
+				height: 99%;
+				break-after: avoid;
+				break-before: avoid;
+				font-variant-ligatures: no-common-ligatures;
+			}
+
+			#write {
+				margin-top: 0px;
+				padding-top: 0px;
+				border-color: transparent !important;
+			}
+
+			.typora-export * {
+				-webkit-print-color-adjust: exact;
+			}
+
+			.typora-export #write {
+				break-after: avoid;
+			}
+
+			.typora-export #write::after {
+				height: 0px;
+			}
+
+			.is-mac table {
+				break-inside: avoid;
+			}
+
+			.typora-export-show-outline .typora-export-sidebar {
+				display: none;
+			}
+		}
+
+		.footnote-line {
+			margin-top: 0.714em;
+			font-size: 0.7em;
+		}
+
+		a img,
+		img a {
+			cursor: pointer;
+		}
+
+		pre.md-meta-block {
+			font-size: 0.8rem;
+			min-height: 0.8rem;
+			white-space: pre-wrap;
+			background: rgb(204, 204, 204);
+			display: block;
+			overflow-x: hidden;
+		}
+
+		p>.md-image:only-child:not(.md-img-error) img,
+		p>img:only-child {
+			display: block;
+			margin: auto;
+		}
+
+		#write.first-line-indent p>.md-image:only-child:not(.md-img-error) img {
+			left: -2em;
+			position: relative;
+		}
+
+		p>.md-image:only-child {
+			display: inline-block;
+			width: 100%;
+		}
+
+		#write .MathJax_Display {
+			margin: 0.8em 0px 0px;
+		}
+
+		.md-math-block {
+			width: 100%;
+		}
+
+		.md-math-block:not(:empty)::after {
+			display: none;
+		}
+
+		.MathJax_ref {
+			fill: currentcolor;
+		}
+
+		[contenteditable="true"]:active,
+		[contenteditable="true"]:focus,
+		[contenteditable="false"]:active,
+		[contenteditable="false"]:focus {
+			outline: 0px;
+			box-shadow: none;
+		}
+
+		.md-task-list-item {
+			position: relative;
+			list-style-type: none;
+		}
+
+		.task-list-item.md-task-list-item {
+			padding-left: 0px;
+		}
+
+		.md-task-list-item>input {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			margin-left: -1.2em;
+			margin-top: calc(1em - 10px);
+			border: none;
+		}
+
+		.math {
+			font-size: 1rem;
+		}
+
+		.md-toc {
+			min-height: 3.58rem;
+			position: relative;
+			font-size: 0.9rem;
+			border-radius: 10px;
+		}
+
+		.md-toc-content {
+			position: relative;
+			margin-left: 0px;
+		}
+
+		.md-toc-content::after,
+		.md-toc::after {
+			display: none;
+		}
+
+		.md-toc-item {
+			display: block;
+			color: rgb(65, 131, 196);
+		}
+
+		.md-toc-item a {
+			text-decoration: none;
+		}
+
+		.md-toc-inner:hover {
+			text-decoration: underline;
+		}
+
+		.md-toc-inner {
+			display: inline-block;
+			cursor: pointer;
+		}
+
+		.md-toc-h1 .md-toc-inner {
+			margin-left: 0px;
+			font-weight: 700;
+		}
+
+		.md-toc-h2 .md-toc-inner {
+			margin-left: 2em;
+		}
+
+		.md-toc-h3 .md-toc-inner {
+			margin-left: 4em;
+		}
+
+		.md-toc-h4 .md-toc-inner {
+			margin-left: 6em;
+		}
+
+		.md-toc-h5 .md-toc-inner {
+			margin-left: 8em;
+		}
+
+		.md-toc-h6 .md-toc-inner {
+			margin-left: 10em;
+		}
+
+		@media screen and (max-width: 48em) {
+			.md-toc-h3 .md-toc-inner {
+				margin-left: 3.5em;
+			}
+
+			.md-toc-h4 .md-toc-inner {
+				margin-left: 5em;
+			}
+
+			.md-toc-h5 .md-toc-inner {
+				margin-left: 6.5em;
+			}
+
+			.md-toc-h6 .md-toc-inner {
+				margin-left: 8em;
+			}
+		}
+
+		a.md-toc-inner {
+			font-size: inherit;
+			font-style: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+		}
+
+		.footnote-line a:not(.reversefootnote) {
+			color: inherit;
+		}
+
+		.md-attr {
+			display: none;
+		}
+
+		.md-fn-count::after {
+			content: ".";
+		}
+
+		code,
+		pre,
+		samp,
+		tt {
+			font-family: var(--monospace);
+		}
+
+		kbd {
+			margin: 0px 0.1em;
+			padding: 0.1em 0.6em;
+			font-size: 0.8em;
+			color: rgb(36, 39, 41);
+			background: rgb(255, 255, 255);
+			border: 1px solid rgb(173, 179, 185);
+			border-radius: 3px;
+			box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+			white-space: nowrap;
+			vertical-align: middle;
+		}
+
+		.md-comment {
+			color: rgb(162, 127, 3);
+			opacity: 0.6;
+			font-family: var(--monospace);
+		}
+
+		code {
+			text-align: left;
+			vertical-align: initial;
+		}
+
+		a.md-print-anchor {
+			white-space: pre !important;
+			border-width: initial !important;
+			border-style: none !important;
+			border-color: initial !important;
+			display: inline-block !important;
+			position: absolute !important;
+			width: 1px !important;
+			right: 0px !important;
+			outline: 0px !important;
+			background: 0px 0px !important;
+			text-decoration: initial !important;
+			text-shadow: initial !important;
+		}
+
+		.os-windows.monocolor-emoji .md-emoji {
+			font-family: "Segoe UI Symbol", sans-serif;
+		}
+
+		.md-diagram-panel>svg {
+			max-width: 100%;
+		}
+
+		[lang="flow"] svg,
+		[lang="mermaid"] svg {
+			max-width: 100%;
+			height: auto;
+		}
+
+		[lang="mermaid"] .node text {
+			font-size: 1rem;
+		}
+
+		table tr th {
+			border-bottom: 0px;
+		}
+
+		video {
+			max-width: 100%;
+			display: block;
+			margin: 0px auto;
+		}
+
+		iframe {
+			max-width: 100%;
+			width: 100%;
+			border: none;
+		}
+
+		.highlight td,
+		.highlight tr {
+			border: 0px;
+		}
+
+		mark {
+			background: rgb(255, 255, 0);
+			color: rgb(0, 0, 0);
+		}
+
+		.md-html-inline .md-plain,
+		.md-html-inline strong,
+		mark .md-inline-math,
+		mark strong {
+			color: inherit;
+		}
+
+		.md-expand mark .md-meta {
+			opacity: 0.3 !important;
+		}
+
+		mark .md-meta {
+			color: rgb(0, 0, 0);
+		}
+
+		@media print {
+
+			.typora-export h1,
+			.typora-export h2,
+			.typora-export h3,
+			.typora-export h4,
+			.typora-export h5,
+			.typora-export h6 {
+				break-inside: avoid;
+			}
+		}
+
+		.md-diagram-panel .messageText {
+			stroke: none !important;
+		}
+
+		.md-diagram-panel .start-state {
+			fill: var(--node-fill);
+		}
+
+		.md-diagram-panel .edgeLabel rect {
+			opacity: 1 !important;
+		}
+
+		.md-fences.md-fences-math {
+			font-size: 1em;
+		}
+
+		.md-fences-advanced:not(.md-focus) {
+			padding: 0px;
+			white-space: nowrap;
+			border: 0px;
+		}
+
+		.md-fences-advanced:not(.md-focus) {
+			background: inherit;
+		}
+
+		.typora-export-show-outline .typora-export-content {
+			max-width: 1440px;
+			margin: auto;
+			display: flex;
+			flex-direction: row;
+		}
+
+		.typora-export-sidebar {
+			width: 300px;
+			font-size: 0.8rem;
+			margin-top: 80px;
+			margin-right: 18px;
+		}
+
+		.typora-export-show-outline #write {
+			--webkit-flex: 2;
+			flex: 2 1 0%;
+		}
+
+		.typora-export-sidebar .outline-content {
+			position: fixed;
+			top: 0px;
+			max-height: 100%;
+			overflow: hidden auto;
+			padding-bottom: 30px;
+			padding-top: 60px;
+			width: 300px;
+		}
+
+		@media screen and (max-width: 1024px) {
+
+			.typora-export-sidebar,
+			.typora-export-sidebar .outline-content {
+				width: 240px;
+			}
+		}
+
+		@media screen and (max-width: 800px) {
+			.typora-export-sidebar {
+				display: none;
+			}
+		}
+
+		.outline-content li,
+		.outline-content ul {
+			margin-left: 0px;
+			margin-right: 0px;
+			padding-left: 0px;
+			padding-right: 0px;
+			list-style: none;
+		}
+
+		.outline-content ul {
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+
+		.outline-content strong {
+			font-weight: 400;
+		}
+
+		.outline-expander {
+			width: 1rem;
+			height: 1.42857rem;
+			position: relative;
+			display: table-cell;
+			vertical-align: middle;
+			cursor: pointer;
+			padding-left: 4px;
+		}
+
+		.outline-expander::before {
+			content: "";
+			position: relative;
+			font-family: Ionicons;
+			display: inline-block;
+			font-size: 8px;
+			vertical-align: middle;
+		}
+
+		.outline-item {
+			padding-top: 3px;
+			padding-bottom: 3px;
+			cursor: pointer;
+		}
+
+		.outline-expander:hover::before {
+			content: "";
+		}
+
+		.outline-h1>.outline-item {
+			padding-left: 0px;
+		}
+
+		.outline-h2>.outline-item {
+			padding-left: 1em;
+		}
+
+		.outline-h3>.outline-item {
+			padding-left: 2em;
+		}
+
+		.outline-h4>.outline-item {
+			padding-left: 3em;
+		}
+
+		.outline-h5>.outline-item {
+			padding-left: 4em;
+		}
+
+		.outline-h6>.outline-item {
+			padding-left: 5em;
+		}
+
+		.outline-label {
+			cursor: pointer;
+			display: table-cell;
+			vertical-align: middle;
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.outline-label:hover {
+			text-decoration: underline;
+		}
+
+		.outline-item:hover {
+			border-color: rgb(245, 245, 245);
+			background-color: var(--item-hover-bg-color);
+		}
+
+		.outline-item:hover {
+			margin-left: -28px;
+			margin-right: -28px;
+			border-left: 28px solid transparent;
+			border-right: 28px solid transparent;
+		}
+
+		.outline-item-single .outline-expander::before,
+		.outline-item-single .outline-expander:hover::before {
+			display: none;
+		}
+
+		.outline-item-open>.outline-item>.outline-expander::before {
+			content: "";
+		}
+
+		.outline-children {
+			display: none;
+		}
+
+		.info-panel-tab-wrapper {
+			display: none;
+		}
+
+		.outline-item-open>.outline-children {
+			display: block;
+		}
+
+		.typora-export .outline-item {
+			padding-top: 1px;
+			padding-bottom: 1px;
+		}
+
+		.typora-export .outline-item:hover {
+			margin-right: -8px;
+			border-right: 8px solid transparent;
+		}
+
+		.typora-export .outline-expander::before {
+			content: "+";
+			font-family: inherit;
+			top: -1px;
+		}
+
+		.typora-export .outline-expander:hover::before,
+		.typora-export .outline-item-open>.outline-item>.outline-expander::before {
+			content: "−";
+		}
+
+		.typora-export-collapse-outline .outline-children {
+			display: none;
+		}
+
+		.typora-export-collapse-outline .outline-item-open>.outline-children,
+		.typora-export-no-collapse-outline .outline-children {
+			display: block;
+		}
+
+		.typora-export-no-collapse-outline .outline-expander::before {
+			content: "" !important;
+		}
+
+		.typora-export-show-outline .outline-item-active>.outline-item .outline-label {
+			font-weight: 700;
+		}
+
+		.md-inline-math-container mjx-container {
+			zoom: 0.95;
+		}
+
+
+		@include-when-export url(https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+		@include-when-export url(https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext);
+
+		:root {
+			--control-text-color: #777;
+		}
+
+		/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+		h1,
+		.h1,
+		.f1 {
+			font-size: 2rem;
+			line-height: 2.5rem;
+		}
+
+		h2,
+		.h2,
+		.f2 {
+			font-size: 1.5rem;
+			line-height: 2rem;
+		}
+
+		h3,
+		.h3,
+		.f3 {
+			font-size: 1.25rem;
+			line-height: 1.5rem;
+		}
+
+		p,
+		.p,
+		.f4,
+		h4,
+		h5,
+		h6,
+		dl,
+		ol,
+		ul,
+		pre[cid],
+		div[cid],
+		#typora-source {
+			font-size: 1.125rem;
+			line-height: 1.5rem;
+		}
+
+		h4 {
+			font-size: 1.13rem;
+		}
+
+		/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+		body {
+			font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", 'Segoe UI Emoji', Serif;
+			line-height: 1.5rem;
+			font-weight: 400;
+		}
+
+		#write {
+			max-width: 914px;
+			color: #333;
+		}
+
+		@media only screen and (min-width: 1400px) {
+			#write {
+				max-width: 1100px;
+			}
+		}
+
+		@media only screen and (min-width: 1700px) {
+			#write {
+				max-width: 1200px;
+			}
+		}
+
+		img {
+			width: auto;
+			max-width: 100%;
+		}
+
+		body {
+			font-size: 1.5rem;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+
+		.ty-table-edit {
+			background: #ededed;
+		}
+
+		table {
+			width: 100%;
+			font-size: 1.125rem;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td,
+		table>tfoot>tr>th,
+		table>tfoot>tr>td {
+			padding: 12px;
+			line-height: 1.2;
+			vertical-align: top;
+			border-top: 1px solid #333;
+		}
+
+		table>thead>tr>th {
+			vertical-align: bottom;
+			border-bottom: 2px solid #333;
+		}
+
+		table>caption+thead>tr:first-child>th,
+		table>caption+thead>tr:first-child>td,
+		table>colgroup+thead>tr:first-child>th,
+		table>colgroup+thead>tr:first-child>td,
+		table>thead:first-child>tr:first-child>th,
+		table>thead:first-child>tr:first-child>td {
+			border-top: 0;
+		}
+
+		table>tbody+tbody {
+			border-top: 2px solid #333;
+		}
+
+		p {
+			font-weight: 300;
+			line-height: 1.5;
+		}
+
+		abbr {
+			border-bottom: 1px black dotted;
+			cursor: help;
+		}
+
+		pre,
+		code {
+			font-family: Menlo, Monaco, "Courier New", monospace;
+		}
+
+		code,
+		.md-fences {
+			color: #7a7a7a;
+		}
+
+		.md-fences {
+			padding: 1.125em;
+			margin-bottom: 0.88em;
+			font-size: 1rem;
+			border: 1px solid #7a7a7a;
+			padding-bottom: 0.5rem;
+			padding-top: 0.5rem;
+		}
+
+		blockquote {
+			padding: 1.33em;
+			font-style: italic;
+			border-left: 5px solid #7a7a7a;
+			color: #555;
+		}
+
+		blockquote em {
+			color: #000;
+		}
+
+		blockquote footer {
+			font-size: .85rem;
+			font-style: normal;
+			background-color: #fff;
+			color: #7a7a7a;
+			border-color: transparent;
+		}
+
+		h1,
+		.h1,
+		h2,
+		.h2,
+		h3,
+		.h3,
+		h4,
+		.h4,
+		h5,
+		.h5,
+		h6,
+		.h6 {
+			font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+			font-weight: bold;
+			line-height: 1.2;
+			margin: 1em 0 0.5em;
+		}
+
+		@media screen and (min-width: 48em) {
+
+			.h1,
+			h1 {
+				font-size: 3.250rem;
+			}
+
+			.h2,
+			h2 {
+				font-size: 2.298rem;
+			}
+
+			.h3,
+			h3 {
+				font-size: 1.625rem;
+			}
+
+			.h4,
+			h4 {
+				font-size: 1.3rem;
+			}
+
+			#write>h4.md-focus:before,
+			#write>h5.md-focus:before,
+			#write>h6.md-focus:before {
+				top: 1px;
+			}
+
+			.p,
+			p,
+			li {
+				font-size: 1.25rem;
+				line-height: 1.8;
+			}
+
+			table {
+				font-size: 1.25rem;
+			}
+		}
+
+		@media (max-width: 48em) {
+			blockquote {
+				margin-left: 1rem;
+				margin-right: 0;
+				padding: 0.5em;
+			}
+
+			.h1,
+			h1 {
+				font-size: 2.827rem;
+			}
+
+			.h2,
+			h2 {
+				font-size: 1.999rem;
+			}
+
+			.h3,
+			h3 {
+				font-size: 1.413rem;
+			}
+
+			.h4,
+			h4 {
+				font-size: 1.3rem;
+			}
+		}
+
+		@media screen and (min-width: 64em) {
+
+			.h1,
+			h1 {
+				font-size: 4.498rem;
+			}
+
+			.h2,
+			h2 {
+				font-size: 2.29rem;
+			}
+
+			.h3,
+			h3 {
+				font-size: 1.9rem;
+			}
+
+			.h4,
+			h4 {
+				font-size: 1.591rem;
+			}
+
+			#write>h4.md-focus:before {
+				top: 4px;
+			}
+		}
+
+		a {
+			color: #463F5C;
+			text-decoration: underline;
+		}
+
+		#write {
+			padding-top: 2rem;
+		}
+
+		#write pre.md-meta-block {
+			min-height: 35px;
+			padding: 0.5em 1em;
+			white-space: pre;
+			border: 0px;
+
+			border-left: 30px #f8f8f8 solid;
+			border-right: 30px #f8f8f8 solid;
+			width: 100vw;
+			max-width: calc(100% + 60px);
+
+			margin-left: -30px;
+			margin-bottom: 2em;
+			margin-top: -2010px;
+			padding-top: 2000px;
+			padding-bottom: 10px;
+			line-height: 1.5em;
+			color: #7a7a7a;
+			background-color: #fafafa;
+			font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+			font-weight: 300;
+			clear: both;
+			padding-left: 0;
+			font-size: 1.125rem;
+		}
+
+		.md-image>.md-meta {
+			color: #463F5C
+		}
+
+		.footnotes {
+			font-size: 1.1rem;
+		}
+
+		.md-tag {
+			font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+		}
+
+		.code-tooltip {
+			background: white;
+		}
+
+		.code-tooltip-content {
+			font-size: 1.1rem;
+		}
+
+		.task-list {
+			padding-left: 0;
+		}
+
+		.md-task-list-item {
+			padding-left: 34px;
+		}
+
+		.md-task-list-item>input {
+			width: 1.25rem;
+			height: 1.25rem;
+			display: block;
+			-webkit-appearance: initial;
+			top: -0.2rem;
+			margin-left: -1.6em;
+			margin-top: calc(1rem - 7px);
+			border: none;
+		}
+
+		.md-task-list-item>input:focus {
+			outline: none;
+			box-shadow: none;
+		}
+
+		.md-task-list-item>input:before {
+			border: 1px solid #555;
+			border-radius: 1.5rem;
+			width: 1.5rem;
+			height: 1.5rem;
+			background: #fff;
+			content: ' ';
+			transition: background-color 200ms ease-in-out;
+			display: block;
+		}
+
+		.md-task-list-item>input:checked:before,
+		.md-task-list-item>input[checked]:before {
+			background: #333;
+			border-width: 2px;
+			display: inline-block;
+			transition: background-color 200ms ease-in-out;
+		}
+
+		.md-task-list-item>input:checked:after,
+		.md-task-list-item>input[checked]:after {
+			opacity: 1;
+		}
+
+		.md-task-list-item>input:after {
+			opacity: 1;
+			-webkit-transition: opacity 0.05s ease-in-out;
+			-moz-transition: opacity 0.05s ease-in-out;
+			transition: opacity 0.05s ease-in-out;
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+			position: absolute;
+			top: 0.4375rem;
+			left: 0.28125rem;
+			width: 0.9375rem;
+			height: 0.5rem;
+			border: 3px solid #fff;
+			border-top: 0;
+			border-right: 0;
+			content: ' ';
+			opacity: 0;
+		}
+
+		.md-tag {
+			color: inherit;
+		}
+
+		.md-toc:focus .md-toc-content {
+			margin-top: 19px;
+		}
+
+		#typora-sidebar {
+			font-size: 1rem !important;
+		}
+
+		.html-for-mac #typora-sidebar {
+			background-color: white;
+		}
+
+		.outline-content li,
+		.outline-content ul {
+			font-size: 1rem !important;
+		}
+
+		.outline-title {
+			line-height: inherit;
+			margin-top: 10px;
+		}
+
+		.outline-expander {
+			width: 18px;
+		}
+
+		.outline-expander:before {
+			content: "+";
+			font-family: inherit;
+			color: rgb(108, 108, 108);
+			font-size: 1.5rem;
+			top: -0.1rem;
+		}
+
+		.outline-expander:hover:before {
+			content: "+";
+		}
+
+		.outline-item-open>.outline-item>.outline-expander:before {
+			content: "-";
+		}
+
+		/** source code mode */
+		#typora-source {
+			font-family: Courier, monospace;
+			color: #6A6A6A;
+		}
+
+		.os-windows #typora-source {
+			font-family: inherit;
+		}
+
+		.cm-s-typora-default .cm-header,
+		.cm-s-typora-default .cm-property,
+		.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+			color: #428bca;
+		}
+
+		.cm-s-typora-default .cm-atom,
+		.cm-s-typora-default .cm-number {
+			color: #777777;
+		}
+
+		.md-diagram-panel {
+			margin-top: 24px;
+			margin-left: -1.2em;
+		}
+
+		.md-mathjax-midline {
+			background: #fafafa;
+		}
+
+		.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+		.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+		.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+			bottom: -3.4em;
+		}
+
+		.dropdown-menu .divider {
+			border-color: #e5e5e5;
+		}
+
+		.typora-export li,
+		.typora-export p,
+		.typora-export,
+		.footnote-line {
+			white-space: normal;
+		}
+	</style>
+	<title>表达积累</title>
+	<script src="./真题辨析_files/jquery.min.js.下载"></script>
+	<style>
+		blockquote {
+			display: none;
+		}
+
+		pre {
+			display: none;
+		}
+	</style>
+	<style>
+		.xuhao {
+			color: #333;
+		}
+
+		.btn {
+			width: 30px;
+			height: 19px;
+			float: left;
+			padding: 0;
+		}
+
+		.select {
+			width: 46px;
+			height: 19px;
+			float: left;
+		}
+
+		.selkey {
+			width: 120px;
+			height: 19px;
+			float: left;
+		}
+
+		.sel_box {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 999;
+		}
+
+		.top {
+			position: fixed;
+			top: 0;
+			right: 0;
+			font-size: 12px;
+			z-index: 1999;
+			width: 35px;
+			text-align: center;
+			height: 20px;
+			border-radius: 6px;
+			background-color: deepskyblue;
+			color: #ffffff;
+		}
+
+		.extand {
+			/* position: fixed;
+			top: 0;
+			left: 138px;
+			z-index: 999; */
+			width: 40px;
+			height: 40px;
+			font-size: 12px;
+			padding: 0;
+		}
+
+		h3 {
+			border: #428bca dotted 1px;
+			background-color: #D9FFFF;
+		}
+
+		h4 {
+			font-size: 12px;
+			font-weight: initial;
+		}
+
+		sub {
+			display: block;
+			font-size: 12px;
+			font-weight: initial;
+			color: violet;
+		}
+
+		.anwser {
+			width: 300px;
+			height: 20px;
+			font-size: 12px;
+			background-color: #ffffff;
+			overflow: hidden;
+		}
+
+		.selDiv {
+			/* background-color: #ffffff; */
+			width: 300px;
+			height: 600px;
+			overflow: auto;
+			overflow-y: scroll;
+		}
+
+		.selDiv h3 {
+			background-color: #ffffff !important;
+			width: 60px;
+			height: 15px;
+			font-size: 10px;
+			overflow: hidden;
+		}
+
+		#write {
+			/* background-color: #7a7a7a; */
+		}
+	</style>
+	<script>
+		function xuhao() {
+			var pTag = document.getElementsByTagName("h3");
+			newArr = Array.from(pTag);
+			newArr.forEach(function (item, index) {
+				$('#' + item.id).prepend('<span class="xuhao">' + parseInt(index + 1) + ': ' + '</span>');
+			});
+		}
+		$(function () {
+			// xuhao();
+		});
+		function cancel() {
+			let ele_selDiv = document.getElementById("selDiv");
+			ele_selDiv.innerHTML = '';
+			document.getElementById("selkey").value = '';
+			var eles = document.getElementsByTagName("h3");
+			eles = Array.from(eles);
+			eles.map(x => {
+				x.style.backgroundColor = '#D9FFFF';
+			})
+			var eles3 = document.getElementsByTagName("h3");
+			eles3 = Array.from(eles3);
+			eles3.map(x => {
+				x.style.backgroundColor = '#ffffff';
+			})
+		}
+		function show1() {
+			let ele_blockquote = document.getElementsByTagName("blockquote");
+			let newArr = Array.from(ele_blockquote);
+			if ($('#extand1').val() === '开词汇') {
+				newArr.map(x => {
+					x.style.display = 'block';
+				})
+				$('#extand1').val('关词汇')
+			} else if ($('#extand1').val() === '关词汇') {
+				newArr.map(x => {
+					x.style.display = 'none';
+				})
+				$('#extand1').val('开词汇')
+			}
+		}
+		function show11() {
+			let ele_blockquote1 = document.getElementsByTagName("blockquote");
+			let newArr1 = Array.from(ele_blockquote1);
+			let ele_blockquote = document.getElementsByTagName("pre");
+			let newArr = Array.from(ele_blockquote);
+			if ($('#extand2').val() === '开说明') {
+				newArr.map(x => {
+					x.style.display = 'block';
+				})
+				newArr1.map(x => {
+					x.style.display = 'block';
+				})
+				$('#extand2').val('关说明')
+			} else if ($('#extand2').val() === '关说明') {
+				newArr.map(x => {
+					x.style.display = 'none';
+				})
+				newArr1.map(x => {
+					x.style.display = 'none';
+				})
+				$('#extand2').val('开说明')
+			}
+		}
+		function show3() {
+			let ele_blockquote = document.getElementsByTagName("h3");
+			let newArr = Array.from(ele_blockquote);
+			if ($('#extand3').val() === '开语法') {
+				newArr.map(x => {
+					x.style.display = 'block';
+				})
+				$('#extand3').val('关语法')
+			} else if ($('#extand3').val() === '关语法') {
+				newArr.map(x => {
+					x.style.display = 'none';
+				})
+				$('#extand3').val('开语法')
+			}
+		}
+		function show() {
+			let ele_selDiv = document.getElementById("selsel");
+			let ele_ss = document.getElementById("extand");
+			if (ele_selDiv.style.display === '') {
+				ele_selDiv.style.display = 'none';
+				ele_ss.value = '《';
+			}
+			else {
+				ele_selDiv.style.display = '';
+				ele_ss.value = '》';
+			}
+		}
+		function findH2() {
+			var sel_type = document.getElementById("sel_type");
+			var newArr;
+			if (sel_type.value === '语法') {
+				var pTag = document.getElementsByTagName("h3");
+				newArr = Array.from(pTag);
+			} else if (sel_type.value === '例句') {
+				var pTag = document.getElementsByTagName("h4");
+				newArr = Array.from(pTag);
+			} else if (sel_type.value === '接续') {
+				var pTag = document.getElementsByTagName("sub");
+				newArr = Array.from(pTag);
+			} else if (sel_type.value === '年份') {
+				var pTag = document.getElementsByTagName("h2");
+				newArr = Array.from(pTag);
+			}
+			//搜索的关键词
+			var keys = document.getElementById("selkey").value;
+			var arr = newArr.filter(x => {
+				if (x.innerText.indexOf(keys) > -1) {
+					return x
+				}
+			})
+			//结果
+			let ele_selDiv = document.getElementById("selDiv");
+			let stringss = '';
+			let jiexuArr;
+			if (sel_type.value === '接续') {
+				jiexuArr = arr.map(x => x.innerText);
+				jiexuArr.sort();
+				jiexuArr.forEach(function (item, index) {
+					stringss += '<div class="anwser newWidth" id="' + item + '1" name="' + item + '">' + item + '</div>';
+				});
+				ele_selDiv.style.width = '300px';
+			} else {
+				ele_selDiv.style.width = '100px';
+				arr.forEach(function (item, index) {
+					stringss += '<div class="anwser" id="' + item.innerText + '1" name="' + item.innerHTML + '">' + item.innerHTML + '</div>';
+				});
+			}
+			ele_selDiv.innerHTML = stringss;
+			//跳转
+			if (sel_type.value === '接续') {
+				jiexuArr.forEach(function (item, index) {
+					var button = document.getElementById(item + '1');
+					button.addEventListener('click', function (e) {
+						//清空背景
+						if (sel_type.value === '释义') {
+							var eles = document.getElementsByTagName("h3");
+							eles = Array.from(eles);
+							eles.map(x => {
+								x.style.backgroundColor = '#ffffff';
+							})
+						} else {
+							var eles = document.getElementsByTagName("h3");
+							eles = Array.from(eles);
+							eles.map(x => {
+								x.style.backgroundColor = '#D9FFFF';
+							})
+						}
+						var eles = $("#write>:contains(" + item + ")").prev().prev().prev();
+						eles[0].scrollIntoView();
+						// eles[0].css({"background-color":"#eee"})
+					});
+				})
+			} else {
+				arr.forEach(function (item, index) {
+					var button = document.getElementById(item.innerText + '1');
+					button.addEventListener('click', function (e) {
+						if (sel_type.value === '释义') {
+							var eles = document.getElementsByTagName("h3");
+							eles = Array.from(eles);
+							eles.map(x => {
+								x.style.backgroundColor = '#ffffff';
+							})
+						} else {
+							var eles = document.getElementsByTagName("h3");
+							eles = Array.from(eles);
+							eles.map(x => {
+								x.style.backgroundColor = '#D9FFFF';
+							})
+						}
+						var ele = document.getElementById(item.id);
+						ele.scrollIntoView();
+						ele.style.backgroundColor = '#eee'
+					});
+				});
+			}
+		}
+		function getElementsByXPath(xpath, parent) {
+			let results = [];
+			let query = document.evaluate(xpath, parent || document,
+				null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+			for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+				results.push(query.snapshotItem(i));
+			}
+			return results;
+		}
+	</script>
+</head>
+
+<body>
+	<div id="top"></div>
+	<div class="sel_box">
+		<input id="extand" type="button" class="extand" onclick="show()" value="《">
+		<!-- <input id="extand1" type="button" class="extand" onclick="show1()" value="开词汇" /> -->
+		<input id="extand2" type="button" class="extand" onclick="show11()" value="关说明">
+		<!-- <input id="extand3" type="button" class="extand" onclick="show3()" value="关语法" /> -->
+		<div id="selsel" style="width: 186px;height: 60px;font-size: 10px;">
+			<div>
+				<select class="select" id="sel_type">
+					<option>语法</option>
+					<option>年份</option>
+					<!-- <option>接续</option> -->
+				</select>
+				<input type="text" class="selkey" id="selkey">
+			</div>
+			<div>
+				<input type="button" class="btn" onclick="findH2()" value="查询">
+				<input type="button" class="btn" onclick="cancel()" value="取消">
+			</div>
+			<div style="clear: both;"></div>
+			<div id="selDiv" class="selDiv" style="width: 100px;">
+			</div>
+		</div>
+		<a href="https://mrslxj.github.io/test/%E7%9C%9F%E9%A2%98%E8%BE%A8%E6%9E%902010-2012.html#top" class="top"
+			target="_self">顶部</a>
+	</div>
+	<div class='typora-export-content'>
+		<div id='write' class=''>
+			<h1 id='表达积累'><span>表达积累</span></h1>
+			<h2><span>14课</span></h2>
+			<h3 id='仏｜ほとけフランス）独｜どくドイツ）蘭｜らんオランダ）米｜べいアメリカ）露｜ろロシア）'>
+				<span>仏｜ほとけ（フランス）独｜どく（ドイツ）蘭｜らん（オランダ）米｜べい（アメリカ）露｜ろ（ロシア）</span>
+			</h3>
+			<h3 id='自然に親しむしたしむ）'><span>自然に親しむ（したしむ）</span></h3>
+			<h3 id='コーヒーで割るソーダ割り・ロック掺了苏打水・冰块的梅子酒'><span>コーヒーで割る/ソーダ割り・ロック</span><sub><span>掺了苏打水・冰块的梅子酒</span></sub>
+			</h3>
+			<h3 id='タンパク質しつ蛋白质'><span>タンパク質</span><sup><span>しつ</span></sup><sub><span>蛋白质</span></sub></h3>
+			<h3 id='搾る｜しぼる②'><span>搾る｜しぼる②</span></h3>
+			<blockquote>
+				<p><span>他动・一类</span></p>
+				<p><span>\1. 挤，榨。（強く押したり、押し潰したりして、液を出させる。）</span></p>
+				<p><span>\2. 勒索，敲诈，强制索取。（無理に取り立てる。）</span></p>
+				<p><span>\3. 训斥，申斥。（厳しく追及する。）</span></p>
+				<p><span>\4. 同：絞る</span></p>
+			</blockquote>
+			<h5 id='スピード違反で絞られた因超速被训斥'><span>スピード違反で絞られた。</span><sub><span>因超速被训斥。</span></sub></h5>
+			<h3 id='絞る｜しぼる②'><span>絞る｜しぼる②</span></h3>
+			<blockquote>
+				<p><span>他動詞</span></p>
+				<p><span>\1. 榨，拧，挤，绞。（しめつけたり押しつけたりして、中の水分を出す。）</span></p>
+				<p><span>\2. 引人流泪；拼命发出高声；搜索枯肠；绞脑汁。（出る限りの物が出るようにする。むりに出させる。）</span></p>
+				<p><span>\3. 拉开(幕）；勒紧(袋口)。（せばめる。）</span></p>
+				<p><span>\4. 严加责备，申斥。（きつくしかる。）</span></p>
+				<p><span>\5. 染出(斑点花样)。（絞り染めにする。）</span></p>
+				<p><span>\6. 缩小。（拡散したものを小さくまとめる。小さくする。）</span></p>
+				<p><span>\7. 集中。（範囲をかぎる。）</span></p>
+				<p><span>\8. 同：搾る</span></p>
+			</blockquote>
+			<h5 id='頭を絞る绞尽脑汁煞费苦心'><span>頭を絞る。</span><sub><span>绞尽脑汁；煞费苦心。</span></sub></h5>
+			<h5 id='知恵を絞る想方设法开动脑筋'><span>知恵を絞る。</span><sub><span>想方设法；开动脑筋。</span></sub></h5>
+			<h5 id='問題の範囲を絞る划出问题的范围'><span>問題の範囲を絞る。</span><sub><span>划出问题的范围。</span></sub></h5>
+			<h3 id='目先が利く有先见之明'><span>目先が利く</span><sub><span>有先见之明</span></sub></h3>
+			<h3 id='気が利く机灵伶俐'><span>気が利く</span><sub><span>机灵，伶俐</span></sub></h3>
+			<h3 id='街角まちかど）'><span>街角（まちかど）</span></h3>
+			<h3 id='案外出乎意外意外的'><span>案外</span><sub><span>出乎意外，意外的</span></sub></h3>
+			<h3 id='バランスを保つバランスが崩れる'><span>バランスを保つ/バランスが崩れる</span></h3>
+			<blockquote>
+				<h5 id='崩れる｜くずれる③'><span>崩れる｜くずれる③</span></h5>
+				<p><span>自動詞</span></p>
+				<p><span>\1. 崩溃，坍塌，倒塌。（まとまっていたものがこわれて落ちる。）</span></p>
+				<p><span>\2. 零乱，变形，走样。（整っていたものが乱れる。）</span></p>
+				<p><span>\3. 变天，天气变坏。（天気が悪くなる。）</span></p>
+				<p><span>\4. 换成零钱，找零。（同額の小銭にかえることができる。）</span></p>
+				<p><span>\5. 行市下跌。行市跌落。（相場がさがる。）</span></p>
+			</blockquote>
+			<p><span>トラベル</span><sub><span>travel</span></sub></p>
+			<p><span>村のはずれ</span><sub><span>村の中心から少し離れた所。</span></sub></p>
+			<h3 id='呆れる｜あきれる◎'><span>呆れる｜あきれる◎</span></h3>
+			<blockquote>
+				<p><span>自動詞</span></p>
+				<p><span>\1. （对不好的事）吃惊，惊讶；吓呆，发愣，愕然。含贬义。（あまりの意外さにどのようにしてよいかわからなくなる）</span></p>
+			</blockquote>
+			<h3 id='挙げ句の果て｜あげくのはて'><span>挙げ句の果て｜あげくのはて</span></h3>
+			<blockquote>
+				<p><span>他（ほか）</span></p>
+				<p><span>\1. 最终结果，最后。（「挙げ句」を強調した言い方。いろりろな経過をへた最後。）</span></p>
+			</blockquote>
+			<h3 id='比喩ひゆ'><span>比喩</span><sup><span>ひゆ</span></sup></h3>
+			<h3 id='蓄える｜たくわえる④③'><span>蓄える｜たくわえる④③</span></h3>
+			<blockquote>
+				<p><span>他動詞</span></p>
+				<p><span>\1. ［物资］储备；［物品、金钱］储存，贮存，贮备。（品物・金銭・力などを、あとで役立たせるためにためておく）</span></p>
+				<p><span>\2. ［知识，技能］积蓄，积累。（知識・技能などを将来のために身につける）</span></p>
+				<p><span>\3. 留。（ひげをはやす）</span></p>
+			</blockquote>
+			<h3 id='実力を蓄える积蓄实力'><span>実力を蓄える</span><sub><span>积蓄实力。</span></sub></h3>
+			<h3 id='相変わらず｜あいかわらず◎'><span>相変わらず｜あいかわらず◎</span></h3>
+			<blockquote>
+				<p><span>副詞</span></p>
+				<p><span>\1. 照旧，仍旧。跟往常一样。（以前と同様に。）</span></p>
+			</blockquote>
+			<h5 id='相変わらずお元気ですね'><span>相変わらずお元気ですね。</span></h5>
+			<h3 id='貧乏｜びんぼう①'><span>貧乏｜びんぼう①</span></h3>
+			<blockquote>
+				<p><span>名・形动・自动・三类</span></p>
+				<p><span>\1. 穷，贫穷，贫困，贫苦。（貧しい。）</span></p>
+			</blockquote>
+			<h3 id='熟す｜こなす◎熟练做好'><span>熟す｜こなす◎</span><sub><span>熟练，做好</span></sub></h3>
+			<blockquote>
+				<p><span>他動詞</span></p>
+				<p><span>\1. 弄碎。（砕いてこまかにする。土などを砕いてやわらかにする。）</span></p>
+				<p><span>\2. 消化。（食物を消化する。）</span></p>
+				<p><span>\3. 处理，做完。卖完。（仕事をすませる。処理する。かたづける。）</span></p>
+				<p><span>\4. 运用自如；掌握；善于。很好地扮演(角色)。（思うままに扱う。自由に扱う。マスターする。）</span></p>
+			</blockquote>
+			<h5 id='仕事を1週間で熟す把工作一个星期就做完'><span>仕事を1週間で熟す。</span><sub><span>把工作一个星期就做完。</span></sub></h5>
+			<h5 id='英語を熟す掌握英语'><span>英語を熟す。</span><sub><span>掌握英语。</span></sub></h5>
+			<h3 id='余裕がない'><span>余裕がない</span></h3>
+			<blockquote>
+				<p><span>余裕｜よゆう◎</span></p>
+				<p><span>名</span></p>
+				<p><span>\1. 富余。（余りのあること。）</span></p>
+				<p><span>\2. 充裕、从容。（焦らずゆったりしていること。）</span></p>
+			</blockquote>
+			<h3 id='時間にゆとりを持つ时间充裕'><span>時間にゆとりを持つ。</span><sub><span>时间充裕</span></sub></h3>
+			<h5 id='いまの彼には心のゆとりがない现在他没有闲心'><span>いまの彼には心のゆとりがない。</span><sub><span>现在他没有闲心。</span></sub></h5>
+			<h3 id='密接｜みっせつ◎'><span>密接｜みっせつ◎</span></h3>
+			<blockquote>
+				<p><span>名・形动・自动・三类</span></p>
+				<p><span>\1. 密接，紧连。（すきまのないほどぴったりとくっついていること。）</span></p>
+				<p><span>\2. 密切。（深い関係にあること。）</span></p>
+			</blockquote>
+			<h3 id='ほどとおい｜程遠い⑤◎④③'><span>ほどとおい｜程遠い⑤◎④③</span></h3>
+			<blockquote>
+				<p><span>形</span></p>
+				<p><span>\1. 相当远的，不近的。（距離・時間などの隔たりが大きい。）</span></p>
+			</blockquote>
+			<h2 id='15课'><span>15课</span></h2>
+			<h3 id='引っ切り無し｜ひっきりなし④⑤'><span>引っ切り無し｜ひっきりなし④⑤</span></h3>
+			<blockquote>
+				<p><span>形容動詞</span></p>
+				<p><span>\1. 络绎不绝，接连不断。（絶え間なく続くさま。切れ目のないさま。）</span></p>
+			</blockquote>
+			<h5 id='車がひっきりなしに通る'><span>車がひっきりなしに通る。</span></h5>
+			<h3 id='概して｜がいして①'><span>概して｜がいして①</span></h3>
+			<blockquote>
+				<p><span>副</span></p>
+				<p><span>\1. 总的来看，大体。总体上看。（大体において。一般に。）</span></p>
+			</blockquote>
+			<h5 id='ここの生徒は概しておとなしい'><span>ここの生徒は概しておとなしい。</span></h5>
+			<h3 id='しばしば｜しばしば①'><span>しばしば｜しばしば①</span></h3>
+			<blockquote>
+				<p><span>副</span></p>
+				<p><span>\1. 屡次，再三，一再（何度も繰り返し行われることを表す。たびたび。）；经常，常常（しょっちゅう）；多次（何度も）。</span></p>
+				<p><span>\2. 同：屡屡</span></p>
+			</blockquote>
+			<h5 id='しばしば忠告したがきかない'><span>しばしば忠告したがきかない。</span></h5>
+			<h3 id='定番｜ていばん◎'><span>定番｜ていばん◎</span></h3>
+			<blockquote>
+				<p><span>名</span></p>
+				<p><span>\1. 传统项目，定型商品（流行にかかわりなく、一定の需要が保たれている基本型の商品。）</span></p>
+			</blockquote>
+			<h5 id='定番アイス'><span>定番アイス。</span></h5>
+			<h3 id='心構え｜こころがまえ④'><span>心構え｜こころがまえ④</span></h3>
+			<blockquote>
+				<p><span>名</span></p>
+				<p><span>\1. 思想准备，精神准备。（心に掛けて待ち受けること。）</span></p>
+			</blockquote>
+			<h5 id='十分に心構えをする'><span>十分に心構えをする。</span></h5>
+			<h2 id='真题语法1'><span>真题语法1</span></h2>
+			<h3 id='予算よさん'><span>予算</span><sup><span>よさん</span></sup></h3>
+			<h3 id='コース路线课程套餐'><span>コース</span><sub><span>路线，课程，套餐</span></sub></h3>
+			<h3 id='～に気づく意识到'><span>～に気づく</span><sub><span>意识到</span></sub></h3>
+			<h3 id='優勝ゆうしょうを果たすはたす'>
+				<span>優勝</span><sup><span>ゆうしょう</span></sup><span>を果たす</span><sup><span>はたす</span></sup>
+			</h3>
+			<h3 id='彼の活躍かつやくに周囲しゅういの期待きたいは高まるたかまる'>
+				<span>彼の活躍</span><sup><span>かつやく</span></sup><span>に周囲</span><sup><span>しゅうい</span></sup><span>の期待</span><sup><span>きたい</span></sup><span>は高まる</span><sup><span>たかまる</span></sup>
+			</h3>
+			<blockquote>
+				<h5 id='活躍｜かつやく◎'><span>活躍｜かつやく◎</span></h5>
+				<p><span>名・自动・三类</span></p>
+				<p><span>\1. 活跃，活动。（めざましく活動すること。大いに手腕をふるうこと。）</span></p>
+				<h5 id='周囲｜しゅうい①'><span>周囲｜しゅうい①</span></h5>
+				<p><span>名詞</span></p>
+				<p><span>\1. 四周，周边。（ある物の外周。）</span></p>
+				<p><span>\2. 外界，环境。（当事者ではないが関係のあるあたり。）</span></p>
+				<p><span>\3. 周长。（周の長さ。）</span></p>
+				<h5 id='期待に添う不辜负期望'><span>期待に添う</span><sub><span>不辜负期望。</span></sub></h5>
+				<h5 id='高まる｜たかまる③'><span>高まる｜たかまる③</span></h5>
+				<p><span>自动・一类</span></p>
+				<p><span>\1. 高涨，提高，增长，兴奋。（物事の程度が増してくる、高くなる、大きくなる、また、強くなる。）</span></p>
+				<h5 id='気分が高まる情绪高涨'><span>気分が高まる。情绪高涨。</span></h5>
+			</blockquote>
+			<h3 id='景気｜けいき◎'><span>景気｜けいき◎</span></h3>
+			<blockquote>
+				<p><span>名</span></p>
+				<p><span>\1. 〈经济〉景气，市面，商情。（社会全体にわたる経済活動の活発さの程度。好況と不況の間を変動する経済状態。）</span></p>
+				<p><span>\2. 繁荣。（好景気。）</span></p>
+				<p><span>\3. 精神旺盛。（元気のよいこと。）</span></p>
+				<h5 id='不景気な顔をする无精打采'><span>不景気な顔をする。</span><sub><span>无精打采。</span></sub></h5>
+			</blockquote>
+			<h3 id='あきらかになる变清楚'><span>あきらかになる</span><sub><span>变清楚</span></sub></h3>
+			<blockquote>
+				<h5 id='明らか｜あきらか②'><span>明らか｜あきらか②</span></h5>
+				<p><span>形动</span></p>
+				<p><span>\1. 明亮。（光があかるくて，物の様子がはっきりしているさま。あかるい。）</span></p>
+				<p><span>\2. 明显，显然，清楚。（柄が，だれにもわかるようにはっきりしているさま。疑いをはさむ余地のないさま。明白なさま。）</span></p>
+				<p><span>\3. 精通学问；通晓道理。（道理に明るいさま。物事をよく理解しているさま。賢明。）</span></p>
+				<p><span>\4. 明朗；开朗。（晴れやかで、快活なさま。明朗。）</span></p>
+			</blockquote>
+			<h3 id='研究けんきゅうは着実ちゃくじつに進む研究稳步进行'>
+				<span>研究</span><sup><span>けんきゅう</span></sup><span>は着実</span><sup><span>ちゃくじつ</span></sup><span>に進む</span><sub><span>研究稳步进行</span></sub>
+			</h3>
+			<blockquote>
+				<h5 id='着実｜ちゃくじつ◎'><span>着実｜ちゃくじつ◎</span></h5>
+				<p><span>形容動詞</span></p>
+				<p><span>\1. 踏〔塌〕实；扎实，牢靠；稳健。（地道で危なげがないこと）</span></p>
+			</blockquote>
+			<h3 id='我慢｜がまん①'><span>我慢｜がまん①</span></h3>
+			<blockquote>
+				<p><span>名</span></p>
+				<p><span>\1. 忍耐，忍受，容忍，自制。（感情や欲望を抑え忍ぶこと。）</span></p>
+				<p><span>\2. 顽固。（頑固）</span></p>
+				<p><span>\3. （佛教）我慢，自高，傲慢。（実際には存在しない我自己の中心にあると考え、それを根拠として行動する思い上がった心。）</span></p>
+				<p><span>\4. 忍（惯用语）</span></p>
+				<p><span>動</span></p>
+				<p><span>\1. 忍耐，忍受，容忍，自制。（感情や欲望を抑え忍ぶこと。）</span></p>
+				<p><span>\2. 饶恕，原谅。（許すこと。）</span></p>
+				<p><span>\3. 将就，克服，让步。（忍耐すること。）</span></p>
+			</blockquote>
+			<h3 id='～に近づくちかづく靠近'><span>～に近づく</span><sup><span>ちかづく</span></sup><sub><span>靠近</span></sub></h3>
+			<h3 id='思い込み深信'><span>思い込み</span><sub><span>深信</span></sub></h3>
+			<h3 id='～によって～が４種類に分けられるわけられる'><span>～によって　～が　４種類に分けられる</span><sup><span>わけられる</span></sup></h3>
+			<h2 id='真题语法2'><span>真题语法2</span></h2>
+			<h3 id='混雑｜こんざつ①'><span>混雑｜こんざつ①</span></h3>
+			<blockquote>
+				<p><span>名・自动・三类</span></p>
+				<p><span>\1. 许多东西混杂。（いりまじって分けにくいこと。）</span></p>
+				<p><span>\2. 拥挤。（ごたごたすること。）</span></p>
+			</blockquote>
+			<h3 id='雰囲気｜ふんいき③'><span>雰囲気｜ふんいき③</span></h3>
+			<blockquote>
+				<p><span>名</span></p>
+				<p><span>\1. 气氛，空气。（ムード。天体をとりまく大気。）</span></p>
+			</blockquote>
+			<h3 id='プロ｜ぷろ①'><span>プロ｜ぷろ①</span></h3>
+			<blockquote>
+				<p><span>名</span></p>
+				<p><span>\1. professional职业。（玄人；専門的。）</span></p>
+			</blockquote>
+			<p><span>スムーズに進む</span><sub><span>顺利开展</span></sub></p>
+			<blockquote>
+				<h5 id='スムーズ｜すむーず②'><span>スムーズ｜すむーず②</span></h5>
+				<p><span>形动</span></p>
+				<p><span>\1. 光滑，平滑；流畅，顺畅。（Smooth.物事が支障なく滑らかに運ぶさま。）</span></p>
+				<h5 id='進む｜すすむ◎'><span>進む｜すすむ◎</span></h5>
+				<p><span>自動詞</span></p>
+				<p><span>\1. 进，前进。（前の方に出ていく。）</span></p>
+				<p><span>\2. 进步，先进。（地位や学年、また能力や技術の程度が上がる。昇格する。）</span></p>
+				<p><span>\3. 主动做。来劲儿。（積極的にする状態になる。）</span></p>
+				<p><span>\4. 顺利开展。（より望ましちぃ状態に向かう。）</span></p>
+				<p><span>\5. 上升，晋升。(より高度なところへうつる。）</span></p>
+			</blockquote>
+			<h3 id='順調じゅんちょう'><span>順調</span><sup><span>じゅんちょう</span></sup></h3>
+			<h3 id='おわび申し上げます｜お詫び'><span>おわび申し上げます｜お詫び</span></h3>
+			<h3 id='映す｜うつす②'><span>映す｜うつす②</span></h3>
+			<blockquote>
+				<p><span>他动・一类</span></p>
+				<p><span>\1. 映，照，投射。投射光线，将物体的形状、姿态显现在其他物体的表面上。（物の形・姿などを他の物の表面に現れるようにする。）</span></p>
+				<p><span>\2. 放映。将影像显现在银幕或显像管上。（映像を、スクリーンやブラウン管の上に現す。）</span></p>
+			</blockquote>
+			<h3 id='映る｜うつる②'><span>映る｜うつる②</span></h3>
+			<blockquote>
+				<p><span>自动・一类</span></p>
+				<p><span>\1. 反射。（鏡や水面などに物の姿などが現れる。）</span></p>
+				<p><span>\2. 相称。（よく似合う。）</span></p>
+				<p><span>\3. 看，觉得。（おもわれる。）</span></p>
+			</blockquote>
+			<h3 id='楽しむ｜たのしむ③'><span>楽しむ｜たのしむ③</span></h3>
+			<blockquote>
+				<p><span>他动・一类</span></p>
+				<p><span>\1. 乐，快乐；享受，欣赏；喜欢。（心をよろこばせる。）</span></p>
+				<p><span>\2. 以……为消遣，使快活。（なぐさめる。）</span></p>
+				<p><span>\3. 期待，以愉快的心情盼望。（期待をかける。）</span></p>
+			</blockquote>
+			<h3 id='じっくり考える踏实地思考'><span>じっくり考える</span><sub><span>踏实地思考。</span></sub></h3>
+			<blockquote>
+				<h5 id='じっくり-③'><span>じっくり ③</span></h5>
+				<p><span>副</span></p>
+				<p><span>慢慢地；仔细地；不慌不忙；踏踏实实。（落ち着いて、ゆっくり物事をする様。）</span></p>
+			</blockquote>
+			<h3 id='怪しい｜あやしい◎③'><span>怪しい｜あやしい◎③</span></h3>
+			<blockquote>
+				<p><span>形</span></p>
+				<p><span>\1. （奇怪）可疑。（疑わしい）</span></p>
+				<p><span>\2. 奇异，奇怪；特别。（神秘的で人を引きつけるような力がある）</span></p>
+				<p><span>\3. 靠不住；难以置信。（確実かどうか、はっきりしない。信用ができない）</span></p>
+				<p><span>\4. 不好，拙劣。（悪くなりそうな状況だ）</span></p>
+				<p><span>\5. 〔男女间〕关系可疑，好象发生恋爱关系。（秘密の関係があるらしい）</span></p>
+			</blockquote>
+			<h3 id='悔しい｜くやしい③'><span>悔しい｜くやしい③</span></h3>
+			<blockquote>
+				<p><span>形容詞</span></p>
+				<p><span>\1. 令人懊悔，令人气愤；不甘心；遗憾。（思いどおりにならず、残念でしかたがない。）</span></p>
+			</blockquote>
+			<h3 id='慌てる｜あわてる◎'><span>慌てる｜あわてる◎</span></h3>
+			<blockquote>
+				<p><span>自動詞</span></p>
+				<p><span>\1. 惊慌，着慌，慌张。（思いがけないことに出くわして、落ち着きを失う。）</span></p>
+				<p><span>\2. 急急忙忙，急忙。（ひどく急いで事をする。）</span></p>
+			</blockquote>
+			<h3 id='訪れる｜おとずれる④'><span>訪れる｜おとずれる④</span></h3>
+			<blockquote>
+				<p><span>自他・二类</span></p>
+				<p><span>\1. 访问，过访。（ある場所や人の家に行く。訪問する。）</span></p>
+				<p><span>\2. 到来；来临。（やってくる。）</span></p>
+				<p><span>\3. 通信问候。（たよりをする。手紙で安否を問う。）</span></p>
+			</blockquote>
+			<h3 id='アレルギー｜あれるぎー②③'><span>アレルギー｜あれるぎー②③</span></h3>
+			<blockquote>
+				<p><span>名詞</span></p>
+				<p><span>\1. Allergie〈医〉变态反应，变应性，过敏症。（過敏症状。）</span></p>
+			</blockquote>
+			<h3 id='蓄積｜ちくせき◎'><span>蓄積｜ちくせき◎</span></h3>
+			<blockquote>
+				<p><span>名・他动・三类</span></p>
+				<p><span>\1. 积蓄，蓄积，积存，积累，积攒。（蓄え貯めること。）</span></p>
+			</blockquote>
+			<h3 id='貯金｜ちょきん◎'><span>貯金｜ちょきん◎</span></h3>
+			<blockquote>
+				<p><span>名詞</span></p>
+				<p><span>\1. 存，存钱；存款；储蓄。（お金を貯めること。）</span></p>
+			</blockquote>
+			<h3 id='快適に過ごす舒适地度过'><span>快適に過ごす</span><sub><span>舒适地度过</span></sub></h3>
+			<h2 id='真题语法3'><span>真题语法3</span></h2>
+			<h3 id='ストレス解消かいしょう消除压力'><span>ストレス解消</span><sup><span>かいしょう</span></sup><sub><span>消除压力</span></sub></h3>
+			<h3 id='さっと突然'><span>さっと</span><sub><span>突然</span></sub></h3>
+			<h5 id='顔色が颯と変る突然变了脸色'><span>顔色が颯と変る。</span><sub><span>突然变了脸色。</span></sub></h5>
+			<h3 id='語るかたる◎'><span>語る</span><sup><span>かたる</span></sup><span>◎</span></h3>
+			<blockquote>
+				<p><span>他动・一类</span></p>
+				<p><span>\1. 谈，讲，讲述。（一つの話として、相手に伝える。）</span></p>
+				<p><span>\2. 说唱。（ふしをつけて、朗誦する。）</span></p>
+				<h5 id='語るに落ちる不打自招'><span>語るに落ちる。</span><sub><span>不打自招。</span></sub></h5>
+			</blockquote>
+			<h3 id='習うならう②'><span>習う</span><sup><span>ならう</span></sup><span>②</span></h3>
+			<blockquote>
+				<p><span>他動詞</span></p>
+				<p><span>\1. 学习，练习。（教えられて自分の身につける。まなぶ。くりかえして修め行う。稽古する。）</span></p>
+				<p><span>\2. 模仿，仿照。写作「倣う」。（まねをする。）</span></p>
+			</blockquote>
+			<h3 id='発揮はっき◎'><span>発揮</span><sup><span>はっき</span></sup><span>◎</span></h3>
+			<blockquote>
+				<p><span>名・他动・三类</span></p>
+				<p><span>\1. 发挥，施展。（能力を隠す所なく示すこと。）</span></p>
+				<h5 id='腕を発揮するのにちょうどよい機会だ正是大显身手的好机会'><span>腕を発揮するのにちょうどよい機会だ。</span><sub><span>正是大显身手的好机会。</span></sub>
+				</h5>
+			</blockquote>
+			<h2 id='真题语法4'><span>真题语法4</span></h2>
+			<p><span>ゲームに夢中になる</span><sub><span>对游戏入迷</span></sub></p>
+			<h3 id='防ぐふせぐ②防御预防'><span>防ぐ</span><sup><span>ふせぐ</span></sup><span>②</span><sub><span>防御，预防</span></sub>
+			</h3>
+			<blockquote>
+				<h5 id='病気を防ぐ预防疾病'><span>病気を防ぐ。</span><sub><span>预防疾病。</span></sub></h5>
+				<h5 id='火を防ぐ防火'><span>火を防ぐ。</span><sub><span>防火。</span></sub></h5>
+				<h5 id='伝染を防ぐ预防传染'><span>伝染を防ぐ。</span><sub><span>预防传染。</span></sub></h5>
+			</blockquote>
+			<h3 id='経験を生かす'><span>経験を生かす</span></h3>
+			<h3 id='才能を生かす运用才能'><span>才能を生かす。</span><sub><span>运用才能。</span></sub></h3>
+			<h3 id='時間を生かす利用时间'><span>時間を生かす。</span><sub><span>利用时间。</span></sub></h3>
+			<blockquote>
+				<h5 id='生かす｜いかす②'><span>生かす｜いかす②</span></h5>
+				<p><span>他动・一类</span></p>
+				<p><span>\1. 使其继续生存；使(让)活；留活命。（生きつづけさせる。）</span></p>
+				<p><span>\2. 使其发挥作用；利用；活用；运用；发挥。（力を発揮させる。）</span></p>
+				<p><span>\3. 同：活かす</span></p>
+			</blockquote>
+			<h3 id='耐える｜たえる②'><span>耐える｜たえる②</span></h3>
+			<blockquote>
+				<p><span>自动・二类</span></p>
+				<p><span>\1. 忍受，禁受。禁得住。（我慢する。こらえる。また、もちこたえる。）</span></p>
+				<p><span>\2. 值得。有做的价值。（それをするだけの値打ちがある。）</span></p>
+				<p><span>\3. 胜任。能与负担或任务相应。（負担や任務に対応できる。）</span></p>
+				<h5 id='4-同堪える｜こらえる③'><span>\4. 同：堪える｜こらえる③</span></h5>
+				<p><span>他動詞</span></p>
+				<p><span>\1. 忍耐；忍受；忍住；抑制住。（苦しみ・痛みなどをがまんする；感情や欲求が表面に出ようとするのをおさえる）</span></p>
+				<p><span>\2. 容忍，宽恕，饶（恕）。（許す）</span></p>
+			</blockquote>
+			<h5 id='任にたえない不胜任'><span>任にたえない。</span><sub><span>不胜任。</span></sub></h5>
+			<h5 id='一読にたえる論文值得一读的论文'><span>一読にたえる論文。</span><sub><span>值得一读的论文。</span></sub></h5>
+			<h3 id='見渡す｜みわたす◎③'><span>見渡す｜みわたす◎③</span></h3>
+			<blockquote>
+				<p><span>他動詞</span></p>
+				<p><span>\1. 放眼望去；瞭望；远望；张望；扫视，环视。（遠く広く望み見る。）</span></p>
+			</blockquote>
+			<h3 id='頑丈结实坚固'><span>頑丈</span><sub><span>结实，坚固</span></sub></h3>
+			<h3 id='しっかり③'><span>しっかり③</span></h3>
+			<blockquote>
+				<p><span>副詞・動</span></p>
+				<p><span>\1.
+						（</span><mark><span>身体</span></mark><span>）健壮，结实。清醒，坚实。头脑和肉体等健全，能充分发挥其功能。（頭脳や肉体が健全で機能をよく果たしているさま。）</span>
+				</p>
+				<p><span>\2.
+						稳固，</span><mark><span>结实</span></mark><span>，牢固，牢靠。确，明确。基础或结构坚固，不易动摇或倒塌的状态。（基礎や構成が堅固で、容易にぐらついたり崩れたりしないさま。）</span>
+				</p>
+				<p><span>\3.
+						（性格）</span><mark><span>坚强</span></mark><span>，刚强，高明。坚定，可靠。人的性格、见识等踏实而无风险。（人の性質や考え方が堅実で危なげないさま。）</span>
+				</p>
+				<p><span>\4. 用力地，好好地。</span><mark><span>（动作、行为）扎实，稳健</span></mark><span>。（動作・行為を着実・真剣に行うさま。）</span></p>
+				<p><span>\5. 坚固，牢实，靠紧。紧靠在一起使之不分离。（固くくっついて離れないようにするさま。）</span></p>
+				<p><span>\6. </span><mark><span>（经济）行情看涨，坚挺</span></mark><span>。行情处于上升趋势。（〔経〕相場に活気があり、上昇傾向であるさま。）</span>
+				</p>
+			</blockquote>
+			<h3 id='生活に余裕が生まれる'><span>生活に余裕が生まれる</span></h3>
+			<blockquote>
+				<p><span>生まれる｜うまれる◎</span></p>
+				<p><span>自動詞</span></p>
+				<p><span>\1. 生。分娩。（子が母体や卵から出る。出生する。誕生する。）</span></p>
+				<p><span>\2. 诞生，产生。（新しくできる。）</span></p>
+				<p><span>\3. 产生某种想法。（ある思いや考えが生じる。）</span></p>
+			</blockquote>
+			<h2 id='真题语法5'><span>真题语法5</span></h2>
+			<h3 id='中継ちゅうけい转播'><span>中継ちゅうけい</span><sub><span>转播</span></sub></h3>
+			<h3 id='きつい｜きつい◎没有余地苛刻辛苦'><span>きつい｜きつい◎</span><sub><span>没有余地，苛刻，辛苦</span></sub></h3>
+			<blockquote>
+				<p><span>形容詞</span></p>
+				<p><span>\1. 〔強烈だ。〕强烈，厉害。</span></p>
+				<p><span>\2. 〔厳しい。〕严厉，苛刻。</span></p>
+				<p><span>\3. 〔疲労する。〕累人，费力。</span></p>
+				<p><span>\4. 〔勝気。〕刚强，要强。</span></p>
+				<p><span>\5. （隙間がなくてきゅうくつである。）紧紧的，没有空隙的，（衣服等）紧，瘦小强烈，厉害，严厉，苛刻。</span></p>
+			</blockquote>
+			<h3 id='無理やり硬逼勉强'><span>無理やり</span><sub><span>硬逼，勉强</span></sub></h3>
+			<h3 id='都合｜つごう◎①'><span>都合｜つごう◎①</span></h3>
+			<blockquote>
+				<p><span>名詞</span></p>
+				<p><span>\1. （某种）情况，关系理由，原因。（具合。物事をするに当たっての事情。）</span></p>
+				<p><span>\2. 〔状況〕方便合适（与否）。(便利か不便か適不適。)</span></p>
+				<p><span>\3. 机会凑巧，顺利（与否）。（機会、順調するかどうかなどを表す。）</span></p>
+				<p><span>\4. 障碍。（さしつかえ。）</span></p>
+				<p><span>\5. 准备安排设法通融挪用调度（やりくりすること。工面すること。）</span></p>
+				<p><span>副詞</span></p>
+				<p><span>\1. （注意：读音为2）总共总计。（合計、総計。全部で。）</span></p>
+			</blockquote>
+			<h3 id='別の要件が入ってしまう有其他重要的事进来'><span>別の要件が入ってしまう</span><sub><span>有其他重要的事进来</span></sub></h3>
+			<h3 id='手ごろ适合'><span>手ごろ</span><sub><span>适合</span></sub></h3>
+			<h3 id='手を抜く偷工减料'><span>手を抜く</span><sub><span>偷工减料</span></sub></h3>
+			<blockquote>
+				<h5 id='抜く｜ぬく◎'><span>抜く｜ぬく◎</span></h5>
+				<p><span>他動詞</span></p>
+				<p><span>\1. 抽出，拔掉。（引いて取り出す。引き出す）</span></p>
+				<p><span>\2. 选出，抽出。（選んで取り出す。）</span></p>
+				<p><span>\3. 除掉，清除。（取り除く。とりのぞく。）</span></p>
+				<p><span>\4. 省略。干到底。（はぶく。最後まで…する。）</span></p>
+			</blockquote>
+			<h3 id='影響えいきょうを与える带来了影响'>
+				<span>影響</span><sup><span>えいきょう</span></sup><span>を与える</span><sub><span>带来了影响</span></sub>
+			</h3>
+			<h3 id='コストを抑える'><span>コストを抑える</span></h3>
+			<blockquote>
+				<h5 id='抑える｜おさえる③②'><span>抑える｜おさえる③②</span></h5>
+				<p><span>下一段活用</span></p>
+				<p><span>\1. 压，捂，按。（物に力や重みを加えて、動かないようにする。）</span></p>
+				<p><span>\2. 捂，堵。（体の一部に手などをあてる。）</span></p>
+				<p><span>\3. 抑制，控制，压制。（動作・現象の実現をさまたげる。）</span></p>
+				<p><span>\4. 抑制，压抑（情绪）。（感情が外に表れそうなのを、こらえる。）</span></p>
+				<p><span>\5. 压制，抑制。（支配下・管轄(かんかつ)下に置く。自由に活動できないようにする。）</span></p>
+				<p><span>\6. 扣押，扣留。（自分の支配下に置いて他の者をさえぎる。）</span></p>
+				<p><span>\7. 抓住，掌握。（重要な点を確実に認識・理解する。）</span></p>
+				<p><span>\8. 在日本船上，把船首往右方前进。（和船で、船首を右に向ける。）《押》⇔控える</span></p>
+				<p><span>\9. 冒冒失失。（下手に見る。）</span></p>
+				<h5 id='耳を抑える掩着耳朵'><span>耳を抑える。</span><sub><span>掩着耳朵。</span></sub></h5>
+				<h5 id='傷口をガーゼで抑える用纱布捂住伤口'><span>傷口をガーゼで抑える。</span><sub><span>用纱布捂住伤口。</span></sub></h5>
+				<h5 id='わがままを抑える自我克制'><span>わがままを抑える。</span><sub><span>自我克制。</span></sub></h5>
+				<h5 id='怒りを抑えきれない压不住火怒不可遏'><span>怒りを抑えきれない。</span><sub><span>压不住火，怒不可遏。</span></sub></h5>
+				<h5 id='上司に頭を抑ええられる一举一动受到上司的限制'><span>上司に頭を抑ええられる。</span><sub><span>一举一动受到上司的限制。</span></sub></h5>
+				<h5 id='要点を抑える抓住要点'><span>要点を抑える。</span><sub><span>抓住要点。</span></sub></h5>
+			</blockquote>
+		</div>
+	</div>
+	<p><a href="https://mrslxj.github.io/test/index.html" class="url">菜单页</a></p>
+</body>
+
+</html>
