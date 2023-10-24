@@ -1548,16 +1548,14 @@
 		}
 	</style>
 	<title>真题辨析</title>
-</head>
-
-<body class='typora-export os-windows'>
+	<script src="https://mrslxj.github.io/test/jquery.min.js"></script>
 	<style>
 		blockquote {
-			display: none;
+			display: block;
 		}
 
 		pre {
-			display: none;
+			display: block;
 		}
 	</style>
 	<style>
@@ -1607,9 +1605,9 @@
 
 		.extand {
 			/* position: fixed;
-				top: 0;
-				left: 138px;
-				z-index: 999; */
+			top: 0;
+			left: 138px;
+			z-index: 999; */
 			width: 40px;
 			height: 40px;
 			font-size: 12px;
@@ -1630,6 +1628,7 @@
 			display: block;
 			font-size: 12px;
 			font-weight: initial;
+			color: violet;
 		}
 
 		.anwser {
@@ -1660,7 +1659,6 @@
 			/* background-color: #7a7a7a; */
 		}
 	</style>
-	<script src="https://mrslxj.github.io/test/jquery.min.js"></script>
 	<script>
 		function xuhao() {
 			var pTag = document.getElementsByTagName("h3");
@@ -1851,33 +1849,37 @@
 			return results;
 		}
 	</script>
+</head>
+
+<body>
 	<div id="top"></div>
 	<div class="sel_box">
-		<input id="extand" type="button" class="extand" onclick="show()" value="《" />
+		<input id="extand" type="button" class="extand" onclick="show()" value="》">
 		<!-- <input id="extand1" type="button" class="extand" onclick="show1()" value="开词汇" /> -->
-		<input id="extand2" type="button" class="extand" onclick="show11()" value="开说明" />
+		<input id="extand2" type="button" class="extand" onclick="show11()" value="关说明">
 		<!-- <input id="extand3" type="button" class="extand" onclick="show3()" value="关语法" /> -->
-		<div id="selsel" style="width: 186px;height: 60px;font-size: 10px;">
+		<div id="selsel" style="width: 186px;height: 60px;font-size: 10px;display: none;">
 			<div>
 				<select class="select" id="sel_type">
 					<option>语法</option>
 					<option>年份</option>
 					<!-- <option>接续</option> -->
 				</select>
-				<input type="text" class="selkey" id="selkey" />
+				<input type="text" class="selkey" id="selkey">
 			</div>
 			<div>
-				<input type="button" class="btn" onclick="findH2()" value="查询" />
-				<input type="button" class="btn" onclick="cancel()" value="取消" />
+				<input type="button" class="btn" onclick="findH2()" value="查询">
+				<input type="button" class="btn" onclick="cancel()" value="取消">
 			</div>
 			<div style="clear: both;"></div>
-			<div id="selDiv" class="selDiv"></div>
+			<div id="selDiv" class="selDiv" style="width: 100px;">
+			</div>
 		</div>
 		<a href="#top" class="top" target="_self">顶部</a>
 	</div>
 	<div class='typora-export-content'>
 		<div id='write' class=''>
-			<p><a href='https://mrslxj.github.io/test/index.html' class='url'>菜单页</a></p>
+			<p><a href="https://mrslxj.github.io/test/index.html" class="url">菜单页</a></p>
 			<h2 id='2010-07-词汇'><span>2010-07 词汇</span></h2>
 			<h3 id='23-とりあえず一応社長に電話で話しておいた'><span>23. </span><mark><span>とりあえず/一応</span></mark><span>社長に電話で話しておいた</span>
 			</h3>
@@ -1992,346 +1994,6 @@
 				<p><span>\1. 凹凸不平，坑洼不平。（物の表面に起伏があって平らでないこと。）</span></p>
 			</blockquote>
 			<p><span>4.母は怒っている</span><mark><span>姿(すがた)</span></mark><span>だった</span></p>
-			<h2 id='2010-07-语法'><span>2010-07 语法</span></h2>
-			<h3 id='33-このレストランは客の予算に応じていくつかのコースを用意してくれる'><span>33.
-					このレストランは、客の予算</span><u><mark><span>に応じて</span></mark></u><span>いくつかのコースを用意してくれる</span></h3>
-			<p><span>1.に比べて 2.に先立って 3.に応じて 4.に向けて　</span></p>
-			<blockquote>
-				<p><span>译文：这家饭馆根据不同的客人的预算，准备着好几个不同的饭席。　</span></p>
-				<p><span>に応じて：依据，根据，前接体言　</span></p>
-				<p><span>に先立って：在之前，前接体言，动词原形　</span></p>
-				<p><span>に向けて：面向，适用于，前接名词　</span></p>
-				<p><span>に比べて：与相比，前接体言</span></p>
-			</blockquote>
-			<h3 id='34-学校に来るとちゅう財布を忘れたのに気づいた'><span>34.
-					学校に来る</span><u><mark><span>とちゅう</span></mark></u><span>財布を忘れたのに気づいた</span></h3>
-			<p><span>1.とちゅうで 2.ついでに 3.なかで 4.うちに</span></p>
-			<blockquote>
-				<p><span>译文：在上学途中发现自己忘了带钱包了。</span></p>
-				<p><span>途中で(とちゅう)：在途中</span></p>
-				<p><span>ついでに：顺便，前接“名词+”或动词连体形</span></p>
-				<p><span>なかで：在之中，前接“名词+”</span></p>
-				<p><span>うちに：在的时候，前接“体言”，用言和助动词连体型</span></p>
-			</blockquote>
-			<h3 id='35-踏切事故のために２時間-にわたり電車がストップしました'><span>35. 踏切事故のために、２時間
-				</span><mark><span>にわたり</span></mark><span>、電車がストップしました</span></h3>
-			<p><span>1.につき 2.につれ 3.にわたり 4.にともない</span></p>
-			<blockquote>
-				<p><span>译文：因为岔口发生了事故，车停了足足两个小时。</span></p>
-				<p><span>につき：由于，因为，前接体言</span></p>
-				<p><span>につれ：随着变得前接动词连体形，体言</span></p>
-				<p><span>にわたり：表示时间上或空间上的一个区间，前接体言</span></p>
-				<p><span>にともない：伴随着</span></p>
-			</blockquote>
-			<h3 id='38これだけ景気が悪いのに税金を上げようとするのはわたしたち国民には理解しがたい'>
-				<span>38.これだけ景気が悪いのに、税金を上げようとするのは、わたしたち国民には理解</span><mark><span>しがたい</span></mark>
-			</h3>
-			<p><span>1.しすぎる 2.しがたい 3.しかねない 4.しがちだ</span></p>
-			<blockquote>
-				<p><span>译文：现在经济这么糟糕还要上调税率，作为国民的我们真的很难理解。</span></p>
-				<p><span>しすぎる：表示干某件事干过头了，过于；前接动词型</span></p>
-				<p><span>しがたい：难以，无法；前接动词型</span></p>
-				<p><span>かねない：很可能；前接动词连体形；前接动词ます型</span></p>
-				<p><span>がちだ：表示容易干出某事；前接动词连体形；前接动词型</span></p>
-			</blockquote>
-			<h3 id='39-メールで田中です先日お話があったスピーチの件なんですがぜひわたしにやらせていただけないでしょうか'><strong><span>39.
-						(メールで)田中です。先日お話があったスピーチの件なんですが、ぜひわたしに</span><mark><span>やらせていただけないでしょうか</span></mark></strong>
-			</h3>
-			<p><span>1.やっていただけないでしょうか</span></p>
-			<p><span>2.やらせていただけないでしょうか</span></p>
-			<p><span>3.やってもよろしいでしょうか</span></p>
-			<p><span>4.やらせてもよろしいでしょうか</span></p>
-			<blockquote>
-				<p><span>译文：(邮件)我是田中，有关前天说过的演讲的事，可以让我来做吗？</span></p>
-				<p><span>解释：括号前面有一个“に”，根据语法结构，就只能选择(3)了。「させていただく」的意思是让我来做某事。其它选项据不符合语法结构。选项(1)说的是能不能为我去做。</span></p>
-				<figure>
-					<table>
-						<thead>
-							<tr>
-								<th>&nbsp;</th>
-								<th><span>公式</span></th>
-								<th><span>例句</span></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><span> 尊敬语</span></td>
-								<td><span>お/ご～なさる</span></td>
-								<td><span>レジ袋ふくろをご利用なさいますか？</span></td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-								<td><span>～ていらっしゃる/～ておいでになる</span></td>
-								<td><span>森さんでいらっしゃいますか？</span></td>
-							</tr>
-							<tr>
-								<td><span> 谦让语</span></td>
-								<td><span>お/ご～する/致す</span><sup><span>いたす</span></sup></td>
-								<td><span>いらっしゃいませ。</span><br><span>お席にご案内します。 </span><br><span>お願い致します。</span></td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-								<td><span>お/ご～頂く</span><sup><span>いただく</span></sup></td>
-								<td><span>ご連絡</span><sup><span>れんらく</span></sup><span>頂きましてありがとうございます。</span></td>
-							</tr>
-							<tr>
-								<td><span>请求</span></td>
-								<td><span>お/ご～ください</span></td>
-								<td><span>お待ちください。</span></td>
-							</tr>
-							<tr>
-								<td><span> </span></td>
-								<td><span>～て頂けますか/いただけませんか/ 頂けないでしょうか/頂けませんでしょうか</span></td>
-								<td><span>名前に教え</span><sup><span>おしえ</span></sup><span>ていただけますか。</span></td>
-							</tr>
-							<tr>
-								<td><span>请求许可</span></td>
-								<td><span>～させていただく　 ～させていただけませんか</span></td>
-								<td><span>私も参加さんかさせていただきます。</span></td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-							</tr>
-						</tbody>
-					</table>
-				</figure>
-				<figure>
-					<table>
-						<thead>
-							<tr>
-								<th>&nbsp;</th>
-								<th><span>尊敬语</span></th>
-								<th><span>谦让语</span></th>
-								<th><span>特别</span></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><span>行く　</span><br><span>来る</span><br><span>いる</span></td>
-								<td><span>いらっしゃる</span><br><span>おいでになる</span></td>
-								<td><span>伺う（聞く/訪問する）</span><br><span>参る</span><br><span>丁宁语おる</span></td>
-								<td><span>来る（お見えになる・お越しになる）</span></td>
-							</tr>
-							<tr>
-								<td><span>する</span></td>
-								<td><span>なさる</span></td>
-								<td><span>いだす</span></td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td><span>会う</span><br><span>見せる</span></td>
-								<td>&nbsp;</td>
-								<td><span>お目にかかる</span><br><span>お目にかける</span></td>
-								<td><span>ご覧に入れる（自谦）</span></td>
-							</tr>
-							<tr>
-								<td><span>食べる</span><br><span>飲む</span></td>
-								<td><span>召し上げる</span></td>
-								<td><span>いただく（もらう）</span></td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td><span>見る</span></td>
-								<td><span>ご覧になる</span></td>
-								<td><span>拝見する</span><sup><span>はいけん</span></sup></td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td><span>言う</span></td>
-								<td><span>おっしゃる</span></td>
-								<td><span>申す</span><br><span>申し上げる</span></td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td><span>知る</span></td>
-								<td><span>ご存知だ</span></td>
-								<td><span>存じる（思う・考える）</span><br><span>存じ上げる（思う）</span></td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td><span>借りる</span></td>
-								<td>&nbsp;</td>
-								<td><span>拝借する</span><sup><span>はいしゃく</span></sup></td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td><span>聞く・引き受ける</span></td>
-								<td>&nbsp;</td>
-								<td><span>承る</span><sup><span>うけたまわる</span></sup></td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-							</tr>
-						</tbody>
-					</table>
-				</figure>
-			</blockquote>
-			<h3 id='2010-07-阅读'><span>2010-07 阅读</span></h3>
-			<p><strong><span>10-1</span></strong></p>
-			<p><span>人間の心理にはハロー(後光)効果</span><mark><span>といって</span>
-					<!--虽说-->
-				</mark><span>、最初に受けた印象を強めていく傾向があります。例えばお会いした時に清潔な印象をうけると、その人の部屋が本当は汚かった</span><mark><span>としても</span></mark>
-			</p>
-			<blockquote>
-				<p><span>たとえ悪い結果にしろ、できることは全部やってきたのだから後悔はしない。 後悔：こうかい</span></p>
-				<h5 id='＋评价判断感受即使是事实说话人情绪也不受其影响'><span>＋评价/判断/感受；即使……是事实，说话人情绪也不受其影响</span></h5>
-				<ul>
-					<li><span>～（简）+としても・〜にしても・〜にしろ・〜にせよ</span></li>
-				</ul>
-			</blockquote>
-			<p><span>「部屋はいつもきれいに片づいている</span><mark><span>に違いない</span></mark></p>
-			<blockquote>
-				<p><span>そんな山の中に住んでいて車もなかったら、生活が不便に違いない。 彼があれだけ強く主張するのは、何かはっきりした証拠があるからに相違ない。主張：しゅちょう　証拠：しょうこ</span></p>
-				<h5 id='表断定一定肯定'><span>表断定，一定……肯定……</span></h5>
-				<ul>
-					<li><span>~简/AN（である）/N（である）＋に違いない・に相違ない</span></li>
-				</ul>
-			</blockquote>
-			<p><span>、人間関係もきっと</span><mark><span>さわやか</span></mark></p>
-			<blockquote>
-				<p><span>爽やか｜さわやか②</span></p>
-				<p><span>形容動詞</span></p>
-				<p><span>\1. ［天气］清爽，爽朗；［心情］爽快。（ほどよく冷たくさっぱりしていて気持ちがよいさま。）</span></p>
-				<p><span>\2. ［口齿］爽利；清楚，［嗓音］嘹亮，鲜明。（はっきりしているさま。明快なさま。）</span></p>
-			</blockquote>
-			<p><span>でしょう」などと、こちらが勝手にその人のよいイメージを</span><mark><span>重ねて</span></mark><span>いきます。</span></p>
-			<blockquote>
-				<p><span>重ねる｜かさねる◎</span></p>
-				<p><span>他動詞</span></p>
-				<ol start=''>
-					<li><span>重叠地堆放；码，摞；加上，放上（物の上に、さらにそれと同類の物を載せる）。</span></li>
-					<li><span>反复，屡次，多次（ある物事に、さらにそれと同類の物事を加える。また、同じことを何度も繰り返す）。</span></li>
-				</ol>
-			</blockquote>
-			<p><span>　反対に</span><mark><span>だらしない</span></mark></p>
-			<blockquote>
-				<p><span>だらしない｜だらしない④</span>
-					<span>形</span>
-				</p>
-				<ol start=''>
-					<li><span>不检点；散漫；放荡；没规矩；衣冠不整，吊儿郎当；懒散（慎みがなく。節度がない。しまりがない。整っていない。）</span></li>
-					<li><span>没出息，不争气，软弱无力（体力や気力がない。根性がない。）</span></li>
-				</ol>
-			</blockquote>
-			<p><span>印象を受けると、部屋の中をピカピカにしていても「家の中も汚いだろう」と悪い印象を重ねてしまうようです。</span>
-				<span>　　　　　　　　　(岩下宣子『実践　マナー塾』2009年4月18日付日本経済新聞による)</span>
-			</p>
-			<h3 id='55-筆者はハロー効果をどのように説明しているか'><span>55. 筆者はハロー効果をどのように説明しているか</span></h3>
-			<p><span>1.新しいイメージを次々に重ねてことで、最初の印象は次第に変化していく</span></p>
-			<p><span>2.初対面のときに受けた印象は、その後に持つイメージに影響を与えていく</span></p>
-			<p><span>3.</span><mark><span>だれとでも</span></mark><sub><span>表示在任何情况下事态都相同时，使用“疑问词+でも”。</span></sub><span>よい関係を築い</span><mark><span>ておけば</span></mark><sub><span>只要，如果</span></sub><span>、初対面の人にもよいイメージを与えられる</span>
-			</p>
-			<p><span>4.最初に悪い印象を与えてしまっても、その後の付き合いでイメージは変えられる</span></p>
-			<p><strong><span>10-2</span></strong></p>
-			<p><span>木を植えることはいいことだ。われわれは無条件にそう考え</span><mark><span>がちだ</span></mark><span>。</span></p>
-			<blockquote>
-				<h5 id='～がちだ～がちの～がちな～がちに'><span>～がちだ/～がちの/～がちな/～がちに</span></h5>
-				<p><span>文法</span></p>
-				<p><span>常常......，动辄......，往往......</span></p>
-			</blockquote>
-			<p><span>　でも、乾燥地帯に木を植えれば、少し</span><strong><span>しかない</span></strong><span>水が吸い取られる。悪くすると地下水が枯れ、川の流量も減る。</span>
-				<span>　よく考えてみれば当たり前の</span><mark><span>ことだろう</span></mark>
-			</p>
-			<blockquote>
-				<p><strong><span>てみれば</span></strong><span>：在（从）…看来 その立場になってみると</span></p>
-				<h5 id='ことだろう～ことか'><span>ことだろう～ことか</span></h5>
-				<p><span>「無駄遣いをするな」と子供にもう何回注意したことか。</span></p>
-				<p><span>多么……啊，文章用</span></p>
-				<ul>
-					<li><span>疑问词+～简/AN＋な・である/N（である）＋ことだろう・ことか</span></li>
-				</ul>
-			</blockquote>
-			<p><span>。しかし、森林の役割を重視する</span><mark><span>あまり</span></mark><span>、自然の循環を忘れた「植林神話」が世界に広がっている</span><mark><span>そうだ</span></mark><span>。</span>
-			</p>
-			<blockquote>
-				<h5 id='あまり・あまりの～に-1'><span>あまり・あまりの～に</span></h5>
-				<p><span>自分の番が近づいてきたとき、私は緊張のあまり頭の中が真っ白になってしまった。 近づく：ちかづく　自动 緊張：きんちょう　真っ白：まっしろ</span></p>
-				<p><span>因为非常……所以；后+不寻常的结果</span></p>
-				<ul>
-					<li>
-						<p><span>N+の/~（简）/AN＋な＋あまり あまりの＋N＋に</span></p>
-						<figure>
-							<table>
-								<thead>
-									<tr>
-										<th><span>意义</span></th>
-										<th><span>样态/推测【第33课】</span></th>
-										<th><span>传闻【第32课】</span></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td><span>接续</span></td>
-										<td><span>A</span><del><span>い</span></del><span>＋そうです</span><br><span>AN+そうです</span><br><span>V连用形+そうです</span>
-										</td>
-										<td><span>简体+そうだ</span><br><span>Aい＋そうです</span><br><span>ANだ＋そうです</span><br><span>Vる＋そうです</span>
-										</td>
-									</tr>
-									<tr>
-										<td><span>否定形态</span></td>
-										<td><span>1. 形容词+そうではありません</span><br><span>あまりおいしそうではありません</span><br><span>2.
-												动词+そうにありません</span><br><span>雨はやみそうにありません</span></td>
-										<td><span>そうだ本省没有过去，否定，疑问</span><br><span>○森さんは暇ではないそうです。</span><br><span>×森さんは暇だそうではありません。</span>
-										</td>
-									</tr>
-									<tr>
-										<td><span>特殊</span></td>
-										<td><span>1. なさそうだ/よさそうだ</span><br><span>2.
-												可做句子的其他成分</span><br><span>おいしそうなクーキですね。</span></td>
-										<td>&nbsp;</td>
-									</tr>
-								</tbody>
-							</table>
-						</figure>
-					</li>
-				</ul>
-			</blockquote>
-			<p><span>　　　　　　　(伊藤智章『窓』2008年2月20日付朝日新聞夕刊による)</span></p>
-			<p><strong><span>10-3</span></strong></p>
-			<p><span>　2010年6月28日</span>
-				<span>　販売店各位</span>
-				<span>　　　　　　　　　西東薬品株式会社 </span>
-				<span>　　　　　　　　　販売部長　南　五郎</span>
-				<span>　　　　　アンケ—卜実旆についてのお願い</span>
-				<span>　拝啓</span>
-				<span>　いつもお世話になっております。</span>
-				<span>　昨日夏に販売を開始</span><strong><span>いたし</span></strong><sub><span>する的自谦</span></sub><span>ました商品「エネルギーZ」は、おかげさまで顺調に売り上げを伸ばして</span><strong><span>まいり</span></strong><sub><span>（来る的尊他）</span></sub><span>ました。来月、本製品販売1周年を迎えるにあたり、製品の使用効果、値段などについてお客様のご感想やご希望を</span><mark><span>うかがいたく</span></mark><span>アンケートを実施することに</span><strong><span>いたし</span></strong><span>ました。</span>
-				<span>　つきましては</span><sub><span>因此</span></sub><span>、本製品を</span><mark><span>お買い上げ</span></mark><span>のお客様へのアンケート用紙の配布およびご協力の呼びかけ</span><sub><span>号召呼吁</span></sub><span>をお願いいたします。</span>
-				<span>　販売店のみなさまにはご面倒をおかけいたしますが、よろしくお願い申し上げます。</span>
-				<span>　　　　　　　　　敬具</span>
-			</p>
-			<p><span>ほめる</span><strong><span>という</span></strong><span>行為は、本来、自然な気持ちのあらわれです。「ほめる教育」</span><mark><span>における</span></mark>
-			</p>
-			<blockquote>
-				<h5 id='におけるにおいて'><span>における/において</span></h5>
-				<p><span>文法</span></p>
-				<p><span>\1. “在……之中”“在……方面”。表示被修饰语所处的地点、范围等。 前接体言，属书面语，在句中多作定语。</span></p>
-				<p><span>\2. 表示被修饰语所处的时间。中译时可根据具体情况灵活处理。</span></p>
-				<p><span>\3. “与……有关”。表示后述事项关联和涉及的方面、问题等。</span></p>
-			</blockquote>
-			<p><span>ほめるという行為は、この点</span><mark><span>において</span></mark><span>異なり</span><sub><span>不同</span></sub><span>ます。自然な気持ちのあらわれなど</span><strong><span>ではなく</span></strong><sub><span>不是</span></sub><span>、ほかの</span><strong><span>ねらい</span></strong><sub><span>瞄准,目标,用意</span></sub><span>をもった(注)きわめて意図的な行為です。</span>
-				<span>　(中略)</span>
-				<span>　「ほめる教育」の場合には、ほめることそのものは本来の目的ではないのです。本来の目的は、ほめることを通して相手に影響をあたえることです。相手の心と行動に影響をあたえ、</span><strong><span>やる気</span></strong><sub><span>干劲</span></sub><span>を出させたり、自信をもたせたり、伸びていくようにする。つまり、こちらが望んでいるような方向へ向かわせることがねらいなのです。
-				</span><br /><span>　　　　　　　　　(伊藤進『ほめるな』による)</span>
-				<span>　(注)きわめて：非常に</span>
-			</p>
-			<p><span>　译文：有关人脑的研究，虽然目前取得成果的就只有一小部分，可是整个研究在稳步进行中。</span>
-				<span>　解释：「にすぎない」的意思是“只不过……，仅仅……”。「にかかわらない」的意思是“与……没有关系”，前接体言；用言</span><em><span>助动词连体型。「とはいえ」的意思是“虽然可以这么说”，前接体言；用言</span></em><span>助动词终止型。</span>
-				<span>　だとすると.../だとすれば...：那样的话...；那样一来...。置于句首，根据对方的叙述，说话者加以推测，判断。正式场合使用；会话中由「だったら、それなら、それじゃ」取代。</span>
-			</p>
-			<p><span>51
-					　解析：前面文章中提到据说根据血型性格判断，人的性格是由血型A型、B型、O型、AB型决定的。而后面しかし表示转折，可见后面所要讲的情况跟前面是不同的，作者对这种说法有不同的看法。わけですから由于……原因，からこそ表示正因为……(所以才)，强调原因，理由。</span>
-				<span>　选项(1)整句话意思是：但是，因为这个世界上有好几十亿人，我在想不是可以把人的性格划分为四类吗？不符合題意。</span>
-				<span>　选项(3)整句话意思是：但是，因为这个世界上有好几十亿人，能把人的性格划分为四类吗，我对此抱有疑问。</span>
-				<span>　选项(4)整句话意思是：但是，正因为这个世界上有好几十亿人，所以把人的性格划分为四类这种做法我才不觉得疑惑。不符合题意。</span>
-				<span>　选项(2)整句话意思是：但是，正因为这个世界上有好几十亿人，所以一般认为不能把人的性格划分为四类。时态上，选项(2)是过去式，整篇文章都是现在时，不正确。而且前面文章中提到据说根据血型性格判断，人的性格是由血型A型、B型、O型、AB型决定的。现在又说一般认为……。逻辑上不符合。所以这道题的正确选项是(3)。</span>
-			</p>
 			<h2 id='2010-12-词汇'><span>2010-12 词汇</span></h2>
 			<h3 id='16-あの町の人口は--------減少している'><span>\16. あの町の人口は 減少している。</span></h3>
 			<p><span>1.軽々と</span></p>
@@ -2418,225 +2080,251 @@
 			</p>
 			<p><span>3.あとで捨てるので、ごみはそのまま</span><mark><span>して</span></mark><span>おいていいですよ</span></p>
 			<p><span>4.健康を保つためにわ、バランスのいい食事と運動が大切だ</span></p>
-			<h2 id='2010-12语法'><span>2010-12语法</span></h2>
-			<h3 id='33-休日は混雑が予想されますのでお電話でご予約のうえご来店ください'><span>\33.
-					休日は混雑が予想されますので、お電話でご予約の</span><mark><span>うえ</span></mark><span>、ご来店ください。</span></h3>
-			<p><span>1.あげく</span></p>
-			<p><span>2.あまり</span></p>
-			<p><span>3.うえ</span></p>
-			<p><span>4.ほう</span></p>
+			<h2 id='2011-07词汇'><span>2011-07词汇</span></h2>
+			<h3 id='1-ずっと好調だったのに最後の試合で敗れてしまった'><span>\1.
+					ずっと好調だったのに、最後の試合で</span><mark><span>敗れて</span></mark><span>しまった。</span></h3>
+			<p><span>1.たおれて</span></p>
+			<p><span>2.やぶれて</span></p>
+			<p><span>3.みだれて</span></p>
+			<p><span>4.つぶれて</span></p>
 			<blockquote>
-				<p><span>うえ(で)：……之后。多指做完前项动作之后再做后项动作。</span>
-					<span>　译文：因为预计休息日会人很多混乱，所以请您在预约之后来光临本店。</span>
+				<p><span>明明形势一直很好，却在最后的比赛中败北了。</span></p>
+				<h5 id='倒れる｜たおれる③'><span>倒れる｜たおれる③</span></h5>
+				<p><span>自動詞</span></p>
+				<p><span>\1. 倒下，跌倒；塌，倒毁。（立っている状態が保てなくなって横になる。）</span></p>
+				<p><span>\2. 垮台。（国家、政府などが覆す。）</span></p>
+				<p><span>\3. 倒闭，破产。（倒産する。）</span></p>
+				<p><span>\4. 病倒。（病気なって臥す。）</span></p>
+				<p><span>\5. 死。（死ぬ）</span></p>
+				<h5 id='破れ｜やぶれ③'><span>破れ｜やぶれ③</span></h5>
+				<p><span>名</span></p>
+				<p><span>\1. 破，破洞，开绽。（破れること。破れていること。また，破れたところや物。）</span></p>
+				<h5 id='乱れる｜みだれる③'><span>乱れる｜みだれる③</span></h5>
+				<p><span>自动・二类</span></p>
+				<p><span>\1. 乱，不平静（平静を失う）；不太平。（平和でなくなる。）</span></p>
+				<p><span>\2. 紊乱，错乱。（秩序がなくなる。）</span></p>
+				<p><span>\3. 散乱，蓬乱。（ばらばらになる。）</span></p>
+				<p><span>\4. 混乱，搅在一起。（入りまじる。）</span></p>
+				<h5 id='潰れる｜つぶれる◎'><span>潰れる｜つぶれる◎</span></h5>
+				<p><span>自动・二类</span></p>
+				<p><span>\1. 压坏，挤破，压碎。（立体物に上からの力が加わって，厚み・高さがなくなり，ひらたくなる。）</span></p>
+				<p><span>\2. 破产，倒闭；垮台。（組織や団体が活動を継続できなくなる。）</span></p>
+				<p><span>\3. 磨钝；磨损。（角がすり減って丸くなる。また，小さくなる。）</span></p>
+				<p><span>\4. 聋；瞎。（体の器官の機能が失われる。）</span></p>
+				<p><span>\5. 白白过；错过。（あいているところが埋まる；多くの時間がむだに費やされる場合についていう。）</span></p>
+			</blockquote>
+			<h3 id='2-この仕事には高い語学力が要求される'><span>2. この仕事には高い語学力が</span><mark><span>要求</span></mark><span>される。</span></h3>
+			<blockquote>
+				<h5 id='要求｜ようきゅう◎'><span>要求｜ようきゅう◎</span></h5>
+				<p><span>名・他动・三类</span></p>
+				<p><span>\1. 要求。（必要だとして、また当然の権利として強く求めること。）</span></p>
+				<p><span>\2. 需要。（必要。）</span></p>
+				<h5 id='欲求｜よっきゅう◎'><span>欲求｜よっきゅう◎</span></h5>
+				<p><span>名詞</span></p>
+				<p><span>\1.
+						欲望，希求。（ほしがり求めること。願い求めること。生活体の内部で生理的・心理的に必要なものが不足または欠乏しているとき、それを補うための行動を起こそうとする緊張状態。動物や人間を行動にかりたてる原因となる。要求。）</span>
 				</p>
-				<h5 id='あげく'><span>あげく</span></h5>
-				<p><span>五時間に及ぶ議論のあげく、結局、結論が出なかった。 及ぶ：およぶ　結局：けっきょく　結論：けつろん　議論：ぎろん
-						いろいろ文句を言ったあげく、その客はなんも買わずに帰った。文句：もんく</span></p>
-				<p><span>【+遗憾的结果；做了各种之后，最终变成了遗憾的结果】</span></p>
-				<ul>
-					<li><span>Vた/N+の＋あげく</span></li>
-				</ul>
-				<h5 id='あまり・あまりの～に-2'><span>あまり・あまりの～に</span></h5>
-				<p><span>自分の番が近づいてきたとき、私は緊張のあまり頭の中が真っ白になってしまった。 近づく：ちかづく　自动 緊張：きんちょう　真っ白：まっしろ</span></p>
-				<p><span>【因为非常……所以；后+不寻常的结果】</span></p>
-				<ul>
-					<li><span>N+の/~（简）/AN＋な＋あまり あまりの＋N＋に</span></li>
-				</ul>
+				<p><span>サ行変格活用</span></p>
+				<p><span>\1. 欲求，渴求。欲求する。ほしがり求めること。願い求めること。</span></p>
 			</blockquote>
-			<h3 id='35-aこれまでありがとうあなたに会えて本当によかった元気でね-bそんなもう一生会えない--------言うのはやめてよ'><strong><span>35.
-						A「これまでありがとう。あなたに会えて本当によかった。元気でね。」</span></strong><span>
-				</span><strong><span>B「そんな、もう一生会えない</span></strong><span>
-				</span><strong><span>言うのはやめてよ。」</span></strong></h3>
 			<blockquote>
-				<p><span>解析：……もう一生会えない(みたいに)言うのはやめてよ……。</span>
-					<span>　「らしい」和「みたいだ」都是初级语法。</span>
-					<span>　「らしい」表示的是具有某一特征和传闻、推测。</span>
-					<span>　「みたいだ」表示的是比喻、推测。在这里表示的是带有一定的比喻意思，所以要选择「みたいだ」，再者后项为动词，所以答案是(2)。</span>
-					<span>　译文：“过去谢谢你，能遇到你真的是太好了。多保重。”</span>
-					<span>　“不要说得像这辈子再也不能见面了似的。”</span>
-				</p>
-				<figure>
-					<table>
-						<thead>
-							<tr>
-								<th>&nbsp;</th>
-								<th><em><strong><span>*</span><span>意义</span><span>*</span></strong></em></th>
-								<th><em><strong><span>*</span><span>接续</span><span>*</span></strong></em></th>
-								<th><em><strong><span>*</span><span>后续</span><span>*</span></strong></em></th>
-								<th>&nbsp;</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><span>ようだ</span></td>
-								<td><span>推测状况/比喻（正式）</span></td>
-								<td><span>～（简）ようだ AN+な＋ようだ N+の＋ようだ</span></td>
-								<td><span>だ活用 ～な＋N ～に＋V/形</span></td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td><span>みたいだ</span></td>
-								<td><span>推测状况/比喻（随意）</span></td>
-								<td><span>～（简）みたいだ AN+だ＋みたいだ</span></td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td><span>らしい</span></td>
-								<td><span>1.推测状况/传闻（不负责） 2.典型</span></td>
-								<td><span>～（简）らしい AN/Nだ＋らしい</span></td>
-								<td><span>い形活用</span></td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td><span>そうだ</span></td>
-								<td><span>推测样态/传闻（看起来）</span></td>
-								<td><span>推测（样态） Aい＋そうだ ANだ＋そうだ V(连用)＋どうだ</span></td>
-								<td><span>传闻（简+そうだ） Aい＋そうだ ANだ＋そうだ Vる＋そうだ</span></td>
-								<td><span>だ活用 ～な＋N ～に＋V/形</span></td>
-							</tr>
-						</tbody>
-					</table>
-				</figure>
+				<h5 id='祈る｜いのる②'><span>祈る｜いのる②</span></h5>
+				<p><span>他動詞</span></p>
+				<p><span>\1. 祈祷，祷告。（仏や神に願う。祈願する。）</span></p>
+				<p><span>\2. 祝愿，希望。（心から願う。希望する。）</span></p>
+				<h5 id='占う｜うらなう③'><span>占う｜うらなう③</span></h5>
+				<p><span>他动・一类</span></p>
+				<p><span>\1. 占卜，占卦，算命（人の運命を、何かの前兆にもとづいて推測する）。</span></p>
+				<p><span>\2. 同：予言する、予測する</span></p>
 			</blockquote>
-			<h3 id='36-a昨日サッカーの試合見に行ったんでしょどうだった'><span>\36. A「昨日、サッカーの試合見に行ったんでしょ？どうだった？」</span></h3>
-			<p><span>B「それが、ミスの連続でね……。 プロの試合とは思えない内容だったよ。」</span></p>
-			<p><span>1.なんて</span></p>
-			<p><span>2.仮に</span></p>
-			<p><span>3.とても</span></p>
-			<p><span>4.二度と</span></p>
+			<h3 id='4-寒かったらエアコンの温度を調節ちょうせつしてください'><span>4.
+					寒かったら、エアコンの温度を</span><mark><span>調節</span><sup><span>ちょうせつ</span></sup></mark><span>してください。</span>
+			</h3>
+			<h3 id='7-退院してもしばらくの間はげしい運動はしないでください'><span>7.
+					退院しても、しばらくの間、</span><mark><span>はげしい</span></mark><span>運動はしないでください。</span></h3>
 			<blockquote>
-				<p><span>「とても」等于「どうしても」：无论如何也……，怎么也……。</span>
-					<span>　译文：“昨天，你去看足球比赛了吧，怎么样？”</span>
-					<span>　“那真是连续的错误呀……。无论如何也不能看作是一场专业的足球比赛。”</span>
+				<h5 id='1険しい｜けわしい③'><span>1.険しい｜けわしい③</span></h5>
+				<p><span>形</span></p>
+				<p><span>\1. 险峻，陡峭，崎岖。（傾斜が急で、登るのに困難である。）</span></p>
+				<p><span>\2. 险恶，艰险，严峻。（超えて行くのに大きな困難がある。）</span></p>
+				<p><span>\3. 严厉，可怕，粗暴。（表情などがきついと感じられる様子だ。）</span></p>
+				<h5 id='2激しい｜はげしい③'><span>2.激しい｜はげしい③</span></h5>
+				<p><span>形容詞</span></p>
+				<p><span>\1. 激烈，强烈，猛烈，剧烈。（勢いがきわめて強い。鋭く荒々しい。）</span></p>
+				<p><span>\2. 冲动。（熱烈である。激情的だ。）</span></p>
+				<p><span>\3. 很甚，厉害。（程度がはなはだしい。普通の度合でない。）</span></p>
+				<p><span>3.暴しい 没有这个词</span></p>
+				<h5 id='暴れる｜あばれる◎'><span>暴れる｜あばれる◎</span></h5>
+				<p><span>自动・二类</span></p>
+				<p><span>\1. 乱闹，胡闹。（乱暴する。）</span></p>
+				<p><span>\2. 勇敢。（勇ましく大胆振る舞いをする。）</span></p>
+				<h5 id='4極まる｜きわまる③'><span>4.極まる｜きわまる③</span></h5>
+				<p><span>自动・一类</span></p>
+				<p><span>\1. 达到极限，极其，极。到了限度。（極限に達する。限度に行きつく。）</span></p>
+				<p><span>\2. 极其，透顶，至极。再也没有超过的。（形容動詞の語幹に付いて、この上なく…である、きわめて…であるなどの意を表す。）</span></p>
+				<p><span>\3. 穷尽，尽头，到了终点，不能再前进。（終わる。尽きる。先に進めなくなる。）</span></p>
+				<p><span>\4. 穷，窘境，困境，困窘。走投无路而一筹莫展。（（「谷まる」とも書く）行き詰まって困りはてる。）</span></p>
+				<p><span>\5. 同：窮まる</span></p>
+			</blockquote>
+			<blockquote>
+				<h5 id='請う｜こう①'><span>請う｜こう①</span></h5>
+				<p><span>他動詞</span></p>
+				<p><span>\1. 请求，乞求，希望。（ある物を与えてくれるよう、またある事をしてくれるよう相手に求める｡）</span></p>
+				<p><span>\2. 祈求。（願いの叶うよう神仏に祈る｡）</span></p>
+			</blockquote>
+			<blockquote>
+				<p><span>(1)視察(しさつ)：视察</span>
+					<span>(2)検査(けんさ)：检查</span>
+					<span>(3)発明(はつめい)：发明</span>
+					<span>(4)分析(ぶんせき)：分析</span>
 				</p>
 			</blockquote>
-			<h3 id='37-現在建設作業はスムーズに進んでいるが必ずしも最初から順調だったわけではない'><span>\37.
-					現在、建設作業はスムーズに進んでいるが、必ずしも最初から順調だった</span><mark><span>わけではない</span></mark><span>。</span></h3>
-			<p><span>1.に限らない</span></p>
-			<p><span>2.必要はない</span></p>
-			<p><span>3.にちがいない</span></p>
-			<p><span>4.わけではない</span></p>
 			<blockquote>
-				<h5 id='に限らず由小→大'><span>に限らず【由小→大】</span></h5>
-				<p><span>近年、地方の町に限らず大都市でも書店の閉店が相次いでいる。 大都市：だいとし　書店：しょてん　閉店：へいてん　相次ぐ：あいつぐーあいついで</span></p>
-				<p><span>【范围不仅限于……】</span></p>
-				<ul>
-					<li><span>N+に限らず</span></li>
-				</ul>
-				<h5 id='に違いない～に相違ない'><span>に違いない～に相違ない</span></h5>
-				<p><span>そんな山の中に住んでいて車もなかったら、生活が不便に違いない。 彼があれだけ強く主張するのは、何かはっきりした証拠があるからに相違ない。主張：しゅちょう　証拠：しょうこ</span></p>
-				<p><span>【表断定，一定……肯定……】</span></p>
-				<ul>
-					<li><span>~简/AN（である）/N（である）＋に違いない・に相違ない</span></li>
-				</ul>
+				<p><span>(1)ぐらぐら：动摇、摇摇晃晃；水等烧得滚开的样子</span>
+					<span>(2)がらがら：嘎啦嘎啦、事物碰撞的响声；空荡荡的</span>
+					<span>(3)ばらばら：吧嗒吧嗒、(雨滴、小石等)粒状物体持续落下状(或这种声音)；零散、散乱</span>
+					<span>(4)ぶらぶら：闲逛、溜达、漫歩；无所事事、赋闲</span>
+				</p>
+				<p><span>(1)ぼんやり：发呆状、心不在焉</span>
+					<span>(2)ふんわり：松软貌、轻飘飘地</span>
+					<span>(3)うっすら：微微地、薄薄地、隐约地</span>
+					<span>(4)しっとり：潮湿、湿润；恬静、安详</span>
+				</p>
 			</blockquote>
-			<h3 id='38-カメラ店で客このカメラ直りますか店員うーんこんなにひどく壊れていると--------ですね'><span>\38.
-					(カメラ店で)客「このカメラ直りますか。」店員「うーん、こんなにひどく壊れていると、 ですね。」</span></h3>
-			<p><span>1.直しかねない</span></p>
-			<p><span>2.直しようがない</span></p>
-			<p><span>3.直してはならない</span></p>
-			<p><span>4.直してもかまわない</span></p>
 			<blockquote>
-				<p><span>译文：客人：“这个能修吗？”。店员：“嗯，坏成这样，没法修了。”</span></p>
-				<h5 id='ようがない-よう様'><span>ようがない 　よう：様</span></h5>
-				<p><span>彼の連絡先がわからないので、このニュースを知らせたくても知らせようがない。</span></p>
-				<p><span> 駅からここまではまっすぐ歩いてくるだけだから、迷いようがないと思うけどね。</span></p>
-				<p><span> 迷う：まよう ～としか言いようがない只能说…… </span></p>
-				<p><span>文句のつけようがない 无可 これだけ　这种程度</span></p>
-				<p><span>【想……而无法……】</span></p>
-				<ul>
-					<li><span>V连用+ようがない</span></li>
-				</ul>
-				<h5 id='かねない'><span>かねない</span></h5>
-				<p><span>インターネット上で特に個人情報に注意していないと、悪用されかねない。 後で文句を言われかねませんよ。</span></p>
-				<p><span>【不难……很有可能……；+不好的结果】</span></p>
-				<p><span>(…しないとはいえない。…しそうだ)</span></p>
-				<ul>
-					<li><span>V连用+かねない</span></li>
-				</ul>
-				<h5 id='てはならない'><span>てはならない</span></h5>
-				<p><span>ここまでやってきたのだから、あきらめてはならない。/已经做到这里了，不可放弃。</span></p>
-				<p><span>【一般多用于提醒，训诫。不可以...；必须...(多用于书面文章) 】</span></p>
-				<h5 id='もかまわず-＋非同寻常構うかまう'><span>もかまわず ＋非同寻常　構う：かまう</span></h5>
-				<p><span>人目もかまわず、道で大泣きしている人を見かけた。人目：ひとめ</span></p>
-				<p><span>【不理会，尽管平时会顾忌】【后+非同寻常】</span></p>
-				<ul>
-					<li><span>N+もかまわず</span></li>
-					<li><span>～（简）/N（である）/AN+な・である＋の＋もかまわず</span></li>
-				</ul>
+				<p><span>活発(かっぱつ)：活泼</span></p>
 			</blockquote>
-			<h3 id='43-さっきご飯を食べた--------もうおなかがすいてきた'><span>\43. さっきご飯を食べた 、もうおなかがすいてきた。</span></h3>
-			<p><span>1.すぐのことだが</span></p>
-			<p><span>2.ばかりのことだが</span></p>
-			<p><span>3.すぐだというのに</span></p>
-			<p><span>4.ばかりだというのに</span></p>
+			<h3 id='19-コピー機に紙がつまって詰まる出てこない'><span>\19.
+					コピー機に紙が</span><mark><span>つまって</span></mark><sub><span>詰まる</span></sub><span>、出てこない。</span></h3>
+			<p><span>1.もぐって</span></p>
+			<p><span>2.つまって</span></p>
+			<p><span>3.しずんで</span></p>
+			<p><span>4.うまって</span></p>
 			<blockquote>
-				<h5 id='ばかりだ・～一方だ'><span>ばかりだ・～一方だ</span></h5>
-				<p><span>このごろは仕事が多くて残業が増えるばかりだ。 残業：ざんぎょう</span></p>
-				<p><span>【变化……单一方向不断加剧】</span></p>
-				<ul>
-					<li><span>Vる+ばかりだ・～一方だ</span></li>
-					<li><span>～ばかりだ多＋【不好的方向】</span></li>
-				</ul>
+				<p><span>詰まる｜つまる②</span></p>
+				<p><span>自动・一类</span></p>
+				<p><span>\1. 堵塞；堵。不通。（穴・通路などの途中にじゃまになるものが有って、通じない状態になる。）</span></p>
+				<p><span>\2. 塞满。挤满。堆满。（物が限度まで入り、それ以上入れる余地がない状態になる。）</span></p>
+				<p><span>\3. 缩短，短。缩。抽。挤。（縮まる。）</span></p>
+				<p><span>\4. 困窘。窘迫。（残りやゆとりが無くなる（って困る））</span></p>
 			</blockquote>
-			<h3 id='45-テレビドラマを見ながら'><span>\45. (テレビドラマを見ながら)</span></h3>
-			<p><span>弟「このドラマの犯人、誰だと思う？」</span>
-				<span>兄「 三姉妹の- 中の-</span><mark><span>誰か</span></mark><span>-じゃないかと思うんだけど、ほかの人もみんな怪しいんだよなあ。」</span>
+			<h3 id='21-田中さんは長い間ぼんやり窓の外を見ていた'><strong><span>21.
+						田中さんは長い間</span></strong><mark><span>ぼんやり</span></mark><strong><span>窓の外を見ていた。</span></strong>
+			</h3>
+			<blockquote>
+				<p><span>(1)ぼんやり：发呆状、心不在焉</span>
+					<span>(2)ふんわり：松软貌、轻飘飘地</span>
+					<span>(3)うっすら：微微地、薄薄地、隐约地</span>
+					<span>(4)しっとり：潮湿、湿润；恬静、安详</span>
+				</p>
+			</blockquote>
+			<h3 id='22-経済だけでなく法律にも詳しいのが彼の-強みだ'><span>\22. 経済だけでなく、法律にも詳しいのが彼の
+				</span><mark><span>強み</span></mark><span>だ。</span></h3>
+			<p><span>1.深み</span></p>
+			<p><span>2.強み</span></p>
+			<p><span>3.高み</span></p>
+			<p><span>4.重み</span></p>
+			<blockquote>
+				<p><span>解析：不只是对经济、对法律也很精通是他的长处。</span>
+					<span>(1)深み(ふかみ)：深度</span>
+					<span>(2)強み(つよみ)：优点、长处；強度</span>
+					<span>(3)高み(たかみ)：高处</span>
+					<span>(4)重み(おもみ)：重量、分量；重要性；威信，威望</span>
+				</p>
+			</blockquote>
+			<h3 id='23-このブームは長くは続かないだろう'><span>\23. この</span><mark><span>ブーム</span></mark><span>は長くは続かないだろう。</span></h3>
+			<p><span>1.効果</span></p>
+			<p><span>2.状態</span></p>
+			<p><span>3.流行</span></p>
+			<p><span>4.緊張</span></p>
+			<blockquote>
+				<p><span>解析：这股流行热潮大概不会持续太久吧。</span>
+					<span>ブーム(boom):流行热潮</span>
+					<span>(1)効果(こうか)：效果、功效</span>
+					<span>(2)状態(じょうたい)：状态、情形</span>
+					<span>(3)流行(りゅうこう)：流行</span>
+					<span>(4)緊張(きんちょう)：紧张</span>
+				</p>
+			</blockquote>
+			<h3 id='25-シャツがちぢんでしまった'><span>\25. シャツが</span><mark><span>ちぢんで</span></mark><span>しまった。</span></h3>
+			<p><span>1.小さくなって</span></p>
+			<p><span>2.古くなって</span></p>
+			<p><span>3.汚れて</span></p>
+			<p><span>4.破れて</span></p>
+			<blockquote>
+				<p><span>解析：衬衫变小了。</span>
+					<span>　ちぢむ(縮む)：縮小、缩短。(长度、大小等因起皱等原因)变小、变短。</span>
+					<span>　(1)小さくなって：变小</span>
+					<span>　(2)古くなって：变旧</span>
+					<span>　(3)汚れて：脏了</span>
+					<span>　(4)破れて：破了</span>
+				</p>
+			</blockquote>
+			<h3 id='26-宿題のレポートはほぼ終わった'><span>\26. 宿題のレポートは</span><mark><span>ほぼ</span></mark><span>終わった。</span></h3>
+			<p><span>1.すべて</span></p>
+			<p><span>2.すぐに</span></p>
+			<p><span>3.だいたい</span></p>
+			<p><span>4.やっと</span></p>
+			<blockquote>
+				<p><span>　解析：作业论文大致完成了。</span>
+					<span>　ほぼ：大体、大略、大致</span>
+					<span>　(1)すべて：全部</span>
+					<span>　(2)すぐに：立刻、马上</span>
+					<span>　(3)だいたい：大体、大致</span>
+					<span>　(4)やっと：终于、好不容易</span>
+				</p>
+			</blockquote>
+			<h3 id='28-方針'><span>\28. 方針</span></h3>
+			<p><span>1.台風の</span><mark><span>進路(しんろ)</span></mark><span>がそれたので、特に被害は出なかった</span></p>
+			<p><span>2.私の今年の</span><mark><span>目標(もくひょう)</span></mark><span>は漢字を600字覚えることだ</span></p>
+			<p><span>3.この料理を作る</span><mark><span>方法(ほうほう)</span></mark><span>を教えてください</span></p>
+			<p><span>4.教育に関する政府の方針が大きく変わった</span></p>
+			<h3 id='29-範囲'><span>\29. 範囲</span></h3>
+			<p><span>1.この町は川によって二つの</span><mark><span>部分(ぶぶん)</span></mark><span>に分かれている</span></p>
+			<p><span>2.この会社は新しい</span><mark><span>分野(ぶんや)</span></mark><span>に進出した</span></p>
+			<p><span>3.明日は広い範囲で強い雨が降るでしょう</span></p>
+			<p><span>4.家から駅までの</span><mark><span>距離(きょり)</span></mark><span>は2キロぐらいだ</span></p>
+			<blockquote>
+				<h5 id='進出｜しんしゅつ◎'><span>進出｜しんしゅつ◎</span></h5>
+				<p><span>名詞</span></p>
+				<p><span>\1. 进入，打入；挤进；参加；向…发展，进展。（進み出すこと。新しい分野に発展して出ること。）</span></p>
+				<p><span>サ行変格活用</span></p>
+				<p><span>\1. 进入，打入；挤进；参加；向…发展，进展。（進み出すこと。新しい分野に発展して出ること。）</span></p>
+				<h5 id='分かれる｜わかれる③'><span>分かれる｜わかれる③</span></h5>
+				<p><span>自动・二类</span></p>
+				<p><span>\1. 分开，分手；分歧。（いくつかに割れる。）</span></p>
+				<p><span>\2. 区分，划分，分歧，区别。（区別される。）</span></p>
+			</blockquote>
+			<h3 id='30-せめて'><span>\30. せめて</span></h3>
+			<p><span>1.その店のセーターは</span><mark><span>少なくとも</span></mark><sub><span>最小限度，至少</span></sub><span>1万円はするだろう</span>
 			</p>
-			<p><span>1.中の</span></p>
-			<p><span>2.じゃないか</span></p>
-			<p><span>3.誰か</span></p>
-			<p><span>4.三姉妹の</span></p>
-			<h3 id='46-新しいパソコンが欲しいが今あわてて買って-何か月もしないうちに---新しいのが出たりしたら悔しいからしばらく様子を見ようと思う'><span>\46.
-					新しいパソコンが欲しいが、今あわてて買って-何か月もしないうちに-
-				</span><mark><span>新しいのが出たりしたら</span></mark><span>悔しいから、しばらく様子を見ようと思う。</span></h3>
-			<p><span>1.悔しいから</span></p>
-			<p><span>2.新しいのが出たりしたら</span></p>
-			<p><span>3.今あわてて買って</span></p>
-			<p><span>4.何か月もしないうちに</span></p>
+			<p><span>2.今からタクシーに乗っても、</span><mark><span>恐(おそ)らく</span></mark><span>10時には着けない</span></p>
+			<p><span>3.京都に行くなら、せめて1泊はしたい</span></p>
+			<p><span>4.先週のテストは自信がなかったが、</span><mark><span>意外と(いがいと)</span></mark><span>50点は取れた</span></p>
+			<h3 id='31-利益盈利益处好处'><span>\31. 利益</span><sub><span>盈利；益处，好处</span></sub></h3>
+			<p><span>1.ジョギングは健康の</span><mark><span>ため</span></mark><span>になる</span></p>
+			<p><span>2.この値段で売ったら、店の利益はほとんどない</span></p>
+			<p><span>3.かぜ薬を飲んだが、</span><mark><span>効果</span></mark><span>が感じられない</span></p>
+			<p><span>4.バスの</span><mark><span>利点</span></mark><sub><span>有利之处，长处，优点</span></sub><span>は、新幹線よりも料金が安いことだ</span>
+			</p>
+			<h3 id='32-かなう'><span>\32. かなう</span></h3>
 			<blockquote>
-				<h5 id='うちに'><span>うちに</span></h5>
-				<p><span>【趁着……赶紧】</span></p>
-				<p><span>忘れないうちに、カレンダーにメモしておこう。</span></p>
-				<ul>
-					<li><span>Nの/Vる・Vている・Vない/Aい/ANな＋うちに</span></li>
-					<li><span>＋【意志】</span></li>
-				</ul>
-				<p><span>【正在做……期间发生了变化】</span></p>
-				<p><span>知らないうちに、雨が降り始めていた。</span></p>
-				<ul>
-					<li><span>Vる・Vている・Vない＋うちに</span></li>
-					<li><span>【不知不觉，自然而然的变化】；不＋【意志】</span></li>
-				</ul>
+				<p><span>叶う｜かなう②</span></p>
+				<p><span>自动・一类</span></p>
+				<p><span>\1. 能实现，能如愿以偿。（思うようになる。）</span></p>
 			</blockquote>
-			<h3 id='47-お互い感情的になっていると冷静に話そう-としても-うまく-いかないものだ'><span>\47.
-					お互い感情的になっていると、冷静に話そう-としても-</span><mark><span>うまく</span></mark><span> いかないものだ。</span></h3>
-			<p><span>1.うまく</span></p>
-			<p><span>2.冷静に話そう</span></p>
-			<p><span>3.いかない</span></p>
-			<p><span>4.としても</span></p>
+			<p><span>1.苦労が</span><mark><span>報(むく)われ</span></mark><span>、彼は俳優として成功をおさめた</span></p>
+			<p><span>2.天気予報が</span><mark><span>当(あ)たり</span></mark><span>、今日は一日中快晴だった</span></p>
+			<p><span>3.準備を重ねてきたイベントが無事か</span><mark><span>終了(しゅうりょう)だった</span></mark></p>
+			<p><span>4.自分の店を持つという夢が、とうとうかなった</span></p>
 			<blockquote>
-				<p><span>「ようとしても」表示“即使想……”双方都感情用事的话，即使想要冷静地谈一下也无法顺利进行的。</span></p>
-			</blockquote>
-			<h3 id='48-彼がそんなことをする人間でないことはあなたがいちばん-ご存じ-の-はずだ'><span>\48.
-					彼がそんなことをする人間でないことは、あなたがいちばん-ご存じ-</span><mark><span>の</span></mark><span>-はずだ。</span></h3>
-			<p><span>1.はず</span></p>
-			<p><span>2.ご存じ</span></p>
-			<p><span>3.いちばん</span></p>
-			<p><span>4.の</span></p>
-			<blockquote>
-				<p><span>你应该最知道，他不是会干那种事情的人。</span></p>
-			</blockquote>
-			<h3 id='49-田中監督が選手たちに厳しくするのは一度は優勝を経験させたい--と--願う--からこそだ'><span>\49. 田中監督が選手たちに厳しくするのは、一度は優勝を経験させたい- と-
-				</span><mark><span>願う</span></mark><span>- からこそだ。</span></h3>
-			<p><span>1.と</span></p>
-			<p><span>2.経験させたい</span></p>
-			<p><span>3.からこそ</span></p>
-			<p><span>4.願う</span></p>
-			<blockquote>
-				<p><span>田中教练对选手严厉，正是因为想要他们能够获胜。</span></p>
-				<p><span>「のはからこそだ」表示“……正是因为”</span></p>
+				<h5 id='報う｜むくう②'><span>報う｜むくう②</span></h5>
+				<p><span>自动・一类</span></p>
+				<p><span>\1. 得报；报应（受けた恩や払われた労力などに対して，ふさわしいお返しをする）。</span></p>
+				<h5 id='報いる｜むくいる③'><span>報いる｜むくいる③</span></h5>
+				<p><span>上一段活用</span></p>
+				<p><span>\1. 报，报答，报偿，答谢。（受けた事に対して、それに見合う行為を相手に行う。）</span></p>
+				<p><span>\2. 报复，报仇，回报。（仕返しをする。）</span></p>
 			</blockquote>
 		</div>
 	</div>
