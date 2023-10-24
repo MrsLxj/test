@@ -1,0 +1,1972 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width initial-scale=1'>
+
+	<link href='https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext'
+		rel='stylesheet' type='text/css' />
+	<link href='https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' />
+	<style type='text/css'>
+		html {
+			overflow-x: initial !important;
+		}
+
+		:root {
+			--bg-color: #ffffff;
+			--text-color: #333333;
+			--select-text-bg-color: #B5D6FC;
+			--select-text-font-color: auto;
+			--monospace: "Lucida Console", Consolas, "Courier", monospace;
+			--title-bar-height: 20px;
+		}
+
+		.mac-os-11 {
+			--title-bar-height: 28px;
+		}
+
+		html {
+			font-size: 14px;
+			background-color: var(--bg-color);
+			color: var(--text-color);
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		body {
+			margin: 0px;
+			padding: 0px;
+			height: auto;
+			inset: 0px;
+			font-size: 1rem;
+			line-height: 1.42857;
+			overflow-x: hidden;
+			background: inherit;
+			tab-size: 4;
+		}
+
+		iframe {
+			margin: auto;
+		}
+
+		a.url {
+			word-break: break-all;
+		}
+
+		a:active,
+		a:hover {
+			outline: 0px;
+		}
+
+		.in-text-selection,
+		::selection {
+			text-shadow: none;
+			background: var(--select-text-bg-color);
+			color: var(--select-text-font-color);
+		}
+
+		#write {
+			margin: 0px auto;
+			height: auto;
+			width: inherit;
+			word-break: normal;
+			overflow-wrap: break-word;
+			position: relative;
+			white-space: normal;
+			overflow-x: visible;
+			padding-top: 36px;
+		}
+
+		#write.first-line-indent p {
+			text-indent: 2em;
+		}
+
+		#write.first-line-indent li p,
+		#write.first-line-indent p * {
+			text-indent: 0px;
+		}
+
+		#write.first-line-indent li {
+			margin-left: 2em;
+		}
+
+		.for-image #write {
+			padding-left: 8px;
+			padding-right: 8px;
+		}
+
+		body.typora-export {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		.typora-export .footnote-line,
+		.typora-export li,
+		.typora-export p {
+			white-space: pre-wrap;
+		}
+
+		.typora-export .task-list-item input {
+			pointer-events: none;
+		}
+
+		@media screen and (max-width: 500px) {
+			body.typora-export {
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+
+			#write {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+
+			.CodeMirror-sizer {
+				margin-left: 0px !important;
+			}
+
+			.CodeMirror-gutters {
+				display: none !important;
+			}
+		}
+
+		#write li>figure:last-child {
+			margin-bottom: 0.5rem;
+		}
+
+		#write ol,
+		#write ul {
+			position: relative;
+		}
+
+		img {
+			max-width: 100%;
+			vertical-align: middle;
+			image-orientation: from-image;
+		}
+
+		button,
+		input,
+		select,
+		textarea {
+			color: inherit;
+			font: inherit;
+		}
+
+		input[type="checkbox"],
+		input[type="radio"] {
+			line-height: normal;
+			padding: 0px;
+		}
+
+		*,
+		::after,
+		::before {
+			box-sizing: border-box;
+		}
+
+		#write h1,
+		#write h2,
+		#write h3,
+		#write h4,
+		#write h5,
+		#write h6,
+		#write p,
+		#write pre {
+			width: inherit;
+		}
+
+		#write h1,
+		#write h2,
+		#write h3,
+		#write h4,
+		#write h5,
+		#write h6,
+		#write p {
+			position: relative;
+		}
+
+		p {
+			line-height: inherit;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			break-after: avoid-page;
+			break-inside: avoid;
+			orphans: 4;
+		}
+
+		p {
+			orphans: 4;
+		}
+
+		h1 {
+			font-size: 2rem;
+		}
+
+		h2 {
+			font-size: 1.8rem;
+		}
+
+		h3 {
+			font-size: 1.6rem;
+		}
+
+		h4 {
+			font-size: 1.4rem;
+		}
+
+		h5 {
+			font-size: 1.2rem;
+		}
+
+		h6 {
+			font-size: 1rem;
+		}
+
+		.md-math-block,
+		.md-rawblock,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p {
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		.md-blockmeta {
+			color: rgb(204, 204, 204);
+			font-weight: 700;
+			font-style: italic;
+		}
+
+		a {
+			cursor: pointer;
+		}
+
+		sup.md-footnote {
+			padding: 2px 4px;
+			background-color: rgba(238, 238, 238, 0.7);
+			color: rgb(85, 85, 85);
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		sup.md-footnote a,
+		sup.md-footnote a:hover {
+			color: inherit;
+			text-transform: inherit;
+			text-decoration: inherit;
+		}
+
+		#write input[type="checkbox"] {
+			cursor: pointer;
+			width: inherit;
+			height: inherit;
+		}
+
+		figure {
+			overflow-x: auto;
+			margin: 1.2em 0px;
+			max-width: calc(100% + 16px);
+			padding: 0px;
+		}
+
+		figure>table {
+			margin: 0px;
+		}
+
+		tr {
+			break-inside: avoid;
+			break-after: auto;
+		}
+
+		thead {
+			display: table-header-group;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0px;
+			width: 100%;
+			overflow: auto;
+			break-inside: auto;
+			text-align: left;
+		}
+
+		table.md-table td {
+			min-width: 32px;
+		}
+
+		.CodeMirror-gutters {
+			border-right: 0px;
+			background-color: inherit;
+		}
+
+		.CodeMirror-linenumber {
+			user-select: none;
+		}
+
+		.CodeMirror {
+			text-align: left;
+		}
+
+		.CodeMirror-placeholder {
+			opacity: 0.3;
+		}
+
+		.CodeMirror pre {
+			padding: 0px 4px;
+		}
+
+		.CodeMirror-lines {
+			padding: 0px;
+		}
+
+		div.hr:focus {
+			cursor: none;
+		}
+
+		#write pre {
+			white-space: pre-wrap;
+		}
+
+		#write.fences-no-line-wrapping pre {
+			white-space: pre;
+		}
+
+		#write pre.ty-contain-cm {
+			white-space: normal;
+		}
+
+		.CodeMirror-gutters {
+			margin-right: 4px;
+		}
+
+		.md-fences {
+			font-size: 0.9rem;
+			display: block;
+			break-inside: avoid;
+			text-align: left;
+			overflow: visible;
+			white-space: pre;
+			background: inherit;
+			position: relative !important;
+		}
+
+		.md-fences-adv-panel {
+			width: 100%;
+			margin-top: 10px;
+			text-align: center;
+			padding-top: 0px;
+			padding-bottom: 8px;
+			overflow-x: auto;
+		}
+
+		#write .md-fences.mock-cm {
+			white-space: pre-wrap;
+		}
+
+		.md-fences.md-fences-with-lineno {
+			padding-left: 0px;
+		}
+
+		#write.fences-no-line-wrapping .md-fences.mock-cm {
+			white-space: pre;
+			overflow-x: auto;
+		}
+
+		.md-fences.mock-cm.md-fences-with-lineno {
+			padding-left: 8px;
+		}
+
+		.CodeMirror-line,
+		twitterwidget {
+			break-inside: avoid;
+		}
+
+		.footnotes {
+			opacity: 0.8;
+			font-size: 0.9rem;
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+
+		.footnotes+.footnotes {
+			margin-top: 0px;
+		}
+
+		.md-reset {
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+			outline: 0px;
+			vertical-align: top;
+			background: 0px 0px;
+			text-decoration: none;
+			text-shadow: none;
+			float: none;
+			position: static;
+			width: auto;
+			height: auto;
+			white-space: nowrap;
+			cursor: inherit;
+			-webkit-tap-highlight-color: transparent;
+			line-height: normal;
+			font-weight: 400;
+			text-align: left;
+			box-sizing: content-box;
+			direction: ltr;
+		}
+
+		li div {
+			padding-top: 0px;
+		}
+
+		blockquote {
+			margin: 1rem 0px;
+		}
+
+		li .mathjax-block,
+		li p {
+			margin: 0.5rem 0px;
+		}
+
+		li blockquote {
+			margin: 1rem 0px;
+		}
+
+		li {
+			margin: 0px;
+			position: relative;
+		}
+
+		blockquote> :last-child {
+			margin-bottom: 0px;
+		}
+
+		blockquote> :first-child,
+		li> :first-child {
+			margin-top: 0px;
+		}
+
+		.footnotes-area {
+			color: rgb(136, 136, 136);
+			margin-top: 0.714rem;
+			padding-bottom: 0.143rem;
+			white-space: normal;
+		}
+
+		#write .footnote-line {
+			white-space: pre-wrap;
+		}
+
+		@media print {
+
+			body,
+			html {
+				border: 1px solid transparent;
+				height: 99%;
+				break-after: avoid;
+				break-before: avoid;
+				font-variant-ligatures: no-common-ligatures;
+			}
+
+			#write {
+				margin-top: 0px;
+				padding-top: 0px;
+				border-color: transparent !important;
+			}
+
+			.typora-export * {
+				-webkit-print-color-adjust: exact;
+			}
+
+			.typora-export #write {
+				break-after: avoid;
+			}
+
+			.typora-export #write::after {
+				height: 0px;
+			}
+
+			.is-mac table {
+				break-inside: avoid;
+			}
+
+			.typora-export-show-outline .typora-export-sidebar {
+				display: none;
+			}
+		}
+
+		.footnote-line {
+			margin-top: 0.714em;
+			font-size: 0.7em;
+		}
+
+		a img,
+		img a {
+			cursor: pointer;
+		}
+
+		pre.md-meta-block {
+			font-size: 0.8rem;
+			min-height: 0.8rem;
+			white-space: pre-wrap;
+			background: rgb(204, 204, 204);
+			display: block;
+			overflow-x: hidden;
+		}
+
+		p>.md-image:only-child:not(.md-img-error) img,
+		p>img:only-child {
+			display: block;
+			margin: auto;
+		}
+
+		#write.first-line-indent p>.md-image:only-child:not(.md-img-error) img {
+			left: -2em;
+			position: relative;
+		}
+
+		p>.md-image:only-child {
+			display: inline-block;
+			width: 100%;
+		}
+
+		#write .MathJax_Display {
+			margin: 0.8em 0px 0px;
+		}
+
+		.md-math-block {
+			width: 100%;
+		}
+
+		.md-math-block:not(:empty)::after {
+			display: none;
+		}
+
+		.MathJax_ref {
+			fill: currentcolor;
+		}
+
+		[contenteditable="true"]:active,
+		[contenteditable="true"]:focus,
+		[contenteditable="false"]:active,
+		[contenteditable="false"]:focus {
+			outline: 0px;
+			box-shadow: none;
+		}
+
+		.md-task-list-item {
+			position: relative;
+			list-style-type: none;
+		}
+
+		.task-list-item.md-task-list-item {
+			padding-left: 0px;
+		}
+
+		.md-task-list-item>input {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			margin-left: -1.2em;
+			margin-top: calc(1em - 10px);
+			border: none;
+		}
+
+		.math {
+			font-size: 1rem;
+		}
+
+		.md-toc {
+			min-height: 3.58rem;
+			position: relative;
+			font-size: 0.9rem;
+			border-radius: 10px;
+		}
+
+		.md-toc-content {
+			position: relative;
+			margin-left: 0px;
+		}
+
+		.md-toc-content::after,
+		.md-toc::after {
+			display: none;
+		}
+
+		.md-toc-item {
+			display: block;
+			color: rgb(65, 131, 196);
+		}
+
+		.md-toc-item a {
+			text-decoration: none;
+		}
+
+		.md-toc-inner:hover {
+			text-decoration: underline;
+		}
+
+		.md-toc-inner {
+			display: inline-block;
+			cursor: pointer;
+		}
+
+		.md-toc-h1 .md-toc-inner {
+			margin-left: 0px;
+			font-weight: 700;
+		}
+
+		.md-toc-h2 .md-toc-inner {
+			margin-left: 2em;
+		}
+
+		.md-toc-h3 .md-toc-inner {
+			margin-left: 4em;
+		}
+
+		.md-toc-h4 .md-toc-inner {
+			margin-left: 6em;
+		}
+
+		.md-toc-h5 .md-toc-inner {
+			margin-left: 8em;
+		}
+
+		.md-toc-h6 .md-toc-inner {
+			margin-left: 10em;
+		}
+
+		@media screen and (max-width: 48em) {
+			.md-toc-h3 .md-toc-inner {
+				margin-left: 3.5em;
+			}
+
+			.md-toc-h4 .md-toc-inner {
+				margin-left: 5em;
+			}
+
+			.md-toc-h5 .md-toc-inner {
+				margin-left: 6.5em;
+			}
+
+			.md-toc-h6 .md-toc-inner {
+				margin-left: 8em;
+			}
+		}
+
+		a.md-toc-inner {
+			font-size: inherit;
+			font-style: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+		}
+
+		.footnote-line a:not(.reversefootnote) {
+			color: inherit;
+		}
+
+		.md-attr {
+			display: none;
+		}
+
+		.md-fn-count::after {
+			content: ".";
+		}
+
+		code,
+		pre,
+		samp,
+		tt {
+			font-family: var(--monospace);
+		}
+
+		kbd {
+			margin: 0px 0.1em;
+			padding: 0.1em 0.6em;
+			font-size: 0.8em;
+			color: rgb(36, 39, 41);
+			background: rgb(255, 255, 255);
+			border: 1px solid rgb(173, 179, 185);
+			border-radius: 3px;
+			box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+			white-space: nowrap;
+			vertical-align: middle;
+		}
+
+		.md-comment {
+			color: rgb(162, 127, 3);
+			opacity: 0.6;
+			font-family: var(--monospace);
+		}
+
+		code {
+			text-align: left;
+			vertical-align: initial;
+		}
+
+		a.md-print-anchor {
+			white-space: pre !important;
+			border-width: initial !important;
+			border-style: none !important;
+			border-color: initial !important;
+			display: inline-block !important;
+			position: absolute !important;
+			width: 1px !important;
+			right: 0px !important;
+			outline: 0px !important;
+			background: 0px 0px !important;
+			text-decoration: initial !important;
+			text-shadow: initial !important;
+		}
+
+		.os-windows.monocolor-emoji .md-emoji {
+			font-family: "Segoe UI Symbol", sans-serif;
+		}
+
+		.md-diagram-panel>svg {
+			max-width: 100%;
+		}
+
+		[lang="flow"] svg,
+		[lang="mermaid"] svg {
+			max-width: 100%;
+			height: auto;
+		}
+
+		[lang="mermaid"] .node text {
+			font-size: 1rem;
+		}
+
+		table tr th {
+			border-bottom: 0px;
+		}
+
+		video {
+			max-width: 100%;
+			display: block;
+			margin: 0px auto;
+		}
+
+		iframe {
+			max-width: 100%;
+			width: 100%;
+			border: none;
+		}
+
+		.highlight td,
+		.highlight tr {
+			border: 0px;
+		}
+
+		mark {
+			background: rgb(255, 255, 0);
+			color: rgb(0, 0, 0);
+		}
+
+		.md-html-inline .md-plain,
+		.md-html-inline strong,
+		mark .md-inline-math,
+		mark strong {
+			color: inherit;
+		}
+
+		.md-expand mark .md-meta {
+			opacity: 0.3 !important;
+		}
+
+		mark .md-meta {
+			color: rgb(0, 0, 0);
+		}
+
+		@media print {
+
+			.typora-export h1,
+			.typora-export h2,
+			.typora-export h3,
+			.typora-export h4,
+			.typora-export h5,
+			.typora-export h6 {
+				break-inside: avoid;
+			}
+		}
+
+		.md-diagram-panel .messageText {
+			stroke: none !important;
+		}
+
+		.md-diagram-panel .start-state {
+			fill: var(--node-fill);
+		}
+
+		.md-diagram-panel .edgeLabel rect {
+			opacity: 1 !important;
+		}
+
+		.md-fences.md-fences-math {
+			font-size: 1em;
+		}
+
+		.md-fences-advanced:not(.md-focus) {
+			padding: 0px;
+			white-space: nowrap;
+			border: 0px;
+		}
+
+		.md-fences-advanced:not(.md-focus) {
+			background: inherit;
+		}
+
+		.typora-export-show-outline .typora-export-content {
+			max-width: 1440px;
+			margin: auto;
+			display: flex;
+			flex-direction: row;
+		}
+
+		.typora-export-sidebar {
+			width: 300px;
+			font-size: 0.8rem;
+			margin-top: 80px;
+			margin-right: 18px;
+		}
+
+		.typora-export-show-outline #write {
+			--webkit-flex: 2;
+			flex: 2 1 0%;
+		}
+
+		.typora-export-sidebar .outline-content {
+			position: fixed;
+			top: 0px;
+			max-height: 100%;
+			overflow: hidden auto;
+			padding-bottom: 30px;
+			padding-top: 60px;
+			width: 300px;
+		}
+
+		@media screen and (max-width: 1024px) {
+
+			.typora-export-sidebar,
+			.typora-export-sidebar .outline-content {
+				width: 240px;
+			}
+		}
+
+		@media screen and (max-width: 800px) {
+			.typora-export-sidebar {
+				display: none;
+			}
+		}
+
+		.outline-content li,
+		.outline-content ul {
+			margin-left: 0px;
+			margin-right: 0px;
+			padding-left: 0px;
+			padding-right: 0px;
+			list-style: none;
+		}
+
+		.outline-content ul {
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+
+		.outline-content strong {
+			font-weight: 400;
+		}
+
+		.outline-expander {
+			width: 1rem;
+			height: 1.42857rem;
+			position: relative;
+			display: table-cell;
+			vertical-align: middle;
+			cursor: pointer;
+			padding-left: 4px;
+		}
+
+		.outline-expander::before {
+			content: "";
+			position: relative;
+			font-family: Ionicons;
+			display: inline-block;
+			font-size: 8px;
+			vertical-align: middle;
+		}
+
+		.outline-item {
+			padding-top: 3px;
+			padding-bottom: 3px;
+			cursor: pointer;
+		}
+
+		.outline-expander:hover::before {
+			content: "";
+		}
+
+		.outline-h1>.outline-item {
+			padding-left: 0px;
+		}
+
+		.outline-h2>.outline-item {
+			padding-left: 1em;
+		}
+
+		.outline-h3>.outline-item {
+			padding-left: 2em;
+		}
+
+		.outline-h4>.outline-item {
+			padding-left: 3em;
+		}
+
+		.outline-h5>.outline-item {
+			padding-left: 4em;
+		}
+
+		.outline-h6>.outline-item {
+			padding-left: 5em;
+		}
+
+		.outline-label {
+			cursor: pointer;
+			display: table-cell;
+			vertical-align: middle;
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.outline-label:hover {
+			text-decoration: underline;
+		}
+
+		.outline-item:hover {
+			border-color: rgb(245, 245, 245);
+			background-color: var(--item-hover-bg-color);
+		}
+
+		.outline-item:hover {
+			margin-left: -28px;
+			margin-right: -28px;
+			border-left: 28px solid transparent;
+			border-right: 28px solid transparent;
+		}
+
+		.outline-item-single .outline-expander::before,
+		.outline-item-single .outline-expander:hover::before {
+			display: none;
+		}
+
+		.outline-item-open>.outline-item>.outline-expander::before {
+			content: "";
+		}
+
+		.outline-children {
+			display: none;
+		}
+
+		.info-panel-tab-wrapper {
+			display: none;
+		}
+
+		.outline-item-open>.outline-children {
+			display: block;
+		}
+
+		.typora-export .outline-item {
+			padding-top: 1px;
+			padding-bottom: 1px;
+		}
+
+		.typora-export .outline-item:hover {
+			margin-right: -8px;
+			border-right: 8px solid transparent;
+		}
+
+		.typora-export .outline-expander::before {
+			content: "+";
+			font-family: inherit;
+			top: -1px;
+		}
+
+		.typora-export .outline-expander:hover::before,
+		.typora-export .outline-item-open>.outline-item>.outline-expander::before {
+			content: "−";
+		}
+
+		.typora-export-collapse-outline .outline-children {
+			display: none;
+		}
+
+		.typora-export-collapse-outline .outline-item-open>.outline-children,
+		.typora-export-no-collapse-outline .outline-children {
+			display: block;
+		}
+
+		.typora-export-no-collapse-outline .outline-expander::before {
+			content: "" !important;
+		}
+
+		.typora-export-show-outline .outline-item-active>.outline-item .outline-label {
+			font-weight: 700;
+		}
+
+		.md-inline-math-container mjx-container {
+			zoom: 0.95;
+		}
+
+
+		@include-when-export url(https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+		@include-when-export url(https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext);
+
+		:root {
+			--control-text-color: #777;
+		}
+
+		/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+		h1,
+		.h1,
+		.f1 {
+			font-size: 2rem;
+			line-height: 2.5rem;
+		}
+
+		h2,
+		.h2,
+		.f2 {
+			font-size: 1.5rem;
+			line-height: 2rem;
+		}
+
+		h3,
+		.h3,
+		.f3 {
+			font-size: 1.25rem;
+			line-height: 1.5rem;
+		}
+
+		p,
+		.p,
+		.f4,
+		h4,
+		h5,
+		h6,
+		dl,
+		ol,
+		ul,
+		pre[cid],
+		div[cid],
+		#typora-source {
+			font-size: 1.125rem;
+			line-height: 1.5rem;
+		}
+
+		h4 {
+			font-size: 1.13rem;
+		}
+
+		/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+		body {
+			font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", 'Segoe UI Emoji', Serif;
+			line-height: 1.5rem;
+			font-weight: 400;
+		}
+
+		#write {
+			max-width: 914px;
+			color: #333;
+		}
+
+		@media only screen and (min-width: 1400px) {
+			#write {
+				max-width: 1100px;
+			}
+		}
+
+		@media only screen and (min-width: 1700px) {
+			#write {
+				max-width: 1200px;
+			}
+		}
+
+		img {
+			width: auto;
+			max-width: 100%;
+		}
+
+		body {
+			font-size: 1.5rem;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+
+		.ty-table-edit {
+			background: #ededed;
+		}
+
+		table {
+			width: 100%;
+			font-size: 1.125rem;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td,
+		table>tfoot>tr>th,
+		table>tfoot>tr>td {
+			padding: 12px;
+			line-height: 1.2;
+			vertical-align: top;
+			border-top: 1px solid #333;
+		}
+
+		table>thead>tr>th {
+			vertical-align: bottom;
+			border-bottom: 2px solid #333;
+		}
+
+		table>caption+thead>tr:first-child>th,
+		table>caption+thead>tr:first-child>td,
+		table>colgroup+thead>tr:first-child>th,
+		table>colgroup+thead>tr:first-child>td,
+		table>thead:first-child>tr:first-child>th,
+		table>thead:first-child>tr:first-child>td {
+			border-top: 0;
+		}
+
+		table>tbody+tbody {
+			border-top: 2px solid #333;
+		}
+
+		p {
+			font-weight: 300;
+			line-height: 1.5;
+		}
+
+		abbr {
+			border-bottom: 1px black dotted;
+			cursor: help;
+		}
+
+		pre,
+		code {
+			font-family: Menlo, Monaco, "Courier New", monospace;
+		}
+
+		code,
+		.md-fences {
+			color: #7a7a7a;
+		}
+
+		.md-fences {
+			padding: 1.125em;
+			margin-bottom: 0.88em;
+			font-size: 1rem;
+			border: 1px solid #7a7a7a;
+			padding-bottom: 0.5rem;
+			padding-top: 0.5rem;
+		}
+
+		blockquote {
+			padding: 1.33em;
+			font-style: italic;
+			border-left: 5px solid #7a7a7a;
+			color: #555;
+		}
+
+		blockquote em {
+			color: #000;
+		}
+
+		blockquote footer {
+			font-size: .85rem;
+			font-style: normal;
+			background-color: #fff;
+			color: #7a7a7a;
+			border-color: transparent;
+		}
+
+		h1,
+		.h1,
+		h2,
+		.h2,
+		h3,
+		.h3,
+		h4,
+		.h4,
+		h5,
+		.h5,
+		h6,
+		.h6 {
+			font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+			font-weight: bold;
+			line-height: 1.2;
+			margin: 1em 0 0.5em;
+		}
+
+		@media screen and (min-width: 48em) {
+
+			.h1,
+			h1 {
+				font-size: 3.250rem;
+			}
+
+			.h2,
+			h2 {
+				font-size: 2.298rem;
+			}
+
+			.h3,
+			h3 {
+				font-size: 1.625rem;
+			}
+
+			.h4,
+			h4 {
+				font-size: 1.3rem;
+			}
+
+			#write>h4.md-focus:before,
+			#write>h5.md-focus:before,
+			#write>h6.md-focus:before {
+				top: 1px;
+			}
+
+			.p,
+			p,
+			li {
+				font-size: 1.25rem;
+				line-height: 1.8;
+			}
+
+			table {
+				font-size: 1.25rem;
+			}
+		}
+
+		@media (max-width: 48em) {
+			blockquote {
+				margin-left: 1rem;
+				margin-right: 0;
+				padding: 0.5em;
+			}
+
+			.h1,
+			h1 {
+				font-size: 2.827rem;
+			}
+
+			.h2,
+			h2 {
+				font-size: 1.999rem;
+			}
+
+			.h3,
+			h3 {
+				font-size: 1.413rem;
+			}
+
+			.h4,
+			h4 {
+				font-size: 1.3rem;
+			}
+		}
+
+		@media screen and (min-width: 64em) {
+
+			.h1,
+			h1 {
+				font-size: 4.498rem;
+			}
+
+			.h2,
+			h2 {
+				font-size: 2.29rem;
+			}
+
+			.h3,
+			h3 {
+				font-size: 1.9rem;
+			}
+
+			.h4,
+			h4 {
+				font-size: 1.591rem;
+			}
+
+			#write>h4.md-focus:before {
+				top: 4px;
+			}
+		}
+
+		a {
+			color: #463F5C;
+			text-decoration: underline;
+		}
+
+		#write {
+			padding-top: 2rem;
+		}
+
+		#write pre.md-meta-block {
+			min-height: 35px;
+			padding: 0.5em 1em;
+			white-space: pre;
+			border: 0px;
+
+			border-left: 30px #f8f8f8 solid;
+			border-right: 30px #f8f8f8 solid;
+			width: 100vw;
+			max-width: calc(100% + 60px);
+
+			margin-left: -30px;
+			margin-bottom: 2em;
+			margin-top: -2010px;
+			padding-top: 2000px;
+			padding-bottom: 10px;
+			line-height: 1.5em;
+			color: #7a7a7a;
+			background-color: #fafafa;
+			font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+			font-weight: 300;
+			clear: both;
+			padding-left: 0;
+			font-size: 1.125rem;
+		}
+
+		.md-image>.md-meta {
+			color: #463F5C
+		}
+
+		.footnotes {
+			font-size: 1.1rem;
+		}
+
+		.md-tag {
+			font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+		}
+
+		.code-tooltip {
+			background: white;
+		}
+
+		.code-tooltip-content {
+			font-size: 1.1rem;
+		}
+
+		.task-list {
+			padding-left: 0;
+		}
+
+		.md-task-list-item {
+			padding-left: 34px;
+		}
+
+		.md-task-list-item>input {
+			width: 1.25rem;
+			height: 1.25rem;
+			display: block;
+			-webkit-appearance: initial;
+			top: -0.2rem;
+			margin-left: -1.6em;
+			margin-top: calc(1rem - 7px);
+			border: none;
+		}
+
+		.md-task-list-item>input:focus {
+			outline: none;
+			box-shadow: none;
+		}
+
+		.md-task-list-item>input:before {
+			border: 1px solid #555;
+			border-radius: 1.5rem;
+			width: 1.5rem;
+			height: 1.5rem;
+			background: #fff;
+			content: ' ';
+			transition: background-color 200ms ease-in-out;
+			display: block;
+		}
+
+		.md-task-list-item>input:checked:before,
+		.md-task-list-item>input[checked]:before {
+			background: #333;
+			border-width: 2px;
+			display: inline-block;
+			transition: background-color 200ms ease-in-out;
+		}
+
+		.md-task-list-item>input:checked:after,
+		.md-task-list-item>input[checked]:after {
+			opacity: 1;
+		}
+
+		.md-task-list-item>input:after {
+			opacity: 1;
+			-webkit-transition: opacity 0.05s ease-in-out;
+			-moz-transition: opacity 0.05s ease-in-out;
+			transition: opacity 0.05s ease-in-out;
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+			position: absolute;
+			top: 0.4375rem;
+			left: 0.28125rem;
+			width: 0.9375rem;
+			height: 0.5rem;
+			border: 3px solid #fff;
+			border-top: 0;
+			border-right: 0;
+			content: ' ';
+			opacity: 0;
+		}
+
+		.md-tag {
+			color: inherit;
+		}
+
+		.md-toc:focus .md-toc-content {
+			margin-top: 19px;
+		}
+
+		#typora-sidebar {
+			font-size: 1rem !important;
+		}
+
+		.html-for-mac #typora-sidebar {
+			background-color: white;
+		}
+
+		.outline-content li,
+		.outline-content ul {
+			font-size: 1rem !important;
+		}
+
+		.outline-title {
+			line-height: inherit;
+			margin-top: 10px;
+		}
+
+		.outline-expander {
+			width: 18px;
+		}
+
+		.outline-expander:before {
+			content: "+";
+			font-family: inherit;
+			color: rgb(108, 108, 108);
+			font-size: 1.5rem;
+			top: -0.1rem;
+		}
+
+		.outline-expander:hover:before {
+			content: "+";
+		}
+
+		.outline-item-open>.outline-item>.outline-expander:before {
+			content: "-";
+		}
+
+		/** source code mode */
+		#typora-source {
+			font-family: Courier, monospace;
+			color: #6A6A6A;
+		}
+
+		.os-windows #typora-source {
+			font-family: inherit;
+		}
+
+		.cm-s-typora-default .cm-header,
+		.cm-s-typora-default .cm-property,
+		.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+			color: #428bca;
+		}
+
+		.cm-s-typora-default .cm-atom,
+		.cm-s-typora-default .cm-number {
+			color: #777777;
+		}
+
+		.md-diagram-panel {
+			margin-top: 24px;
+			margin-left: -1.2em;
+		}
+
+		.md-mathjax-midline {
+			background: #fafafa;
+		}
+
+		.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+		.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+		.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+			bottom: -3.4em;
+		}
+
+		.dropdown-menu .divider {
+			border-color: #e5e5e5;
+		}
+
+		.typora-export li,
+		.typora-export p,
+		.typora-export,
+		.footnote-line {
+			white-space: normal;
+		}
+	</style>
+	<title>真题辨析-语法2012-2019</title>
+</head>
+<script src="https://mrslxj.github.io/test/jquery.min.js"></script>
+<style>
+	blockquote {
+		display: none;
+	}
+
+	pre {
+		display: none;
+	}
+</style>
+<style>
+	.xuhao {
+		color: #333;
+	}
+
+	.btn {
+		width: 30px;
+		height: 19px;
+		float: left;
+		padding: 0;
+	}
+
+	.select {
+		width: 46px;
+		height: 19px;
+		float: left;
+	}
+
+	.selkey {
+		width: 120px;
+		height: 19px;
+		float: left;
+	}
+
+	.sel_box {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 999;
+	}
+
+	.top {
+		position: fixed;
+		top: 0;
+		right: 0;
+		font-size: 12px;
+		z-index: 1999;
+		width: 35px;
+		text-align: center;
+		height: 20px;
+		border-radius: 6px;
+		background-color: deepskyblue;
+		color: #ffffff;
+	}
+
+	.extand {
+		/* position: fixed;
+			top: 0;
+			left: 138px;
+			z-index: 999; */
+		width: 40px;
+		height: 40px;
+		font-size: 12px;
+		padding: 0;
+	}
+
+	h3 {
+		border: #428bca dotted 1px;
+		background-color: #D9FFFF;
+	}
+
+	h4 {
+		font-size: 12px;
+		font-weight: initial;
+	}
+
+	sub {
+		display: block;
+		font-size: 12px;
+		font-weight: initial;
+		color: violet;
+	}
+
+	.anwser {
+		width: 300px;
+		height: 20px;
+		font-size: 12px;
+		background-color: #ffffff;
+		overflow: hidden;
+	}
+
+	.selDiv {
+		/* background-color: #ffffff; */
+		width: 300px;
+		height: 600px;
+		overflow: auto;
+		overflow-y: scroll;
+	}
+
+	.selDiv h3 {
+		background-color: #ffffff !important;
+		width: 60px;
+		height: 15px;
+		font-size: 10px;
+		overflow: hidden;
+	}
+
+	#write {
+		/* background-color: #7a7a7a; */
+	}
+</style>
+<script>
+	function xuhao() {
+		var pTag = document.getElementsByTagName("h3");
+		newArr = Array.from(pTag);
+		newArr.forEach(function (item, index) {
+			$('#' + item.id).prepend('<span class="xuhao">' + parseInt(index + 1) + ': ' + '</span>');
+		});
+	}
+	$(function () {
+		// xuhao();
+	});
+	function cancel() {
+		let ele_selDiv = document.getElementById("selDiv");
+		ele_selDiv.innerHTML = '';
+		document.getElementById("selkey").value = '';
+		var eles = document.getElementsByTagName("h3");
+		eles = Array.from(eles);
+		eles.map(x => {
+			x.style.backgroundColor = '#D9FFFF';
+		})
+		var eles3 = document.getElementsByTagName("h3");
+		eles3 = Array.from(eles3);
+		eles3.map(x => {
+			x.style.backgroundColor = '#ffffff';
+		})
+	}
+	function show1() {
+		let ele_blockquote = document.getElementsByTagName("blockquote");
+		let newArr = Array.from(ele_blockquote);
+		if ($('#extand1').val() === '开词汇') {
+			newArr.map(x => {
+				x.style.display = 'block';
+			})
+			$('#extand1').val('关词汇')
+		} else if ($('#extand1').val() === '关词汇') {
+			newArr.map(x => {
+				x.style.display = 'none';
+			})
+			$('#extand1').val('开词汇')
+		}
+	}
+	function show11() {
+		let ele_blockquote1 = document.getElementsByTagName("blockquote");
+		let newArr1 = Array.from(ele_blockquote1);
+		let ele_blockquote = document.getElementsByTagName("pre");
+		let newArr = Array.from(ele_blockquote);
+		if ($('#extand2').val() === '开说明') {
+			newArr.map(x => {
+				x.style.display = 'block';
+			})
+			newArr1.map(x => {
+				x.style.display = 'block';
+			})
+			$('#extand2').val('关说明')
+		} else if ($('#extand2').val() === '关说明') {
+			newArr.map(x => {
+				x.style.display = 'none';
+			})
+			newArr1.map(x => {
+				x.style.display = 'none';
+			})
+			$('#extand2').val('开说明')
+		}
+	}
+	function show3() {
+		let ele_blockquote = document.getElementsByTagName("h3");
+		let newArr = Array.from(ele_blockquote);
+		if ($('#extand3').val() === '开语法') {
+			newArr.map(x => {
+				x.style.display = 'block';
+			})
+			$('#extand3').val('关语法')
+		} else if ($('#extand3').val() === '关语法') {
+			newArr.map(x => {
+				x.style.display = 'none';
+			})
+			$('#extand3').val('开语法')
+		}
+	}
+	function show() {
+		let ele_selDiv = document.getElementById("selsel");
+		let ele_ss = document.getElementById("extand");
+		if (ele_selDiv.style.display === '') {
+			ele_selDiv.style.display = 'none';
+			ele_ss.value = '《';
+		}
+		else {
+			ele_selDiv.style.display = '';
+			ele_ss.value = '》';
+		}
+	}
+	function findH2() {
+		var sel_type = document.getElementById("sel_type");
+		var newArr;
+		if (sel_type.value === '语法') {
+			var pTag = document.getElementsByTagName("h3");
+			newArr = Array.from(pTag);
+		} else if (sel_type.value === '例句') {
+			var pTag = document.getElementsByTagName("h4");
+			newArr = Array.from(pTag);
+		} else if (sel_type.value === '接续') {
+			var pTag = document.getElementsByTagName("sub");
+			newArr = Array.from(pTag);
+		} else if (sel_type.value === '年份') {
+			var pTag = document.getElementsByTagName("h2");
+			newArr = Array.from(pTag);
+		}
+		//搜索的关键词
+		var keys = document.getElementById("selkey").value;
+		var arr = newArr.filter(x => {
+			if (x.innerText.indexOf(keys) > -1) {
+				return x
+			}
+		})
+		//结果
+		let ele_selDiv = document.getElementById("selDiv");
+		let stringss = '';
+		let jiexuArr;
+		if (sel_type.value === '接续') {
+			jiexuArr = arr.map(x => x.innerText);
+			jiexuArr.sort();
+			jiexuArr.forEach(function (item, index) {
+				stringss += '<div class="anwser newWidth" id="' + item + '1" name="' + item + '">' + item + '</div>';
+			});
+			ele_selDiv.style.width = '300px';
+		} else {
+			ele_selDiv.style.width = '100px';
+			arr.forEach(function (item, index) {
+				stringss += '<div class="anwser" id="' + item.innerText + '1" name="' + item.innerHTML + '">' + item.innerHTML + '</div>';
+			});
+		}
+		ele_selDiv.innerHTML = stringss;
+		//跳转
+		if (sel_type.value === '接续') {
+			jiexuArr.forEach(function (item, index) {
+				var button = document.getElementById(item + '1');
+				button.addEventListener('click', function (e) {
+					//清空背景
+					if (sel_type.value === '释义') {
+						var eles = document.getElementsByTagName("h3");
+						eles = Array.from(eles);
+						eles.map(x => {
+							x.style.backgroundColor = '#ffffff';
+						})
+					} else {
+						var eles = document.getElementsByTagName("h3");
+						eles = Array.from(eles);
+						eles.map(x => {
+							x.style.backgroundColor = '#D9FFFF';
+						})
+					}
+					var eles = $("#write>:contains(" + item + ")").prev().prev().prev();
+					eles[0].scrollIntoView();
+					// eles[0].css({"background-color":"#eee"})
+				});
+			})
+		} else {
+			arr.forEach(function (item, index) {
+				var button = document.getElementById(item.innerText + '1');
+				button.addEventListener('click', function (e) {
+					if (sel_type.value === '释义') {
+						var eles = document.getElementsByTagName("h3");
+						eles = Array.from(eles);
+						eles.map(x => {
+							x.style.backgroundColor = '#ffffff';
+						})
+					} else {
+						var eles = document.getElementsByTagName("h3");
+						eles = Array.from(eles);
+						eles.map(x => {
+							x.style.backgroundColor = '#D9FFFF';
+						})
+					}
+					var ele = document.getElementById(item.id);
+					ele.scrollIntoView();
+					ele.style.backgroundColor = '#eee'
+				});
+			});
+		}
+	}
+	function getElementsByXPath(xpath, parent) {
+		let results = [];
+		let query = document.evaluate(xpath, parent || document,
+			null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+		for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+			results.push(query.snapshotItem(i));
+		}
+		return results;
+	}
+</script>
+<div id="top"></div>
+<div class="sel_box">
+	<input id="extand" type="button" class="extand" onclick="show()" value="》" />
+	<!-- <input id="extand1" type="button" class="extand" onclick="show1()" value="开词汇" /> -->
+	<input id="extand2" type="button" class="extand" onclick="show11()" value="开说明" />
+	<!-- <input id="extand3" type="button" class="extand" onclick="show3()" value="关语法" /> -->
+	<div id="selsel" style="width: 186px;height: 60px;font-size: 10px;display: none;">
+		<div>
+			<select class="select" id="sel_type">
+				<option>语法</option>
+				<option>年份</option>
+				<!-- <option>接续</option> -->
+			</select>
+			<input type="text" class="selkey" id="selkey" />
+		</div>
+		<div>
+			<input type="button" class="btn" onclick="findH2()" value="查询" />
+			<input type="button" class="btn" onclick="cancel()" value="取消" />
+		</div>
+		<div style="clear: both;"></div>
+		<div id="selDiv" class="selDiv"></div>
+	</div>
+	<a href="#top" class="top" target="_self">顶部</a>
+</div>
+<div class='typora-export-content'>
+	<div id='write' class=''>
+		<p><a href="https://mrslxj.github.io/test/index.html" class="url">菜单页</a></p>
+		<h2 id='201212-语法'><span>2012.12 语法</span></h2>
+		<h3 id='35-人は通勤に多くの時間を使っている--------通勤に往復2時間かけるとすると1年間で480時間も通勤に使っている計算になる'><span>\35. 人は通勤に多くの時間を使っている。
+				通勤に往復2時間かけるとすると、1年間で480時間も通勤に使っている計算になる。</span></h3>
+		<p><span>1.たとえ</span></p>
+		<p><span>2.かりに</span></p>
+		<p><span>3.ようやく</span></p>
+		<p><span>4.かえって</span></p>
+		<blockquote>
+			<p><span>解析：</span>
+				<span>　(2)かりに“假如、如果……”</span>
+				<span>　(1)たとえ“即使，尽管……”，后项与「とも」、「ても」等呼应</span>
+				<span>　(3)ようやく“好不容易；总算……”</span>
+				<span>　(4)かえって“反而，反倒……”</span>
+			</p>
+		</blockquote>
+		<p><sub><span>「いくらも」后接否定，表示不多，没多少。</span></sub></p>
+		<h3 id='37-彼は小説家になってから1年に1冊のペースで長編小説を--------来月出る小説で10冊目となる'><span>\37. 彼は小説家になってから、1年に1冊のペースで長編小説を
+				、来月出る小説で10冊目となる。</span></h3>
+		<p><span>1.発表しつつ</span></p>
+		<p><span>2.発表しており</span></p>
+		<p><span>3.発表するにつれ</span></p>
+		<p><span>4.発表したところで</span></p>
+		<blockquote>
+			<p><span>(2)ており「ている」的程度较低的礼貌语。</span>
+				<span>　(1)つつ接在动词連用形后，表示两个动作同时进行，翻译为”一边……一边“。或者表示逆接，翻译为”尽管……“。</span>
+				<span>　(3)につれ“随着……”，表示某事态进展的同时，其他事态也在进展。</span>
+				<span>　(4)たところで“即使……也不……”，表示逆接。</span>
+			</p>
+		</blockquote>
+		<p><sub><span>にしたって“是「にしても」的口语表示形式。</span></sub>
+			<sub><span>にかぎらず“不限于……，不光……也……”</span></sub>
+		</p>
+		<p><sub><span>「とはのことだ」的形式表示下定义。翻译为“所谓……就是……”</span></sub></p>
+		<h3 id='40-最近は夜遅くまで開いているスーパーが多くなってきたスーパーに--------24時間営業のところもある'><span>\40. 最近は夜遅くまで開いているスーパーが多くなってきた。スーパーに
+				、24時間営業のところもある。</span></h3>
+		<p><span>1.よっては</span></p>
+		<p><span>2.とっても</span></p>
+		<p><span>3.ついても</span></p>
+		<p><span>4.おいては</span></p>
+		<blockquote>
+			<p><span>~によっては：在……情況下，也可能会……(是在各式各样的种类中，选取一种来描述的表达方式)</span>
+				<span>　~にとっても：对……而言也(后项往往是表示评价或判断的句子)</span>
+				<span>　~についても：关于…也(用于表示说，听，思考，写，调查等行为涉及的対象)</span>
+				<span>　~において(は)：1.表示事物发生的地点，场面，状況等。2.在…方面(领域)</span>
+			</p>
+		</blockquote>
+		<p><sub><span>AはBに-を他動詞せ/させる：A让B做……</span></sub>
+			<sub><span>AはBを自動詞せ/させる：A让B做……</span></sub>
+		</p>
+		<h3 id='42-最近は毎月決まった金額でかけ放題の国際電話サービスがある私が留学していたときにもそんなサービスがあったら--------'><span>\42.
+				最近は毎月決まった金額でかけ放題の国際電話サービスがある。私が留学していたときにもそんなサービスがあったら 。</span></h3>
+		<p><span>1.どれだけよかった</span></p>
+		<p><span>2.どれだけよかったか</span></p>
+		<p><span>3.どうしてもよかった</span></p>
+		<p><span>4.どうしてもよかったか</span></p>
+		<blockquote>
+			<p><span>どれだけ副多么&lt;どんなに&gt;</span>
+				<span>どれだけ~か：多么……呀！(表示感慨或概叹) 例：どれだけ心配したか。</span>
+			</p>
+		</blockquote>
+		<p><sub><span>「ご覧のように/とおり」表示“如您所见”。</span></sub></p>
+		<h3 id='47-来週の登山の持ち物について質問があります配られたプリントにビニール袋を持参3124足りるのでしょうか'><span>\47.
+				「来週の登山の持ち物について質問があります。配られたプリントに、ビニール袋を持参31</span><mark><span>2</span></mark><span>4足りるのでしょうか。」</span>
+		</h3>
+		<p><span>1.ありますが</span></p>
+		<p><span>2.だいたい何枚ぐらい</span></p>
+		<p><span>3.のことと</span></p>
+		<p><span>4.用意すれば</span></p>
+		<h3 id='48-何か目的があって4312ということがよくある'><span>\48.
+				何か目的があって43</span><mark><span>1</span></mark><span>2ということがよくある。</span></h3>
+		<p><span>1.何をしに行ったのか</span></p>
+		<p><span>2.忘れてしまう</span></p>
+		<p><span>3.はずなのに</span></p>
+		<p><span>4.その場所に行った</span></p>
+		<h3 id='49-日本の食卓しょくたくに1432大豆だが日本国内で作られているものはわずかでその多くを海外からの輸入に頼っているという'><span>\49.
+				日本の食卓(しょくたく)に14</span><mark><span>3</span></mark><span>2大豆だが、日本国内で作られているものはわずかで、その多くを海外からの輸入に頼っているという。</span>
+		</h3>
+		<p><span>1.欠かせない</span></p>
+		<p><span>2.原料となる</span></p>
+		<p><span>3.調味料の</span></p>
+		<p><span>4.みそやしょうゆといった</span></p>
+		<p><sub><span>とされる表示“一般认为”</span></sub></p>
+		<h3 id='54'><strong><span>54.</span></strong></h3>
+		<p><span>1.ご存じでしょうか</span><sub><span>你知道吗</span></sub></p>
+		<p><span>2.ご存じだったのですね</span><sub><span>您以前知道吗</span></sub></p>
+		<p><span>3.おわかりいただけるのですね</span><sub><span>您之后能明白吧</span></sub></p>
+		<p><span>4.おわかりいただけましたか</span><sub><span>你能明白为什么花会在春天一起开放了吗</span></sub></p>
+	</div>
+</div>
+<p><a href="https://mrslxj.github.io/test/index.html" class="url">菜单页</a></p>
+</body>
+
+</html>
