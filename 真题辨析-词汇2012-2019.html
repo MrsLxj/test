@@ -1,0 +1,2112 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width initial-scale=1'>
+
+	<link href='https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext'
+		rel='stylesheet' type='text/css' />
+	<link href='https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext' rel='stylesheet' type='text/css' />
+	<style type='text/css'>
+		html {
+			overflow-x: initial !important;
+		}
+
+		:root {
+			--bg-color: #ffffff;
+			--text-color: #333333;
+			--select-text-bg-color: #B5D6FC;
+			--select-text-font-color: auto;
+			--monospace: "Lucida Console", Consolas, "Courier", monospace;
+			--title-bar-height: 20px;
+		}
+
+		.mac-os-11 {
+			--title-bar-height: 28px;
+		}
+
+		html {
+			font-size: 14px;
+			background-color: var(--bg-color);
+			color: var(--text-color);
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		body {
+			margin: 0px;
+			padding: 0px;
+			height: auto;
+			inset: 0px;
+			font-size: 1rem;
+			line-height: 1.42857;
+			overflow-x: hidden;
+			background: inherit;
+			tab-size: 4;
+		}
+
+		iframe {
+			margin: auto;
+		}
+
+		a.url {
+			word-break: break-all;
+		}
+
+		a:active,
+		a:hover {
+			outline: 0px;
+		}
+
+		.in-text-selection,
+		::selection {
+			text-shadow: none;
+			background: var(--select-text-bg-color);
+			color: var(--select-text-font-color);
+		}
+
+		#write {
+			margin: 0px auto;
+			height: auto;
+			width: inherit;
+			word-break: normal;
+			overflow-wrap: break-word;
+			position: relative;
+			white-space: normal;
+			overflow-x: visible;
+			padding-top: 36px;
+		}
+
+		#write.first-line-indent p {
+			text-indent: 2em;
+		}
+
+		#write.first-line-indent li p,
+		#write.first-line-indent p * {
+			text-indent: 0px;
+		}
+
+		#write.first-line-indent li {
+			margin-left: 2em;
+		}
+
+		.for-image #write {
+			padding-left: 8px;
+			padding-right: 8px;
+		}
+
+		body.typora-export {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		.typora-export .footnote-line,
+		.typora-export li,
+		.typora-export p {
+			white-space: pre-wrap;
+		}
+
+		.typora-export .task-list-item input {
+			pointer-events: none;
+		}
+
+		@media screen and (max-width: 500px) {
+			body.typora-export {
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+
+			#write {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+
+			.CodeMirror-sizer {
+				margin-left: 0px !important;
+			}
+
+			.CodeMirror-gutters {
+				display: none !important;
+			}
+		}
+
+		#write li>figure:last-child {
+			margin-bottom: 0.5rem;
+		}
+
+		#write ol,
+		#write ul {
+			position: relative;
+		}
+
+		img {
+			max-width: 100%;
+			vertical-align: middle;
+			image-orientation: from-image;
+		}
+
+		button,
+		input,
+		select,
+		textarea {
+			color: inherit;
+			font: inherit;
+		}
+
+		input[type="checkbox"],
+		input[type="radio"] {
+			line-height: normal;
+			padding: 0px;
+		}
+
+		*,
+		::after,
+		::before {
+			box-sizing: border-box;
+		}
+
+		#write h1,
+		#write h2,
+		#write h3,
+		#write h4,
+		#write h5,
+		#write h6,
+		#write p,
+		#write pre {
+			width: inherit;
+		}
+
+		#write h1,
+		#write h2,
+		#write h3,
+		#write h4,
+		#write h5,
+		#write h6,
+		#write p {
+			position: relative;
+		}
+
+		p {
+			line-height: inherit;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			break-after: avoid-page;
+			break-inside: avoid;
+			orphans: 4;
+		}
+
+		p {
+			orphans: 4;
+		}
+
+		h1 {
+			font-size: 2rem;
+		}
+
+		h2 {
+			font-size: 1.8rem;
+		}
+
+		h3 {
+			font-size: 1.6rem;
+		}
+
+		h4 {
+			font-size: 1.4rem;
+		}
+
+		h5 {
+			font-size: 1.2rem;
+		}
+
+		h6 {
+			font-size: 1rem;
+		}
+
+		.md-math-block,
+		.md-rawblock,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p {
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		.md-blockmeta {
+			color: rgb(204, 204, 204);
+			font-weight: 700;
+			font-style: italic;
+		}
+
+		a {
+			cursor: pointer;
+		}
+
+		sup.md-footnote {
+			padding: 2px 4px;
+			background-color: rgba(238, 238, 238, 0.7);
+			color: rgb(85, 85, 85);
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		sup.md-footnote a,
+		sup.md-footnote a:hover {
+			color: inherit;
+			text-transform: inherit;
+			text-decoration: inherit;
+		}
+
+		#write input[type="checkbox"] {
+			cursor: pointer;
+			width: inherit;
+			height: inherit;
+		}
+
+		figure {
+			overflow-x: auto;
+			margin: 1.2em 0px;
+			max-width: calc(100% + 16px);
+			padding: 0px;
+		}
+
+		figure>table {
+			margin: 0px;
+		}
+
+		tr {
+			break-inside: avoid;
+			break-after: auto;
+		}
+
+		thead {
+			display: table-header-group;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0px;
+			width: 100%;
+			overflow: auto;
+			break-inside: auto;
+			text-align: left;
+		}
+
+		table.md-table td {
+			min-width: 32px;
+		}
+
+		.CodeMirror-gutters {
+			border-right: 0px;
+			background-color: inherit;
+		}
+
+		.CodeMirror-linenumber {
+			user-select: none;
+		}
+
+		.CodeMirror {
+			text-align: left;
+		}
+
+		.CodeMirror-placeholder {
+			opacity: 0.3;
+		}
+
+		.CodeMirror pre {
+			padding: 0px 4px;
+		}
+
+		.CodeMirror-lines {
+			padding: 0px;
+		}
+
+		div.hr:focus {
+			cursor: none;
+		}
+
+		#write pre {
+			white-space: pre-wrap;
+		}
+
+		#write.fences-no-line-wrapping pre {
+			white-space: pre;
+		}
+
+		#write pre.ty-contain-cm {
+			white-space: normal;
+		}
+
+		.CodeMirror-gutters {
+			margin-right: 4px;
+		}
+
+		.md-fences {
+			font-size: 0.9rem;
+			display: block;
+			break-inside: avoid;
+			text-align: left;
+			overflow: visible;
+			white-space: pre;
+			background: inherit;
+			position: relative !important;
+		}
+
+		.md-fences-adv-panel {
+			width: 100%;
+			margin-top: 10px;
+			text-align: center;
+			padding-top: 0px;
+			padding-bottom: 8px;
+			overflow-x: auto;
+		}
+
+		#write .md-fences.mock-cm {
+			white-space: pre-wrap;
+		}
+
+		.md-fences.md-fences-with-lineno {
+			padding-left: 0px;
+		}
+
+		#write.fences-no-line-wrapping .md-fences.mock-cm {
+			white-space: pre;
+			overflow-x: auto;
+		}
+
+		.md-fences.mock-cm.md-fences-with-lineno {
+			padding-left: 8px;
+		}
+
+		.CodeMirror-line,
+		twitterwidget {
+			break-inside: avoid;
+		}
+
+		.footnotes {
+			opacity: 0.8;
+			font-size: 0.9rem;
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+
+		.footnotes+.footnotes {
+			margin-top: 0px;
+		}
+
+		.md-reset {
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+			outline: 0px;
+			vertical-align: top;
+			background: 0px 0px;
+			text-decoration: none;
+			text-shadow: none;
+			float: none;
+			position: static;
+			width: auto;
+			height: auto;
+			white-space: nowrap;
+			cursor: inherit;
+			-webkit-tap-highlight-color: transparent;
+			line-height: normal;
+			font-weight: 400;
+			text-align: left;
+			box-sizing: content-box;
+			direction: ltr;
+		}
+
+		li div {
+			padding-top: 0px;
+		}
+
+		blockquote {
+			margin: 1rem 0px;
+		}
+
+		li .mathjax-block,
+		li p {
+			margin: 0.5rem 0px;
+		}
+
+		li blockquote {
+			margin: 1rem 0px;
+		}
+
+		li {
+			margin: 0px;
+			position: relative;
+		}
+
+		blockquote> :last-child {
+			margin-bottom: 0px;
+		}
+
+		blockquote> :first-child,
+		li> :first-child {
+			margin-top: 0px;
+		}
+
+		.footnotes-area {
+			color: rgb(136, 136, 136);
+			margin-top: 0.714rem;
+			padding-bottom: 0.143rem;
+			white-space: normal;
+		}
+
+		#write .footnote-line {
+			white-space: pre-wrap;
+		}
+
+		@media print {
+
+			body,
+			html {
+				border: 1px solid transparent;
+				height: 99%;
+				break-after: avoid;
+				break-before: avoid;
+				font-variant-ligatures: no-common-ligatures;
+			}
+
+			#write {
+				margin-top: 0px;
+				padding-top: 0px;
+				border-color: transparent !important;
+			}
+
+			.typora-export * {
+				-webkit-print-color-adjust: exact;
+			}
+
+			.typora-export #write {
+				break-after: avoid;
+			}
+
+			.typora-export #write::after {
+				height: 0px;
+			}
+
+			.is-mac table {
+				break-inside: avoid;
+			}
+
+			.typora-export-show-outline .typora-export-sidebar {
+				display: none;
+			}
+		}
+
+		.footnote-line {
+			margin-top: 0.714em;
+			font-size: 0.7em;
+		}
+
+		a img,
+		img a {
+			cursor: pointer;
+		}
+
+		pre.md-meta-block {
+			font-size: 0.8rem;
+			min-height: 0.8rem;
+			white-space: pre-wrap;
+			background: rgb(204, 204, 204);
+			display: block;
+			overflow-x: hidden;
+		}
+
+		p>.md-image:only-child:not(.md-img-error) img,
+		p>img:only-child {
+			display: block;
+			margin: auto;
+		}
+
+		#write.first-line-indent p>.md-image:only-child:not(.md-img-error) img {
+			left: -2em;
+			position: relative;
+		}
+
+		p>.md-image:only-child {
+			display: inline-block;
+			width: 100%;
+		}
+
+		#write .MathJax_Display {
+			margin: 0.8em 0px 0px;
+		}
+
+		.md-math-block {
+			width: 100%;
+		}
+
+		.md-math-block:not(:empty)::after {
+			display: none;
+		}
+
+		.MathJax_ref {
+			fill: currentcolor;
+		}
+
+		[contenteditable="true"]:active,
+		[contenteditable="true"]:focus,
+		[contenteditable="false"]:active,
+		[contenteditable="false"]:focus {
+			outline: 0px;
+			box-shadow: none;
+		}
+
+		.md-task-list-item {
+			position: relative;
+			list-style-type: none;
+		}
+
+		.task-list-item.md-task-list-item {
+			padding-left: 0px;
+		}
+
+		.md-task-list-item>input {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			margin-left: -1.2em;
+			margin-top: calc(1em - 10px);
+			border: none;
+		}
+
+		.math {
+			font-size: 1rem;
+		}
+
+		.md-toc {
+			min-height: 3.58rem;
+			position: relative;
+			font-size: 0.9rem;
+			border-radius: 10px;
+		}
+
+		.md-toc-content {
+			position: relative;
+			margin-left: 0px;
+		}
+
+		.md-toc-content::after,
+		.md-toc::after {
+			display: none;
+		}
+
+		.md-toc-item {
+			display: block;
+			color: rgb(65, 131, 196);
+		}
+
+		.md-toc-item a {
+			text-decoration: none;
+		}
+
+		.md-toc-inner:hover {
+			text-decoration: underline;
+		}
+
+		.md-toc-inner {
+			display: inline-block;
+			cursor: pointer;
+		}
+
+		.md-toc-h1 .md-toc-inner {
+			margin-left: 0px;
+			font-weight: 700;
+		}
+
+		.md-toc-h2 .md-toc-inner {
+			margin-left: 2em;
+		}
+
+		.md-toc-h3 .md-toc-inner {
+			margin-left: 4em;
+		}
+
+		.md-toc-h4 .md-toc-inner {
+			margin-left: 6em;
+		}
+
+		.md-toc-h5 .md-toc-inner {
+			margin-left: 8em;
+		}
+
+		.md-toc-h6 .md-toc-inner {
+			margin-left: 10em;
+		}
+
+		@media screen and (max-width: 48em) {
+			.md-toc-h3 .md-toc-inner {
+				margin-left: 3.5em;
+			}
+
+			.md-toc-h4 .md-toc-inner {
+				margin-left: 5em;
+			}
+
+			.md-toc-h5 .md-toc-inner {
+				margin-left: 6.5em;
+			}
+
+			.md-toc-h6 .md-toc-inner {
+				margin-left: 8em;
+			}
+		}
+
+		a.md-toc-inner {
+			font-size: inherit;
+			font-style: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+		}
+
+		.footnote-line a:not(.reversefootnote) {
+			color: inherit;
+		}
+
+		.md-attr {
+			display: none;
+		}
+
+		.md-fn-count::after {
+			content: ".";
+		}
+
+		code,
+		pre,
+		samp,
+		tt {
+			font-family: var(--monospace);
+		}
+
+		kbd {
+			margin: 0px 0.1em;
+			padding: 0.1em 0.6em;
+			font-size: 0.8em;
+			color: rgb(36, 39, 41);
+			background: rgb(255, 255, 255);
+			border: 1px solid rgb(173, 179, 185);
+			border-radius: 3px;
+			box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+			white-space: nowrap;
+			vertical-align: middle;
+		}
+
+		.md-comment {
+			color: rgb(162, 127, 3);
+			opacity: 0.6;
+			font-family: var(--monospace);
+		}
+
+		code {
+			text-align: left;
+			vertical-align: initial;
+		}
+
+		a.md-print-anchor {
+			white-space: pre !important;
+			border-width: initial !important;
+			border-style: none !important;
+			border-color: initial !important;
+			display: inline-block !important;
+			position: absolute !important;
+			width: 1px !important;
+			right: 0px !important;
+			outline: 0px !important;
+			background: 0px 0px !important;
+			text-decoration: initial !important;
+			text-shadow: initial !important;
+		}
+
+		.os-windows.monocolor-emoji .md-emoji {
+			font-family: "Segoe UI Symbol", sans-serif;
+		}
+
+		.md-diagram-panel>svg {
+			max-width: 100%;
+		}
+
+		[lang="flow"] svg,
+		[lang="mermaid"] svg {
+			max-width: 100%;
+			height: auto;
+		}
+
+		[lang="mermaid"] .node text {
+			font-size: 1rem;
+		}
+
+		table tr th {
+			border-bottom: 0px;
+		}
+
+		video {
+			max-width: 100%;
+			display: block;
+			margin: 0px auto;
+		}
+
+		iframe {
+			max-width: 100%;
+			width: 100%;
+			border: none;
+		}
+
+		.highlight td,
+		.highlight tr {
+			border: 0px;
+		}
+
+		mark {
+			background: rgb(255, 255, 0);
+			color: rgb(0, 0, 0);
+		}
+
+		.md-html-inline .md-plain,
+		.md-html-inline strong,
+		mark .md-inline-math,
+		mark strong {
+			color: inherit;
+		}
+
+		.md-expand mark .md-meta {
+			opacity: 0.3 !important;
+		}
+
+		mark .md-meta {
+			color: rgb(0, 0, 0);
+		}
+
+		@media print {
+
+			.typora-export h1,
+			.typora-export h2,
+			.typora-export h3,
+			.typora-export h4,
+			.typora-export h5,
+			.typora-export h6 {
+				break-inside: avoid;
+			}
+		}
+
+		.md-diagram-panel .messageText {
+			stroke: none !important;
+		}
+
+		.md-diagram-panel .start-state {
+			fill: var(--node-fill);
+		}
+
+		.md-diagram-panel .edgeLabel rect {
+			opacity: 1 !important;
+		}
+
+		.md-fences.md-fences-math {
+			font-size: 1em;
+		}
+
+		.md-fences-advanced:not(.md-focus) {
+			padding: 0px;
+			white-space: nowrap;
+			border: 0px;
+		}
+
+		.md-fences-advanced:not(.md-focus) {
+			background: inherit;
+		}
+
+		.typora-export-show-outline .typora-export-content {
+			max-width: 1440px;
+			margin: auto;
+			display: flex;
+			flex-direction: row;
+		}
+
+		.typora-export-sidebar {
+			width: 300px;
+			font-size: 0.8rem;
+			margin-top: 80px;
+			margin-right: 18px;
+		}
+
+		.typora-export-show-outline #write {
+			--webkit-flex: 2;
+			flex: 2 1 0%;
+		}
+
+		.typora-export-sidebar .outline-content {
+			position: fixed;
+			top: 0px;
+			max-height: 100%;
+			overflow: hidden auto;
+			padding-bottom: 30px;
+			padding-top: 60px;
+			width: 300px;
+		}
+
+		@media screen and (max-width: 1024px) {
+
+			.typora-export-sidebar,
+			.typora-export-sidebar .outline-content {
+				width: 240px;
+			}
+		}
+
+		@media screen and (max-width: 800px) {
+			.typora-export-sidebar {
+				display: none;
+			}
+		}
+
+		.outline-content li,
+		.outline-content ul {
+			margin-left: 0px;
+			margin-right: 0px;
+			padding-left: 0px;
+			padding-right: 0px;
+			list-style: none;
+		}
+
+		.outline-content ul {
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+
+		.outline-content strong {
+			font-weight: 400;
+		}
+
+		.outline-expander {
+			width: 1rem;
+			height: 1.42857rem;
+			position: relative;
+			display: table-cell;
+			vertical-align: middle;
+			cursor: pointer;
+			padding-left: 4px;
+		}
+
+		.outline-expander::before {
+			content: "";
+			position: relative;
+			font-family: Ionicons;
+			display: inline-block;
+			font-size: 8px;
+			vertical-align: middle;
+		}
+
+		.outline-item {
+			padding-top: 3px;
+			padding-bottom: 3px;
+			cursor: pointer;
+		}
+
+		.outline-expander:hover::before {
+			content: "";
+		}
+
+		.outline-h1>.outline-item {
+			padding-left: 0px;
+		}
+
+		.outline-h2>.outline-item {
+			padding-left: 1em;
+		}
+
+		.outline-h3>.outline-item {
+			padding-left: 2em;
+		}
+
+		.outline-h4>.outline-item {
+			padding-left: 3em;
+		}
+
+		.outline-h5>.outline-item {
+			padding-left: 4em;
+		}
+
+		.outline-h6>.outline-item {
+			padding-left: 5em;
+		}
+
+		.outline-label {
+			cursor: pointer;
+			display: table-cell;
+			vertical-align: middle;
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.outline-label:hover {
+			text-decoration: underline;
+		}
+
+		.outline-item:hover {
+			border-color: rgb(245, 245, 245);
+			background-color: var(--item-hover-bg-color);
+		}
+
+		.outline-item:hover {
+			margin-left: -28px;
+			margin-right: -28px;
+			border-left: 28px solid transparent;
+			border-right: 28px solid transparent;
+		}
+
+		.outline-item-single .outline-expander::before,
+		.outline-item-single .outline-expander:hover::before {
+			display: none;
+		}
+
+		.outline-item-open>.outline-item>.outline-expander::before {
+			content: "";
+		}
+
+		.outline-children {
+			display: none;
+		}
+
+		.info-panel-tab-wrapper {
+			display: none;
+		}
+
+		.outline-item-open>.outline-children {
+			display: block;
+		}
+
+		.typora-export .outline-item {
+			padding-top: 1px;
+			padding-bottom: 1px;
+		}
+
+		.typora-export .outline-item:hover {
+			margin-right: -8px;
+			border-right: 8px solid transparent;
+		}
+
+		.typora-export .outline-expander::before {
+			content: "+";
+			font-family: inherit;
+			top: -1px;
+		}
+
+		.typora-export .outline-expander:hover::before,
+		.typora-export .outline-item-open>.outline-item>.outline-expander::before {
+			content: "−";
+		}
+
+		.typora-export-collapse-outline .outline-children {
+			display: none;
+		}
+
+		.typora-export-collapse-outline .outline-item-open>.outline-children,
+		.typora-export-no-collapse-outline .outline-children {
+			display: block;
+		}
+
+		.typora-export-no-collapse-outline .outline-expander::before {
+			content: "" !important;
+		}
+
+		.typora-export-show-outline .outline-item-active>.outline-item .outline-label {
+			font-weight: 700;
+		}
+
+		.md-inline-math-container mjx-container {
+			zoom: 0.95;
+		}
+
+
+		@include-when-export url(https://fonts.loli.net/css?family=Merriweather:900,900italic,300,300italic&subset=latin-ext);
+		@include-when-export url(https://fonts.loli.net/css?family=Lato:900,300&subset=latin-ext);
+
+		:root {
+			--control-text-color: #777;
+		}
+
+		/**
+ * forked from pixyll.com
+ * MIT license
+ */
+
+		h1,
+		.h1,
+		.f1 {
+			font-size: 2rem;
+			line-height: 2.5rem;
+		}
+
+		h2,
+		.h2,
+		.f2 {
+			font-size: 1.5rem;
+			line-height: 2rem;
+		}
+
+		h3,
+		.h3,
+		.f3 {
+			font-size: 1.25rem;
+			line-height: 1.5rem;
+		}
+
+		p,
+		.p,
+		.f4,
+		h4,
+		h5,
+		h6,
+		dl,
+		ol,
+		ul,
+		pre[cid],
+		div[cid],
+		#typora-source {
+			font-size: 1.125rem;
+			line-height: 1.5rem;
+		}
+
+		h4 {
+			font-size: 1.13rem;
+		}
+
+		/*
+ Pixyll
+ A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff.
+ Best served with BASSCSS (http://jxnblk.github.io/basscss)
+ Crafted with <3 by John Otander (@4lpine) - ©2015 John Otander MIT License http://opensource.org/licenses/MIT
+
+*/
+
+		body {
+			font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "STSong", 'Segoe UI Emoji', Serif;
+			line-height: 1.5rem;
+			font-weight: 400;
+		}
+
+		#write {
+			max-width: 914px;
+			color: #333;
+		}
+
+		@media only screen and (min-width: 1400px) {
+			#write {
+				max-width: 1100px;
+			}
+		}
+
+		@media only screen and (min-width: 1700px) {
+			#write {
+				max-width: 1200px;
+			}
+		}
+
+		img {
+			width: auto;
+			max-width: 100%;
+		}
+
+		body {
+			font-size: 1.5rem;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+
+		.ty-table-edit {
+			background: #ededed;
+		}
+
+		table {
+			width: 100%;
+			font-size: 1.125rem;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td,
+		table>tfoot>tr>th,
+		table>tfoot>tr>td {
+			padding: 12px;
+			line-height: 1.2;
+			vertical-align: top;
+			border-top: 1px solid #333;
+		}
+
+		table>thead>tr>th {
+			vertical-align: bottom;
+			border-bottom: 2px solid #333;
+		}
+
+		table>caption+thead>tr:first-child>th,
+		table>caption+thead>tr:first-child>td,
+		table>colgroup+thead>tr:first-child>th,
+		table>colgroup+thead>tr:first-child>td,
+		table>thead:first-child>tr:first-child>th,
+		table>thead:first-child>tr:first-child>td {
+			border-top: 0;
+		}
+
+		table>tbody+tbody {
+			border-top: 2px solid #333;
+		}
+
+		p {
+			font-weight: 300;
+			line-height: 1.5;
+		}
+
+		abbr {
+			border-bottom: 1px black dotted;
+			cursor: help;
+		}
+
+		pre,
+		code {
+			font-family: Menlo, Monaco, "Courier New", monospace;
+		}
+
+		code,
+		.md-fences {
+			color: #7a7a7a;
+		}
+
+		.md-fences {
+			padding: 1.125em;
+			margin-bottom: 0.88em;
+			font-size: 1rem;
+			border: 1px solid #7a7a7a;
+			padding-bottom: 0.5rem;
+			padding-top: 0.5rem;
+		}
+
+		blockquote {
+			padding: 1.33em;
+			font-style: italic;
+			border-left: 5px solid #7a7a7a;
+			color: #555;
+		}
+
+		blockquote em {
+			color: #000;
+		}
+
+		blockquote footer {
+			font-size: .85rem;
+			font-style: normal;
+			background-color: #fff;
+			color: #7a7a7a;
+			border-color: transparent;
+		}
+
+		h1,
+		.h1,
+		h2,
+		.h2,
+		h3,
+		.h3,
+		h4,
+		.h4,
+		h5,
+		.h5,
+		h6,
+		.h6 {
+			font-family: "Lato", 'Helvetica Neue', Helvetica, sans-serif;
+			font-weight: bold;
+			line-height: 1.2;
+			margin: 1em 0 0.5em;
+		}
+
+		@media screen and (min-width: 48em) {
+
+			.h1,
+			h1 {
+				font-size: 3.250rem;
+			}
+
+			.h2,
+			h2 {
+				font-size: 2.298rem;
+			}
+
+			.h3,
+			h3 {
+				font-size: 1.625rem;
+			}
+
+			.h4,
+			h4 {
+				font-size: 1.3rem;
+			}
+
+			#write>h4.md-focus:before,
+			#write>h5.md-focus:before,
+			#write>h6.md-focus:before {
+				top: 1px;
+			}
+
+			.p,
+			p,
+			li {
+				font-size: 1.25rem;
+				line-height: 1.8;
+			}
+
+			table {
+				font-size: 1.25rem;
+			}
+		}
+
+		@media (max-width: 48em) {
+			blockquote {
+				margin-left: 1rem;
+				margin-right: 0;
+				padding: 0.5em;
+			}
+
+			.h1,
+			h1 {
+				font-size: 2.827rem;
+			}
+
+			.h2,
+			h2 {
+				font-size: 1.999rem;
+			}
+
+			.h3,
+			h3 {
+				font-size: 1.413rem;
+			}
+
+			.h4,
+			h4 {
+				font-size: 1.3rem;
+			}
+		}
+
+		@media screen and (min-width: 64em) {
+
+			.h1,
+			h1 {
+				font-size: 4.498rem;
+			}
+
+			.h2,
+			h2 {
+				font-size: 2.29rem;
+			}
+
+			.h3,
+			h3 {
+				font-size: 1.9rem;
+			}
+
+			.h4,
+			h4 {
+				font-size: 1.591rem;
+			}
+
+			#write>h4.md-focus:before {
+				top: 4px;
+			}
+		}
+
+		a {
+			color: #463F5C;
+			text-decoration: underline;
+		}
+
+		#write {
+			padding-top: 2rem;
+		}
+
+		#write pre.md-meta-block {
+			min-height: 35px;
+			padding: 0.5em 1em;
+			white-space: pre;
+			border: 0px;
+
+			border-left: 30px #f8f8f8 solid;
+			border-right: 30px #f8f8f8 solid;
+			width: 100vw;
+			max-width: calc(100% + 60px);
+
+			margin-left: -30px;
+			margin-bottom: 2em;
+			margin-top: -2010px;
+			padding-top: 2000px;
+			padding-bottom: 10px;
+			line-height: 1.5em;
+			color: #7a7a7a;
+			background-color: #fafafa;
+			font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+			font-weight: 300;
+			clear: both;
+			padding-left: 0;
+			font-size: 1.125rem;
+		}
+
+		.md-image>.md-meta {
+			color: #463F5C
+		}
+
+		.footnotes {
+			font-size: 1.1rem;
+		}
+
+		.md-tag {
+			font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+		}
+
+		.code-tooltip {
+			background: white;
+		}
+
+		.code-tooltip-content {
+			font-size: 1.1rem;
+		}
+
+		.task-list {
+			padding-left: 0;
+		}
+
+		.md-task-list-item {
+			padding-left: 34px;
+		}
+
+		.md-task-list-item>input {
+			width: 1.25rem;
+			height: 1.25rem;
+			display: block;
+			-webkit-appearance: initial;
+			top: -0.2rem;
+			margin-left: -1.6em;
+			margin-top: calc(1rem - 7px);
+			border: none;
+		}
+
+		.md-task-list-item>input:focus {
+			outline: none;
+			box-shadow: none;
+		}
+
+		.md-task-list-item>input:before {
+			border: 1px solid #555;
+			border-radius: 1.5rem;
+			width: 1.5rem;
+			height: 1.5rem;
+			background: #fff;
+			content: ' ';
+			transition: background-color 200ms ease-in-out;
+			display: block;
+		}
+
+		.md-task-list-item>input:checked:before,
+		.md-task-list-item>input[checked]:before {
+			background: #333;
+			border-width: 2px;
+			display: inline-block;
+			transition: background-color 200ms ease-in-out;
+		}
+
+		.md-task-list-item>input:checked:after,
+		.md-task-list-item>input[checked]:after {
+			opacity: 1;
+		}
+
+		.md-task-list-item>input:after {
+			opacity: 1;
+			-webkit-transition: opacity 0.05s ease-in-out;
+			-moz-transition: opacity 0.05s ease-in-out;
+			transition: opacity 0.05s ease-in-out;
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+			position: absolute;
+			top: 0.4375rem;
+			left: 0.28125rem;
+			width: 0.9375rem;
+			height: 0.5rem;
+			border: 3px solid #fff;
+			border-top: 0;
+			border-right: 0;
+			content: ' ';
+			opacity: 0;
+		}
+
+		.md-tag {
+			color: inherit;
+		}
+
+		.md-toc:focus .md-toc-content {
+			margin-top: 19px;
+		}
+
+		#typora-sidebar {
+			font-size: 1rem !important;
+		}
+
+		.html-for-mac #typora-sidebar {
+			background-color: white;
+		}
+
+		.outline-content li,
+		.outline-content ul {
+			font-size: 1rem !important;
+		}
+
+		.outline-title {
+			line-height: inherit;
+			margin-top: 10px;
+		}
+
+		.outline-expander {
+			width: 18px;
+		}
+
+		.outline-expander:before {
+			content: "+";
+			font-family: inherit;
+			color: rgb(108, 108, 108);
+			font-size: 1.5rem;
+			top: -0.1rem;
+		}
+
+		.outline-expander:hover:before {
+			content: "+";
+		}
+
+		.outline-item-open>.outline-item>.outline-expander:before {
+			content: "-";
+		}
+
+		/** source code mode */
+		#typora-source {
+			font-family: Courier, monospace;
+			color: #6A6A6A;
+		}
+
+		.os-windows #typora-source {
+			font-family: inherit;
+		}
+
+		.cm-s-typora-default .cm-header,
+		.cm-s-typora-default .cm-property,
+		.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+			color: #428bca;
+		}
+
+		.cm-s-typora-default .cm-atom,
+		.cm-s-typora-default .cm-number {
+			color: #777777;
+		}
+
+		.md-diagram-panel {
+			margin-top: 24px;
+			margin-left: -1.2em;
+		}
+
+		.md-mathjax-midline {
+			background: #fafafa;
+		}
+
+		.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+		.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+		.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+			bottom: -3.4em;
+		}
+
+		.dropdown-menu .divider {
+			border-color: #e5e5e5;
+		}
+
+		.typora-export li,
+		.typora-export p,
+		.typora-export,
+		.footnote-line {
+			white-space: normal;
+		}
+	</style>
+	<title>真题辨析-语法2012-2019</title>
+</head>
+<script src="https://mrslxj.github.io/test/jquery.min.js"></script>
+<style>
+	blockquote {
+		display: none;
+	}
+
+	pre {
+		display: none;
+	}
+</style>
+<style>
+	.xuhao {
+		color: #333;
+	}
+
+	.btn {
+		width: 30px;
+		height: 19px;
+		float: left;
+		padding: 0;
+	}
+
+	.select {
+		width: 46px;
+		height: 19px;
+		float: left;
+	}
+
+	.selkey {
+		width: 120px;
+		height: 19px;
+		float: left;
+	}
+
+	.sel_box {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 999;
+	}
+
+	.top {
+		position: fixed;
+		top: 0;
+		right: 0;
+		font-size: 12px;
+		z-index: 1999;
+		width: 35px;
+		text-align: center;
+		height: 20px;
+		border-radius: 6px;
+		background-color: deepskyblue;
+		color: #ffffff;
+	}
+
+	.extand {
+		/* position: fixed;
+			top: 0;
+			left: 138px;
+			z-index: 999; */
+		width: 40px;
+		height: 40px;
+		font-size: 12px;
+		padding: 0;
+	}
+
+	h3 {
+		border: #428bca dotted 1px;
+		background-color: #D9FFFF;
+	}
+
+	h4 {
+		font-size: 12px;
+		font-weight: initial;
+	}
+
+	sub {
+		display: block;
+		font-size: 12px;
+		font-weight: initial;
+		color: violet;
+	}
+
+	.anwser {
+		width: 300px;
+		height: 20px;
+		font-size: 12px;
+		background-color: #ffffff;
+		overflow: hidden;
+	}
+
+	.selDiv {
+		/* background-color: #ffffff; */
+		width: 300px;
+		height: 600px;
+		overflow: auto;
+		overflow-y: scroll;
+	}
+
+	.selDiv h3 {
+		background-color: #ffffff !important;
+		width: 60px;
+		height: 15px;
+		font-size: 10px;
+		overflow: hidden;
+	}
+
+	#write {
+		/* background-color: #7a7a7a; */
+	}
+</style>
+<script>
+	function xuhao() {
+		var pTag = document.getElementsByTagName("h3");
+		newArr = Array.from(pTag);
+		newArr.forEach(function (item, index) {
+			$('#' + item.id).prepend('<span class="xuhao">' + parseInt(index + 1) + ': ' + '</span>');
+		});
+	}
+	$(function () {
+		// xuhao();
+	});
+	function cancel() {
+		let ele_selDiv = document.getElementById("selDiv");
+		ele_selDiv.innerHTML = '';
+		document.getElementById("selkey").value = '';
+		var eles = document.getElementsByTagName("h3");
+		eles = Array.from(eles);
+		eles.map(x => {
+			x.style.backgroundColor = '#D9FFFF';
+		})
+		var eles3 = document.getElementsByTagName("h3");
+		eles3 = Array.from(eles3);
+		eles3.map(x => {
+			x.style.backgroundColor = '#ffffff';
+		})
+	}
+	function show1() {
+		let ele_blockquote = document.getElementsByTagName("blockquote");
+		let newArr = Array.from(ele_blockquote);
+		if ($('#extand1').val() === '开词汇') {
+			newArr.map(x => {
+				x.style.display = 'block';
+			})
+			$('#extand1').val('关词汇')
+		} else if ($('#extand1').val() === '关词汇') {
+			newArr.map(x => {
+				x.style.display = 'none';
+			})
+			$('#extand1').val('开词汇')
+		}
+	}
+	function show11() {
+		let ele_blockquote1 = document.getElementsByTagName("blockquote");
+		let newArr1 = Array.from(ele_blockquote1);
+		let ele_blockquote = document.getElementsByTagName("pre");
+		let newArr = Array.from(ele_blockquote);
+		if ($('#extand2').val() === '开说明') {
+			newArr.map(x => {
+				x.style.display = 'block';
+			})
+			newArr1.map(x => {
+				x.style.display = 'block';
+			})
+			$('#extand2').val('关说明')
+		} else if ($('#extand2').val() === '关说明') {
+			newArr.map(x => {
+				x.style.display = 'none';
+			})
+			newArr1.map(x => {
+				x.style.display = 'none';
+			})
+			$('#extand2').val('开说明')
+		}
+	}
+	function show3() {
+		let ele_blockquote = document.getElementsByTagName("h3");
+		let newArr = Array.from(ele_blockquote);
+		if ($('#extand3').val() === '开语法') {
+			newArr.map(x => {
+				x.style.display = 'block';
+			})
+			$('#extand3').val('关语法')
+		} else if ($('#extand3').val() === '关语法') {
+			newArr.map(x => {
+				x.style.display = 'none';
+			})
+			$('#extand3').val('开语法')
+		}
+	}
+	function show() {
+		let ele_selDiv = document.getElementById("selsel");
+		let ele_ss = document.getElementById("extand");
+		if (ele_selDiv.style.display === '') {
+			ele_selDiv.style.display = 'none';
+			ele_ss.value = '《';
+		}
+		else {
+			ele_selDiv.style.display = '';
+			ele_ss.value = '》';
+		}
+	}
+	function findH2() {
+		var sel_type = document.getElementById("sel_type");
+		var newArr;
+		if (sel_type.value === '语法') {
+			var pTag = document.getElementsByTagName("h3");
+			newArr = Array.from(pTag);
+		} else if (sel_type.value === '例句') {
+			var pTag = document.getElementsByTagName("h4");
+			newArr = Array.from(pTag);
+		} else if (sel_type.value === '接续') {
+			var pTag = document.getElementsByTagName("sub");
+			newArr = Array.from(pTag);
+		} else if (sel_type.value === '年份') {
+			var pTag = document.getElementsByTagName("h2");
+			newArr = Array.from(pTag);
+		}
+		//搜索的关键词
+		var keys = document.getElementById("selkey").value;
+		var arr = newArr.filter(x => {
+			if (x.innerText.indexOf(keys) > -1) {
+				return x
+			}
+		})
+		//结果
+		let ele_selDiv = document.getElementById("selDiv");
+		let stringss = '';
+		let jiexuArr;
+		if (sel_type.value === '接续') {
+			jiexuArr = arr.map(x => x.innerText);
+			jiexuArr.sort();
+			jiexuArr.forEach(function (item, index) {
+				stringss += '<div class="anwser newWidth" id="' + item + '1" name="' + item + '">' + item + '</div>';
+			});
+			ele_selDiv.style.width = '300px';
+		} else {
+			ele_selDiv.style.width = '100px';
+			arr.forEach(function (item, index) {
+				stringss += '<div class="anwser" id="' + item.innerText + '1" name="' + item.innerHTML + '">' + item.innerHTML + '</div>';
+			});
+		}
+		ele_selDiv.innerHTML = stringss;
+		//跳转
+		if (sel_type.value === '接续') {
+			jiexuArr.forEach(function (item, index) {
+				var button = document.getElementById(item + '1');
+				button.addEventListener('click', function (e) {
+					//清空背景
+					if (sel_type.value === '释义') {
+						var eles = document.getElementsByTagName("h3");
+						eles = Array.from(eles);
+						eles.map(x => {
+							x.style.backgroundColor = '#ffffff';
+						})
+					} else {
+						var eles = document.getElementsByTagName("h3");
+						eles = Array.from(eles);
+						eles.map(x => {
+							x.style.backgroundColor = '#D9FFFF';
+						})
+					}
+					var eles = $("#write>:contains(" + item + ")").prev().prev().prev();
+					eles[0].scrollIntoView();
+					// eles[0].css({"background-color":"#eee"})
+				});
+			})
+		} else {
+			arr.forEach(function (item, index) {
+				var button = document.getElementById(item.innerText + '1');
+				button.addEventListener('click', function (e) {
+					if (sel_type.value === '释义') {
+						var eles = document.getElementsByTagName("h3");
+						eles = Array.from(eles);
+						eles.map(x => {
+							x.style.backgroundColor = '#ffffff';
+						})
+					} else {
+						var eles = document.getElementsByTagName("h3");
+						eles = Array.from(eles);
+						eles.map(x => {
+							x.style.backgroundColor = '#D9FFFF';
+						})
+					}
+					var ele = document.getElementById(item.id);
+					ele.scrollIntoView();
+					ele.style.backgroundColor = '#eee'
+				});
+			});
+		}
+	}
+	function getElementsByXPath(xpath, parent) {
+		let results = [];
+		let query = document.evaluate(xpath, parent || document,
+			null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+		for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+			results.push(query.snapshotItem(i));
+		}
+		return results;
+	}
+</script>
+<div id="top"></div>
+<div class="sel_box">
+	<input id="extand" type="button" class="extand" onclick="show()" value="》" />
+	<!-- <input id="extand1" type="button" class="extand" onclick="show1()" value="开词汇" /> -->
+	<input id="extand2" type="button" class="extand" onclick="show11()" value="开说明" />
+	<!-- <input id="extand3" type="button" class="extand" onclick="show3()" value="关语法" /> -->
+	<div id="selsel" style="width: 186px;height: 60px;font-size: 10px;display: none;">
+		<div>
+			<select class="select" id="sel_type">
+				<option>语法</option>
+				<option>年份</option>
+				<!-- <option>接续</option> -->
+			</select>
+			<input type="text" class="selkey" id="selkey" />
+		</div>
+		<div>
+			<input type="button" class="btn" onclick="findH2()" value="查询" />
+			<input type="button" class="btn" onclick="cancel()" value="取消" />
+		</div>
+		<div style="clear: both;"></div>
+		<div id="selDiv" class="selDiv"></div>
+	</div>
+	<a href="#top" class="top" target="_self">顶部</a>
+</div>
+<div class='typora-export-content'>
+	<div id='write' class=''>
+		<p><a href="https://mrslxj.github.io/test/index.html" class="url">菜单页</a></p>
+		<p><span>　(1)シンプル：单纯的，简单的</span>
+			<span>　(2)スムーズ：顺利地，顺畅地</span>
+			<span>　(3)ソフト：柔软，性格温柔</span>
+			<span>　(4)クリア：清晰，非常清楚</span>
+		</p>
+		<h3 id='2014-07词汇'><span>2014-07词汇</span></h3>
+		<h3 id='18-工事の音がやかましい全然眠れない'><span>\18. 工事の音</span><mark><span>がやかましい</span></mark><span>全然眠れない。</span></h3>
+		<p><span>1.しつこくて</span></p>
+		<p><span>2.ずうずうしくて</span></p>
+		<p><span>3.やかましくて</span></p>
+		<p><span>4.けわしくて</span></p>
+		<p><span>(1)しつこい：形执蝴，纠缠不休的；浓艳，浓重，腻人。</span>
+			<span>　(2)ずうずうしい：形厚颜无耻的。(人に迷惑をかけても平気でいる。厚かましい。)</span>
+			<span>　(3)やかましい：形吵闹，嘈杂；喧闹，喧器，喧嚷。(音や声が大きすぎて，不快に感じられる。さわがしい。)</span>
+			<span>　(4)けわしい：形险峻；陡峭</span>
+		</p>
+		<h3 id='19-自転車のタイヤが-パンクして空気が抜けていた'><span>\19. 自転車のタイヤが== パンク==して、空気が抜けていた。</span></h3>
+		<p><span>1.ストライキ</span></p>
+		<p><span>2.パンク</span></p>
+		<p><span>3.ダウン</span></p>
+		<p><span>4.ミス </span></p>
+		<p><span>解析：自行车爆胎，气都泄了。</span>
+			<span>　(1)ストライキ：名英strike罢エ；罢市；罢课。</span>
+			<span>　(2)パンク：(puncture的缩略)破裂，爆胎。(タイヤチューブが破れ、空気が抜けること)</span>
+			<span>　(3)ダウン：名英down落下，倒下</span>
+			<span>　(4)ミス：名英miss失误，错误</span>
+		</p>
+		<h3 id='20-セミナーの日の朝は準備の時間がないので資料は--------コピーしておいてください'><span>\20. セミナーの日の朝は準備の時間がないので、資料は
+				コピーしておいてください。</span></h3>
+		<p><span>1.遅くとも</span></p>
+		<p><span>2.あらかじめ</span></p>
+		<p><span>3.とっくに</span></p>
+		<p><span>4.先々</span></p>
+		<p><span>解析：研讨会当天早上没有准备的时间，请事先复印好材料。</span>
+			<span>　(1)遅くとも(おそくとも)：副最晚，至迟</span>
+			<span>　(2)あらかじめ：副预先，先，事先，事前。(事の起こる前に。前もって。)</span>
+			<span>　(3)とっくに：副老早；很早以前。</span>
+			<span>　(4)先々(さきざき)：名将来；所到之处；很久之前</span>
+		</p>
+		<h3 id='22-こんなに夜遅くまでおきていると明日の仕事に差し支えるよ'><span>\22.
+				こんなに夜遅くまでおきていると、明日の仕事に</span><mark><span>差し支える</span></mark><span>よ。</span></h3>
+		<p><span>1.かかわり合う</span></p>
+		<p><span>2.割り込む</span></p>
+		<p><span>3.引っかかる</span></p>
+		<p><span>4.差し支える</span></p>
+		<p><span>解析：这么晚还不休息，会影响明天的工作。</span>
+			<span>　かかわる(関わる)：自动关系到；涉及到。</span>
+			<span>　~合う：(接动词連用形后)聚合；互相。一块儿……，一同……；互相……。</span>
+			<span>　(1)かかわりあう：相互牵连，相互影响</span>
+			<span>　(2)割り込む(わりこむ)：他动挤进，加塞儿。</span>
+			<span>　(3)引っかかる(ひっかかる)：自动挂上；牵连；上当</span>
+			<span>　(4)差し支える(さしつかえる)：自动妨碍，障碍，有影响；不方便。</span>
+		</p>
+		<h3 id='23-文字のサイズをそろえてください'><span>\23. 文字のサイズをそろえてください。</span></h3>
+		<p><span>1.大きくして</span></p>
+		<p><span>2.同じにして</span></p>
+		<p><span>3.調べて</span></p>
+		<p><span>4.教えて</span></p>
+		<p><span>　正解：(2)</span>
+			<span>　解析：请统一文字的大小。</span>
+			<span>　そろえる：他动使(两个以上的动作或状态)一致，使相同。</span>
+			<span>　同じにする：做成相同的。</span>
+			<span>　(1)做大</span>
+			<span>　(3)调查</span>
+			<span>　(4)教授</span>
+		</p>
+		<p><span>　買いしめる：全部买下</span></p>
+		<h3 id='26-薬を飲んだらたちまち痛みが治まった'><span>\26. 薬を飲んだらたちまち痛みが治まった。</span></h3>
+		<p><span>1.すっかり</span></p>
+		<p><span>2.やっと</span></p>
+		<p><span>3.すぐに</span></p>
+		<p><span>4.たしかに</span></p>
+		<p><span>　正解：(3)</span>
+			<span>　解析：吃了药就立刻不痛了。</span>
+			<span>　たちまち：转眼间，立刻</span>
+			<span>　(3)すぐに：副立刻</span>
+			<span>　(1)すっかり：副全,都；舒畅</span>
+			<span>　(2)やっと：副好不容易</span>
+			<span>　(4)たしかに：确实是，的确是</span>
+		</p>
+		<h3 id='27-もうお勘定は済ましました'><span>\27. もうお勘定は済ましました。</span></h3>
+		<p><span>1.料理は注文しました</span></p>
+		<p><span>2.店は予約しました</span></p>
+		<p><span>3.店員は呼びました</span></p>
+		<p><span>4.お金は払いました</span></p>
+		<p><span>　正解：(4)</span>
+			<span>　解析：账已经结过了。</span>
+			<span>　お勘定は済ましました：账结过了</span>
+			<span>　勘定(かんじょう)：结账</span>
+			<span>　済(す)ます：完成</span>
+			<span>　(4)お金は払いました：已经付过钱了</span>
+			<span>　(1)点完菜了</span>
+			<span>　(2)预订了店家</span>
+			<span>　(3)叫了店员</span>
+		</p>
+		<h3 id='28-頑丈'><span>\28. 頑丈</span></h3>
+		<p><span>1.石川さんは頑丈で、なかなか意見を変えない</span></p>
+		<p><span>2.重要な書類は必ず金庫に入れて、頑丈に管理してください</span></p>
+		<p><span>3.このいすはとても頑丈で、少しくらい乱暴に扱っても壊れません</span></p>
+		<p><span>4.Ａ社との間には頑丈な信頼関係があるので安心です</span></p>
+		<p><span>　正解：(3)</span>
+			<span>　解析：頑丈(がんじょう)：坚固；结实。強健，健壮。</span>
+			<span>　(1)应替换为：頑固(がんこ)：顽固，死板</span>
+			<span>　(2)应替换为：厳重(げんじゅう)：严厉，严格</span>
+			<span>　(3)这椅子很结实，稍微用得粗暴点也不会坏。</span>
+			<span>　(4)应替换为：強固(きょうこ)巩固，坚定，不动摇</span>
+		</p>
+		<h3 id='30-合図'><span>\30. 合図</span></h3>
+		<p><span>1.スタートの合図で、選手たちは一斉に走り出した</span></p>
+		<p><span>2.ガス会社から、器具の点検を来月行うという合図があった</span></p>
+		<p><span>3.山道に何か小さな動物が歩いたような合図があった</span></p>
+		<p><span>4.種をまいたところを忘れないように、合図をつけておいた</span></p>
+		<p><span>正解：(1)</span>
+			<span>　解析：合図(あいず)：信号</span>
+			<span>　(1)随着开始的信号，选手们一齐跑了起来。</span>
+			<span>　(2)应替换为：知(し)らせ：通知</span>
+			<span>　(3)应替换为：形跡(けいせき)：痕迹，踪迹，迹象</span>
+			<span>　(4)应替换为：マーク：标记，标识</span>
+		</p>
+		<h2 id='2014-12词汇'><span>2014-12词汇</span></h2>
+		<h3 id='5-a国とb国の間で盛んに貿易が行われている'><span>\5. A国とB国の間で盛んに</span><u><span>貿易</span></u><span>が行われている。</span></h3>
+		<p><span>1.もうえき</span></p>
+		<p><span>2.</span><mark><span>ぼうえき</span></mark></p>
+		<p><span>3.もうい</span></p>
+		<p><span>4.ぼうい </span></p>
+		<h3 id='13-このカードは期限--------なので使うことができません'><span>\13. このカードは期限 なので、使うことができません。</span></h3>
+		<p><span>1.越え</span></p>
+		<p><span>2.折れ</span></p>
+		<p><span>3.</span><mark><span>切れ</span></mark></p>
+		<p><span>4.終え</span></p>
+		<h3 id='14-これは--------性能のカメラで撮られた映像です'><span>\14. これは 性能のカメラで撮られた映像です。</span></h3>
+		<p><span>1.優</span></p>
+		<p><span>2.</span><mark><span>高</span></mark></p>
+		<p><span>3.良</span></p>
+		<p><span>4.上</span></p>
+		<h3 id='16-誰にも言えずにずっと悩んでいたが昨日親友に--------相談してみた'><span>\16. 誰にも言えずにずっと悩んでいたが、昨日親友に 相談してみた。</span></h3>
+		<p><span>1.思いきって</span><sub><span>副下決心，果断地</span></sub></p>
+		<p><span>2.うっかり</span><sub><span>副不注意，不留神；发呆</span></sub></p>
+		<p><span>3.せっかく</span><sub><span>副好不容易</span></sub></p>
+		<p><span>4.知らず知らず </span><sub><span>副不知不觉地，无形中</span></sub></p>
+		<h3 id='18-選手たちは次の大会での優勝を--------毎日遅くまで練習している'><span>\18. 選手たちは、次の大会での優勝を 、毎日遅くまで練習している。</span></h3>
+		<p><span>1.とらえて</span><sub><span>他一捉住，逮住。</span></sub></p>
+		<p><span>2.</span><mark><span>めざして</span></mark><sub><span>他五以…为目标。</span></sub></p>
+		<p><span>3.みはって</span><sub><span>見張る他五睁大眼睛看，看守戒备。</span></sub></p>
+		<p><span>4.にぎって </span><sub><span>他五握，掌握</span></sub></p>
+		<blockquote>
+			<p><span>　職に就く：从事…工作。</span>
+				<span>　(1)蓄(たくわ)える：他一储备，积累。</span>
+				<span>　(2)招(まね)く：他五招呼，招待，招聘。</span>
+				<span>　(3)抱(かか)える：他一抱，承担，背负。</span>
+				<span>　(4)結(むす)ぶ：他五系，结合，建立关系，结束。</span>
+			</p>
+		</blockquote>
+		<h3 id='21-今週は仕事が忙しかったので週末は家で好きな音楽でも聞いてリラックスしたい'><span>\21.
+				今週は仕事が忙しかったので、週末は家で好きな音楽でも聞いて</span><mark><span>リラックス</span></mark><span>したい。</span></h3>
+		<p><span>1.ダウン:</span><sub><span>名自他サ落下，降下，倒下。</span></sub></p>
+		<p><span>2.キャンセル</span></p>
+		<p><span>3.クリア(clear):</span><sub><span>名他サ跳过，解围，清除，通关。</span></sub></p>
+		<p><span>4.リラックス (relax):</span><sub><span>名自サ放松，轻松，緩和。</span></sub></p>
+		<h3 id='22-昨日徹夜したせいで今日は眠くて本を読みながらつい--------してしまった'><span>\22. 昨日徹夜したせいで、今日は眠くて、本を読みながらつい してしまった。</span></h3>
+		<p><span>1.ぎっしり</span><sub><span>副(塞得、挤得)满满的。</span></sub></p>
+		<p><span>2.いきいき</span><sub><span>副自サ活泼，生动。</span></sub></p>
+		<p><span>3.うとうと</span><sub><span>副自サ迷迷糊糊，似睡非睡状。</span></sub></p>
+		<p><span>4.さっぱり </span><sub><span>副整洁，直爽，爽快；完全，彻底。</span></sub></p>
+		<h3 id='23-この二つのレポートはテーマがことなります'><span>\23. この二つのレポートはテーマが</span><u><span>ことなります</span></u><span>。</span>
+		</h3>
+		<p><span>1.単純です</span></p>
+		<p><span>2.似ています</span></p>
+		<p><span>3.複雑です</span></p>
+		<p><span>4.違います </span><sub><span>異(こと)なる：自五不同，不一样。</span></sub></p>
+		<h3 id='25-その発言がうそだというあきらかな証拠があります'><span>\25.
+				その発言がうそだという</span><u><span>あきらかな</span></u><span>証拠があります。</span></h3>
+		<p><span>1.さまざまな</span></p>
+		<p><span>2.別の</span></p>
+		<p><span>3.新しい</span></p>
+		<p><span>4.はっきりした </span><sub><span>=明らか：形动明显，清楚。</span></sub></p>
+		<h3 id='27-会場が急にそうぞうしくなった'><span>\27. 会場が急に</span><u><span>そうぞうしく</span></u><span>なった。</span></h3>
+		<p><span>1.暗く</span></p>
+		<p><span>2.静かに</span></p>
+		<p><span>3.うるさく</span><sub><span>=騒々(そうぞう)しい：形喧嚣的，吵闹的。</span></sub></p>
+		<p><span>4.寒く </span></p>
+		<h3 id='32-手軽名形动简单简便轻易'><span>\32. 手軽</span><sub><span>名形动简单，简便，轻易。</span></sub></h3>
+		<p><span>1.この運動は、道具もいらず自宅で手軽にできるので、人気がある</span></p>
+		<p><span>2.参加者全員がお互いを知るために、一分ずつ</span><mark><span>簡単</span></mark><span>な自己紹介を行った</span></p>
+		<p><span>3.結婚式の後のパーティーには</span><mark><span>軽快</span></mark><span>な</span><sub><span>(けいかい)：动作轻快,心情愉快</span></sub><span>服装で来てください</span>
+		</p>
+		<p><span>4.昨日の試合は、</span><mark><span>気楽</span></mark><sub><span>(きらく)：舒畅，舒适。安闲。轻松</span></sub><span>に勝てると思ったのに、意外に苦戦した</span>
+		</p>
+		<blockquote>
+			<p><span>および：作接续词，表示和，及，与。</span>
+				<span>なお：作副词，表示仍然；更、还；正巧，犹如。</span>
+				<span>すなわち：即，也就是说，正是。</span>
+			</p>
+		</blockquote>
+		<h2 id='2016-12词汇'><span>2016-12词汇</span></h2>
+		<h3 id='8-この企業ではさまざまなもよおしを行っている'><span>\8.
+				この企業では、さまざまな</span><mark><span>もよおし</span></mark><span>を行っている。</span></h3>
+		<p><span>1.携し</span></p>
+		<p><span>2.催</span><sup><span>しもよおし</span></sup><sub><span>筹划，计划；举办，主办；集会，活动</span></sub></p>
+		<p><span>3.推し</span></p>
+		<p><span>4.権し</span></p>
+		<h3><span>\17. 今年の夏は暑さが厳(きび)しく、仕事から家に帰ると疲れて</span><mark><span>ぐったり</span></mark><span>してしまう。</span></h3>
+		<p><span>1.ぐったり</span><sub><span>筋疲力尽</span></sub></p>
+		<p><span>2.しっかり</span><sub><span>结实，牢固；健壮；坚强；坚定；用力地，好好地；充足</span></sub></p>
+		<p><span>3.すっきり</span><sub><span>舒畅，痛快；流畅，通畅</span></sub></p>
+		<p><span>4.ぎっしり</span><sub><span>满满的</span></sub></p>
+		<h3 id='26-今日はとてもついていた走运占优势'><span>\26.
+				今日はとても</span><mark><span>ついていた</span></mark><sub><span>走运，占优势</span></sub><span>。</span></h3>
+		<p><span>1.気分が悪かった</span><sub><span>心情差</span></sub></p>
+		<p><span>2.運が悪かった</span><sub><span>运气差</span></sub></p>
+		<p><span>3.気分がよかった</span><sub><span>心情好</span></sub></p>
+		<p><span>4.運がよかった</span><sub><span>运气好</span></sub></p>
+		<h3 id='27-私はつねに时常经常言葉遣いに気をつけている'><span>\27.
+				私は</span><mark><span>つねに</span></mark><sub><span>时常，经常</span></sub><span>言葉遣いに気をつけている。</span></h3>
+		<p><span>1.当然</span></p>
+		<p><span>2.いつも</span><sub><span>经常，总是</span></sub></p>
+		<p><span>3.特に</span><sub><span>特別</span></sub></p>
+		<p><span>4.できるだけ</span><sub><span>尽可能</span></sub></p>
+		<h3 id='29-さびる自二生锈长锈'><span>\29. さびる</span><sub><span>自二生锈、长锈</span></sub></h3>
+		<p><span>1.暑いところに生ものをずっと置いておいたら、</span><mark><span>腐る</span></mark><sup><span>くさる</span></sup><sub><span>腐败，变质</span></sub><span>臭くなった。</span>
+		</p>
+		<p><span>2.昨夜は雨が相当降ったらしく、普段はきれいな川の水が</span><mark><span>溢れる</span></mark><sup><span>あふれる</span></sup><sub><span>溢出，满出</span></sub><span>濁っている。</span>
+		</p>
+		<p><span>3.鉢に植えた植物に水をやるのを忘れていたら、花が</span><mark><span>萎れる</span></mark><sup><span>しおれる</span></sup><sub><span>蔫，枯萎</span></sub><span>しまった。</span>
+		</p>
+		<p><span>4.この鉄の棒はずっと家の外に置いてあったので、さびて茶色くなっている。</span></p>
+		<p><span>~动词ます形 かける，表示动作进行了一点就中途放弃，或“就快要…了”。~</span></p>
+	</div>
+</div>
+<p><a href="https://mrslxj.github.io/test/index.html" class="url">菜单页</a></p>
+</body>
+
+</html>
